@@ -468,31 +468,21 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 			%\hyperlinkdocumentstart{\insertshorttitle}\hspace{.7em}$\cdot$\hspace{.7em}\insertsection%
 			\insertsection%
 			\ifx\insertsubsection\empty
-				\hspace{.4em}%
-				\ifnum\framespersection>1%
-					\foreach \i in {1, ..., \framespersection}{%
-						\ifnum \i=\theframesinsection%
-							~$\bullet$%
-						\else%
-							\setcounter{pagenumbertolinkto}{\i + \insertsectionstartframe}%
-							~\hyperlink{page:\thepagenumbertolinkto}{$\circ$}%
-						\fi%
-					}%
-				\fi%
+            %
 			\else
-				\hspace{.7em}$\cdot$\hspace{.7em}\insertsubsection%
-				\hspace{.7em}%
-				\ifnum\framespersubsection>1%
-					\foreach \i in {1, ..., \framespersubsection}{%
-						\ifnum \i=\theframesinsubsection%
-							~$\bullet$%
-						\else%
-							\setcounter{pagenumbertolinkto}{\i + \insertsubsectionstartframe}%
-							~\hyperlink{page:\thepagenumbertolinkto}{$\circ$}%
-						\fi%
-					}%
-				\fi%
+                \hspace{.7em}$\cdot$\hspace{.7em}\insertsubsection%
 			\fi%
+            \hspace{0.4em}%
+            \ifnum\framespersection>1%
+                \foreach \i in {1, ..., \framespersection}{%
+                    \ifnum \i=\theframesinsection%
+                        ~$\bullet$%
+                    \else%
+                        \setcounter{pagenumbertolinkto}{\i + \insertsectionstartframe}%
+                        ~\hyperlink{page:\thepagenumbertolinkto}{$\circ$}%
+                    \fi%
+                }%
+            \fi%
 			\hfill%
 			\colorbox{accent}{
 				\color{white}
