@@ -1,6 +1,6 @@
 \documentclass[aspectratio=169, usepdftitle=false, xcolor={dvipsnames}, 9pt]{beamer}
 
-\usetheme[english, secslide, coloraccent=blue]{awesome}
+\usetheme[english, notoc, coloraccent=blue]{awesome}
 
 \title{Méthodes pour l'évaluation de l'activité cyclonique tropicale en changement climatique}
 \author[William]{William Dulac}
@@ -23,36 +23,53 @@
 
 \maketitle
 
-\section{Section 1}
+\section[Introduction]{Introduction : Cyclones tropicaux}
 
-\begin{frame}
-	\frametitle{Boxes}
-	\begin{columns}[t]
-		\begin{column}{0.45\textwidth}
-			\begin{block}[Some Title]
-				This is an important information
-			\end{block}
-			\begin{alertblock}[Argh]
-				Gotcha!
-				\tcblower
-				Again!
-			\end{alertblock}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			\begin{examples}[Example 1]
-                This is an example
-			\end{examples}
-			\begin{definition}
-				I'm a definition with no title
-			\end{definition}
-		\end{column}
-	\end{columns}
+\begin{frame}[c]
+    \frametitle{Qu'est-ce qu'un cyclone tropical}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{definition}
+                Les phénomènes météorologiques les plus destructeurs :
+                \tcblower
+                \begin{itemize}
+                    \item Plus de 400 000 morts et près de 300 000 blessés entre 1980 et 2009.
+                    \item Deux tiers des victimes associées à seulement deux cyclones.
+                \end{itemize} 
+            \end{definition}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+             \begin{figure}[htpb]
+                 \centering
+                 \includegraphics[width=\textwidth]{Figures/freddy_malawi_route.png}
+                 \caption{Photo AP/SIPA/Thoko Chikondi}
+             \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
+
+\subsection{Risques associés}
+
+\begin{frame}[t]
+    \frametitle{Beaucoup de gens sont morts}
+    \framesubtitle{Et deux cyclones sont responsables des 2/3}
+    Foo
+\end{frame}
+
+\subsection{Consensus sur les projections futures}
 
 \begin{frame}{Avec des équations}
     \begin{equation*}
         y(t) = x + 5
     \end{equation*}
+\end{frame}
+
+
+\section{Test}
+
+\begin{frame}[t]
+    \frametitle{Plan}
+    \tableofcontents[currentsection]
 \end{frame}
 
 \begin{frame}[c]
@@ -63,6 +80,8 @@
        Ceci est un bloc 
     \end{examples}
 \end{frame}
+
+\section{Test 2}
 
 \begin{frame}[c]
     \frametitle{Avec des listes...}
@@ -81,29 +100,6 @@
            \end{enumerate} 
         \end{column}
     \end{columns}
-\end{frame}
-
-\subsection{Sous-section 1}
-
-\begin{frame}[c]
-    \frametitle{Test}
-    \framesubtitle{Test}
-    
-    Allo
-\end{frame}
-
-\begin{frame}[c]
-    \frametitle{Coucou}
-    \framesubtitle{C'est moi}
-    
-    Au revoir
-\end{frame}
-
-\section{Section 2}
-
-\begin{frame}[c]
-    \frametitle{Nouvelle section}
-    Salut
 \end{frame}
 
 \end{document}
