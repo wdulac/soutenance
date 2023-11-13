@@ -18,6 +18,7 @@
 	\awesome@english@false
 }
 
+\DeclareBoolOption{autotoc}
 \DeclareBoolOption{notoc}
 \DeclareBoolOption{secslide}
 \DeclareBoolOption{subsecslide}
@@ -41,7 +42,7 @@
 \RequirePackage{calc}
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
-\RequirePackage{underscore}
+%\RequirePackage{underscore}
 \RequirePackage{tcolorbox}
 \tcbuselibrary{skins}
 
@@ -218,8 +219,9 @@
 \setbeamercolor{details}{fg=black}
 \setbeamercolor{author}{fg=black}
 
+\setbeamercolor{section in toc}{fg=black}
 \setbeamercolor{section number projected}{bg=black, fg=accent}
-\setbeamercolor{subsection number projected}{fg=lightgray, fg=accent}
+\setbeamercolor{subsection number projected}{bg=lightgray, fg=accent}
 
 \setbeamercolor{structure}{fg=black}
 \setbeamercolor{normal text}{fg=black}
@@ -283,7 +285,7 @@
 }
 
 \setbeamerfont{framesubtitle}{
-	size=\normalsize,
+	size=\small,
 	shape=\normalfont
 }
 
@@ -308,7 +310,7 @@
 
 \setbeamersize{description width=0.5cm}
 
-\setbeamertemplate{caption}{\insertcaption}
+\setbeamertemplate{caption}{\scriptsize\insertcaption}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
@@ -317,24 +319,34 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
 
+\setbeamertemplate{section in toc shaded}[default][30]
+\setbeamertemplate{subsection in toc shaded}[default][30]
+
 \setbeamertemplate{section in toc}{
 	\usebeamercolor[fg]{section number projected}
 	\inserttocsectionnumber.%
-	\usebeamercolor[fg]{normal text}
-	~\inserttocsection
+	%\usebeamercolor[fg]{section in toc}
+    \textcolor{black}{%
+    ~\inserttocsection}\par
 }
 
 \setbeamertemplate{subsection in toc}{
-	\mbox{
-		\hskip2em%
-		\usebeamercolor[fg]{section number projected}
-		\inserttocsectionnumber.%
-		\usebeamercolor[fg]{subsection number projected}%
-		\textsubscript{\inserttocsubsectionnumber}~%
-		\usebeamercolor[fg]{normal text}
-		\inserttocsubsection
-	}
+    \usebeamercolor[fg]{subsection number projected}%
+    \leavevmode\leftskip=1.5em\inserttocsectionnumber.\textsubscript{\inserttocsubsectionnumber}~\textcolor{black}{\inserttocsubsection}\par
 }
+
+%\setbeamertemplate{subsection in toc}{
+%	\par%
+%    \mbox{
+%		\hskip1em%
+%		\usebeamercolor[fg]{section number projected}
+%		\inserttocsectionnumber.%
+%		\usebeamercolor[fg]{subsection number projected}%
+%		\textsubscript{\inserttocsubsectionnumber}~%
+%		\usebeamercolor[fg]{normal text}
+%		\inserttocsubsection
+%	}
+%}
 
 \setbeamertemplate{separator}{
 	\usebeamercolor{separator}
@@ -357,9 +369,9 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 left=0em, arc=\smile@rounding, enhanced, segmentation engine=path,
 segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewidth}}
 
-\renewenvironment{definition}[1]{
-	\begin{untitledbeamerbox}{maroon}{#1}
-}{\end{untitledbeamerbox}}
+\renewenvironment{definition}[1][]{
+	\begin{beamerbox}{maroon}{#1}
+}{\end{beamerbox}}
 
 \renewenvironment{block}[1][]{
 	\begin{beamerbox}{accent}{#1}
@@ -597,6 +609,15 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 	\fi%
 }
 
+
+\AtBeginSection[]
+{
+    \ifawesome@autotoc
+        \begin{frame}{Plan}
+            \tableofcontents[currentsection]
+        \end{frame}
+    \fi
+}
 
 \AtBeginSection[]{
 	\ifawesome@secslide
