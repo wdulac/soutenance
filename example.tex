@@ -1,0 +1,109 @@
+\documentclass[aspectratio=169, usepdftitle=false, xcolor={dvipsnames}, 9pt]{beamer}
+
+\usetheme[english, secslide, coloraccent=blue]{awesome}
+
+\title{Méthodes pour l'évaluation de l'activité cyclonique tropicale en changement climatique}
+\author[William]{William Dulac}
+\subtitle{Soutenance de thèse}
+\email{william.dulac@meteo.fr}
+\institute{Centre National de Recherches Météorologiques}
+\uni{Université Paul Sabatier -- Toulouse III} 
+\location{Toulouse}
+\date{20 Décembre 2023}
+
+\supervisors{Julien Cattiaux, Fabrice Chauvin}
+\reporters{Jean-Philippe Duvel, Sylvie Malardel}
+\examinators{Jean-Pierre Chaboureau, Christophe Menkes,\par\hspace*{16ex}Caroline Muller}
+
+\background{include/Bolaven_2023-10-11_2300Z.jpg}
+
+\usefonttheme[onlymath]{serif}
+
+\begin{document}
+
+\maketitle
+
+\section{Section 1}
+
+\begin{frame}
+	\frametitle{Boxes}
+	\begin{columns}[t]
+		\begin{column}{0.45\textwidth}
+			\begin{block}[Some Title]
+				This is an important information
+			\end{block}
+			\begin{alertblock}[Argh]
+				Gotcha!
+				\tcblower
+				Again!
+			\end{alertblock}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\begin{examples}[Example 1]
+                This is an example
+			\end{examples}
+			\begin{definition}
+				I'm a definition with no title
+			\end{definition}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Avec des équations}
+    \begin{equation*}
+        y(t) = x + 5
+    \end{equation*}
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Avec juste un bloc}
+    \framesubtitle{Voyons voir ce que ça donne}
+    
+    \begin{examples}[Test]
+       Ceci est un bloc 
+    \end{examples}
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Avec des listes...}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Foo
+                \item Bar
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+           \begin{enumerate}
+               \item Alpha
+               \item Beta
+           \end{enumerate} 
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Sous-section 1}
+
+\begin{frame}[c]
+    \frametitle{Test}
+    \framesubtitle{Test}
+    
+    Allo
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Coucou}
+    \framesubtitle{C'est moi}
+    
+    Au revoir
+\end{frame}
+
+\section{Section 2}
+
+\begin{frame}[c]
+    \frametitle{Nouvelle section}
+    Salut
+\end{frame}
+
+\end{document}
