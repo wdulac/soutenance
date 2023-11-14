@@ -78,7 +78,9 @@
 
 \RequirePackage[
 	backend=biber,
-	style=alphabetic,
+	style=authoryear-comp,
+    maxcitenames=2,
+    uniquelist=false,
 	sorting=ynt
 ]{biblatex}
 \RequirePackage[strict, autostyle]{csquotes}
@@ -95,7 +97,7 @@
 	\end{frame}
 
 	\ifawesome@notoc\else
-		\begin{frame}{Plan}
+        \begin{frame}[noframenumbering]{Plan}
 			\tableofcontents
 		\end{frame}
 	\fi
@@ -310,7 +312,7 @@
 
 \setbeamersize{description width=0.5cm}
 
-\setbeamertemplate{caption}{\scriptsize\insertcaption}
+\setbeamertemplate{caption}{\vspace{-1ex}\tiny\insertcaption\par}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
@@ -361,13 +363,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtcolorbox{beamerbox}[2]{boxrule=\smile@linewidth,title=#2,colback=#1!5!white,colframe=#1!75!black,left=0em,
+\newtcolorbox{beamerbox}[2]{boxrule=\smile@linewidth,title=#2,colback=#1!5!white,colframe=#1!75!black,left=0em,right=0em,
 lefttitle=2mm, arc=\smile@rounding, enhanced, segmentation engine=path,
 segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewidth}}
 
-\newtcolorbox{untitledbeamerbox}[1]{boxrule=\smile@linewidth,colback=#1!5!white,colframe=#1!75!black,
-left=0em, arc=\smile@rounding, enhanced, segmentation engine=path,
-segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewidth}}
+%\newtcolorbox{untitledbeamerbox}[1]{boxrule=\smile@linewidth,colback=#1!5!white,colframe=#1!75!black,
+%left=0em, arc=\smile@rounding, enhanced, segmentation engine=path,
+%segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewidth}}
 
 \renewenvironment{definition}[1][]{
 	\begin{beamerbox}{maroon}{#1}
@@ -445,7 +447,7 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
             \insertuni\\\vfill
             \insertlocation, \insertdate
             \begin{tikzpicture}[remember picture,overlay]
-                \node[anchor=south west, xshift=0.8cm, yshift=1.2cm] at (current page.south west) {%
+                \node[anchor=south west, xshift=0.8cm, yshift=1.1cm] at (current page.south west) {%
                     \includegraphics[height=3.9em]{include/banniere_1.png}
                 };
             \end{tikzpicture}
@@ -610,6 +612,33 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 }
 
 
+\newcommand{\makesecslide}{
+    \begin{frame}[c, noframenumbering]
+        \thispagestyle{navigation@sec}%
+        \centering%
+        \usebeamerfont{title}%
+        \usebeamercolor[fg]{section number projected}%
+        \scalebox{1.3}{ \raisebox{-1pt}{\insertsectionnumber}}.~%
+        \usebeamercolor[fg]{title}%
+        \insertsection\par
+    \end{frame}
+}
+
+
+\newcommand{\makesubsecslide}{
+    \begin{frame}[c, noframenumbering]
+        \thispagestyle{navigation@sec}%
+        \centering%
+        \usebeamerfont{title}%
+        \usebeamercolor[fg]{section number projected}%
+        \scalebox{1.3}{\raisebox{-1pt}{\insertsectionnumber}}.%
+        \usebeamercolor[fg]{subsection number projected}%
+        \textsubscript{\insertsubsectionnumber}~%
+        \usebeamercolor[fg]{title}%
+        \insertsubsection\par
+    \end{frame}
+}
+
 \AtBeginSection[]
 {
     \ifawesome@autotoc
@@ -621,31 +650,13 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 
 \AtBeginSection[]{
 	\ifawesome@secslide
-		\begin{frame}[c, noframenumbering]
-			\thispagestyle{navigation@sec}%
-			\centering%
-			\usebeamerfont{title}%
-			\usebeamercolor[fg]{section number projected}%
-			\scalebox{1.3}{ \raisebox{-1pt}{\insertsectionnumber}}.~%
-			\usebeamercolor[fg]{title}%
-			\insertsectionhead\par
-		\end{frame}
+        \makesecslide
 	\fi
 }
 
 \AtBeginSubsection[]{
 	\ifawesome@subsecslide
-		\begin{frame}[c, noframenumbering]
-			\thispagestyle{navigation@sec}%
-			\centering%
-			\usebeamerfont{title}%
-			\usebeamercolor[fg]{section number projected}%
-			\scalebox{1.3}{\raisebox{-1pt}{\insertsectionnumber}}.%
-			\usebeamercolor[fg]{subsection number projected}%
-			\textsubscript{\insertsubsectionnumber}~%
-			\usebeamercolor[fg]{title}%
-			\insertsubsectionhead\par
-		\end{frame}
+        \makesubsecslide
 	\fi
 }
 
