@@ -44,6 +44,7 @@
 \RequirePackage{etoolbox}
 %\RequirePackage{underscore}
 \RequirePackage{tcolorbox}
+\RequirePackage{caption}
 \tcbuselibrary{skins}
 
 \RequirePackage[
@@ -79,7 +80,7 @@
 \RequirePackage[
 	backend=biber,
 	style=authoryear-comp,
-    maxcitenames=2,
+    maxcitenames=1,
     uniquelist=false,
 	sorting=ynt
 ]{biblatex}
@@ -309,10 +310,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \setbeamersize{description width=0.5cm}
 
-\setbeamertemplate{caption}{\vspace{-1ex}\tiny\insertcaption\par}
+%\setbeamertemplate{caption}{\vspace{-1ex}\tiny\insertcaption\par}
+\captionsetup[figure]{font={tiny},labelfont={tiny},labelformat={empty},justification={justified}}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
@@ -363,7 +364,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtcolorbox{beamerbox}[2]{boxrule=\smile@linewidth,title=#2,colback=#1!5!white,colframe=#1!75!black,left=0em,right=0em,
+\newtcolorbox{beamerbox}[2]{boxrule=\smile@linewidth,title=#2,colback=#1!8!white,colframe=#1!75!black,left=0em,right=0em,
 lefttitle=2mm, arc=\smile@rounding, enhanced, segmentation engine=path,
 segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewidth}}
 
@@ -376,15 +377,15 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 }{\end{beamerbox}}
 
 \renewenvironment{block}[1][]{
-	\begin{beamerbox}{accent}{#1}
+	\begin{beamerbox}{accent}{#1}\raggedright
 }{\end{beamerbox}}
 
 \renewenvironment{examples}[1][]{
-	\begin{beamerbox}{green}{#1}
+	\begin{beamerbox}{green}{#1}\raggedright
 }{\end{beamerbox}}
 
 \renewenvironment{alertblock}[1][]{
-	\begin{beamerbox}{red}{#1}
+	\begin{beamerbox}{red}{#1}\raggedright
 }{\end{beamerbox}}
 
 %\newunicodechar{·}{\kern-.25em\lower.23ex\hbox{\textperiodcentered}\kern-.25em}
