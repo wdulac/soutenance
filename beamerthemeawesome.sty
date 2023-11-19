@@ -45,6 +45,7 @@
 %\RequirePackage{underscore}
 \RequirePackage{tcolorbox}
 \RequirePackage{caption}
+%\RequirePackage{colortbl}
 \tcbuselibrary{skins}
 
 \RequirePackage[
@@ -76,6 +77,9 @@
 		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
 	},
 }
+
+\RequirePackage{animate}
+%\RequirePackage{xmpmulti}
 
 \RequirePackage[
 	backend=biber,
@@ -113,7 +117,7 @@
 
 \BeforeBeginEnvironment{tabular}{
 	\renewcommand{\arraystretch}{1.1}
-	\rowcolors{2}{lightgray}{white}
+	\rowcolors{2}{accent!30}{white}
 }
 
 
@@ -314,6 +318,7 @@
 
 %\setbeamertemplate{caption}{\vspace{-1ex}\tiny\insertcaption\par}
 \captionsetup[figure]{font={tiny},labelfont={tiny},labelformat={empty},justification={justified}}
+\captionsetup[table]{font={tiny},labelfont={tiny},labelformat={empty},justification={justified}}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
