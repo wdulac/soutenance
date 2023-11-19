@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169, usepdftitle=false, xcolor={dvipsnames}, 9pt]{beamer}
+\documentclass[aspectratio=169, usepdftitle=false, xcolor={dvipsnames}, 9pt,table]{beamer}
 
 \usetheme[english, notoc, coloraccent=blue]{awesome}
 
@@ -23,17 +23,24 @@
 
 \addbibresource{references.bib}
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \begin{document}
 
 \maketitle
 
-%=========================================================
 \section[Introduction]{Introduction : Cyclones tropicaux}
 
 \makesecslide
 
 \subsection{Définition}
 
+%===================================================
 \begin{frame}[t]
     \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
     \frametitle{Qu'est-ce qu'un cyclone tropical (TC) ?}
@@ -67,7 +74,7 @@
                 \begin{itemize}
                     \item Fréquence annuelle moyenne : 84 TC par an \mbox{\parencite{schreck_impact_2014}}
                     \item Diamètre moyen de l'œil : 55 \sim~85 km \mbox{\parencite{weatherford_typhoon_1985}}
-                    \item Diamètre total moyen\footnotemark : 500 km \parencite{carrasco_influence_2014}
+                    \item Diamètre\footnotemark~total moyen: 500 km \parencite{carrasco_influence_2014}
                     \item Vitesse de déplacement moyenne : 20 km/h
                     \item Vents soutenus : Entre 120 et 300 km/h
                 \end{itemize}
@@ -79,27 +86,74 @@
     \setcounter{footnote}{0}
 \end{frame}
 
-%\begin{frame}[c]
-%    \frametitle{Qu'est-ce qu'un cyclone tropical ?}
-%    \framesubtitle{Définition et ordres de grandeur}
-%    \begin{columns}
-%        \begin{column}{0.5\textwidth}
-%           \begin{figure}[b]
-%               \centering
-%               \includegraphics[width=\textwidth]{Figures/Hurricane-fr.png}
-%               \caption{Diagramme en coupe d'un cyclone tropical}
-%           \end{figure} 
-%        \end{column}
-%        \begin{column}{0.5\textwidth}
-%           \begin{figure}[h]
-%               \centering
-%               \includegraphics[width=\textwidth]{Figures/Bassins_et_trajectoires.png}
-%               \caption{Test}
-%           \end{figure} 
-%        \end{column}
-%    \end{columns}
-%\end{frame}
+%===================================================
+\begin{frame}[c]
+    \frametitle{Qu'est-ce qu'un cyclone tropical ?}
+    \framesubtitle{Bassins d'activité et classification}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\textwidth]{Figures/Bassins_et_trajectoires_soutenance.png}
+                \caption{Échantillon de trajectoires historiques observées (IBTrACS) entre 1980 et 2019.}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \begin{table}[h]
+                \centering
+                \caption{Seuils de vents (sur 10 minutes) des catégories Saffir-Simpson (gauche) et seuils de pression équivalents ajustés
+                selon \cite{klotzbach_surface_2020}.}
+                \footnotesize
+                \begin{tabular}{l|c|c}
+                     & Vent (m/s) & Pression (hPa) \\
+                    \hline
+                    TD & $<$ 16 & $>$ 1005 \\
+                    TS & 16 -- 28 & 1005 -- 991 \\
+                    Cat 1 & 29 -- 37 & 990 -- 976 \\
+                    Cat 2 & 38 -- 43 & 975 -- 961 \\
+                    Cat 3 & 44 -- 51 & 960 -- 946 \\
+                    Cat 4 & 52 --  62 & 945 -- 926\\
+                    Cat 5 & $\geq$ 63 & $\leq$ 925
+                \end{tabular}
+            \end{table}
+        \end{column}
+    \end{columns}
+\end{frame}
 
+%===================================================
+\begin{frame}[c]
+    \frametitle{Qu'est-ce qu'un cyclone tropical ?}
+    \framesubtitle{Conditions de formations}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/diagramme_formation.png}
+    \end{figure}
+    %\vspace{1em}
+    \footnotesize
+    \begin{block}[Ingrédients de la cyclogénèse]
+        \begin{columns}[t]
+            \scriptsize
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                   \item Perturbation initale apportant de la convergence en basses couches
+                   \item Une distance de quelques centaines de kilomètres à l'équateur (Coriolis)
+                   \item Température de surface de l'ocean supérieure à 26°C sur au moins 60m de profondeur \parencite{palmen_formation_1948}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+               \begin{itemize}
+                   %\setlength{\leftmargini}{1.5ex}
+                   \item Absence de cisaillement vertical du vent\\\parencite{gray_global_1968}
+                   \item Atmosphère humide en moyenne troposphère
+                   \item Atmosphère instable
+               \end{itemize} 
+            \end{column}
+        \end{columns}
+    \end{block}
+    \blfootnote{Illustration adaptée d'une infographie AFP existante}
+\end{frame}
+
+%===================================================
 \begin{frame}[c]
     \frametitle{Qu'est-ce qu'un cyclone tropical ?}
     \framesubtitle{Le phénomène météorologique le plus destructeur}
@@ -132,13 +186,23 @@
 
 \subsection{Consensus sur les projections futures}
 
+%=========================================================
 \begin{frame}[c]
     \frametitle{Consensus sur l'évolution future de l'activité cyclonique}
     \begin{columns}
         \begin{column}{0.75\textwidth}
-            \begin{figure}[h]
+            \begin{figure}
                 \centering
-                \includegraphics[width=\textwidth]{Figures/Fig_5_Knutson_BAMS_revised_3_9_20-scaled_cropped.png}
+                \begin{tikzpicture}
+                    \node[anchor=south west, inner sep=0] (image) at (0,0)%
+                        {\includegraphics[width=\textwidth]{Figures/Fig_5_Knutson_BAMS_revised_3_9_20-scaled_cropped.png}};
+                    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                        \draw[rounded corners=0.5mm, red, fill, fill opacity=0.1, line width=0.5] (0.627, 0.018) rectangle (0.69, 0.055);
+                        \draw[rounded corners=0.5mm, green, fill, fill opacity=0.1, line width=0.5] (0.6955, 0.018) rectangle (0.749, 0.055);
+                        \draw[rounded corners=0.5mm, blue, fill, fill opacity=0.1, line width=0.5] (0.755, 0.018) rectangle (0.818, 0.055);
+                        \draw[rounded corners=0.5mm, purple, fill, fill opacity=0.1, line width=0.5] (0.825, 0.018) rectangle (0.898, 0.055);
+                    \end{scope}
+                \end{tikzpicture}
                 \caption{Synthèse des projections de l'activité cyclonique pour un réchauffement de 2°C par rapport à 1986 -- 2005
                 \parencite{knutson_tropical_2020}. Médianes et intervalles de confiance de respectivement 90~\% et 80~\% (gauche et droite).}
             \end{figure}
@@ -149,10 +213,10 @@
            \begin{block}[Résumé]
                \scriptsize
                \begin{itemize}
-                    \item Baisse probable de la fréquence en général 
-                    \item Hausse probable de la fréquence des cyclones forts
-                    \item Hausse fortement de l'intensité maximale
-                    \item Hausse très fortement probable des précipitations
+                    \item \textcolor{red}{Baisse} probable de la fréquence en général 
+                    \item \textcolor{green}{Hausse} \underline{relative} de la fréquence des cyclones forts
+                    \item \textcolor{blue}{Hausse} fortement probable de l'intensité maximale
+                    \item \textcolor{purple}{Hausse} très fortement probable des précipitations
                \end{itemize}
            \end{block}
            \pause
@@ -167,60 +231,162 @@
 \subsection[Méthodologies]{Comment sont réalisées ces projections ?}
 \makesubsecslide
 
+%=========================================================
 \begin{frame}[c]
     \frametitle{Les modèles de climat}
     \framesubtitle{Simulation numérique de l'évolution de l'état de l'atmosphère}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            
+        \begin{column}{0.55\textwidth}
+            \footnotesize
+            \begin{definition} 
+                Discrétisation de l'évolution de l'état de l'atmosphère dans le temps et \alert{l'espace}\\
+                \rightarrow ~L'échelle de la \alert{maille}
+            \end{definition}
+            \vspace{1em}%
+            \begin{block}[Résolutions horizontales des modèles actuels \parencite{ipcc_annex_2021}]
+                \begin{itemize}
+                    \item Hautes résolutions : 20 \sim~80 km
+                    \item Basses résolutions : 100 \sim~250 km
+                \end{itemize}
+            \end{block}
+            \vspace{1em}%
+            \onslide<2->{
+                \begin{alertblock}
+                    On commence tout juste à pouvoir descendre à l'échelle nécessaire pour simuler des TC \underline{réalistes}
+                \end{alertblock}
+            }
         \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{figure}[t]
-                \centering
-                \includegraphics[width=0.6\textwidth]{Figures/maillage_upscaled_x4_2.png}
-                \captionsetup{width=0.8\textwidth}
-                \caption{Illustration schématique du maillage tridimensionnelle d'un modèle de climat. Les couleurs représentent la température et les flèches
-                le vent.\\\textit{Illustration de \mbox{Laurent Fairhead/LMD/CNRS}}.}
-            \end{figure}
-        \end{column}
+        \onslide<1->{
+            \begin{column}{0.45\textwidth}
+                \begin{figure}[t]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{Figures/maillage_upscaled_x4_2.png}
+                    \captionsetup{width=0.9\textwidth}
+                    \caption{Illustration schématique du maillage tridimensionnelle d'un modèle de climat. Les couleurs représentent la température et les flèches
+                    le vent.\\\textit{Illustration de \mbox{Laurent Fairhead/LMD/CNRS}}.}
+                \end{figure}
+            \end{column}
+        }
     \end{columns} 
 \end{frame}
 
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Détection et suivi objectif}
+    \framesubtitle{Mesure directe dans les simulations}
+    \begin{columns}
+        \begin{column}{0.66\textwidth}
+            \footnotesize
+            \begin{definition}
+                \centering
+                Algorithmes identifiant et reliant entre eux les points de grille qui satisfont une ou plusieurs conditions.
+            \end{definition}
+            \begin{columns}[t]
+                \setlength{\leftmargini}{2.5ex}
+                \begin{column}{0.45\textwidth}
+                    \begin{examples}[Intérêt principal]
+                        \scriptsize
+                        \begin{itemize}
+                            \item Mesure directe
+                        \end{itemize}
+                        \tcblower
+                    \end{examples}
+                \end{column}
+                \begin{column}{0.45\textwidth}
+                    \begin{alertblock}[Inconvénients] 
+                        \scriptsize
+                        \begin{itemize}
+                            \item Nécessite des simulations à haute résolution (coûteux)
+                        \end{itemize}
+                    \end{alertblock}
+                \end{column}
+            \end{columns}
+        \end{column}
+        \begin{column}{0.33\textwidth}
+            \captionsetup{width=4cm}
+            \vspace{-3em}
+            \begin{figure}[h]
+                \centering 
+                \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
+                \caption{Animation du cyclone \href{run:../Figures/Ophelia/vo850/ophelia-vo850.gif}{Ophelia} (2017) sur fond de \alert{vorticité relative à 850 hPa} (ERA5)}
+            \end{figure}
+            %
+            \begin{figure}
+                \centering
+                \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
+                \caption{Animation du cyclone \href{run:../Figures/Ophelia/msl/ophelia-msl.gif}{Ophelia} (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
+            \end{figure}
+            % \begin{figure}[h]
+            %     \centering
+            %     \transduration<0-27>{5}
+            %     \multiinclude[<+->][format=png, graphics={width=4cm}]{Figures/Ophelia/msl/ophelia-msl}
+            %     \caption{Animation du cyclone Ophelia (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
+            % \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%\begin{frame}[c]
+%    \frametitle{Détection et suivi objectif}
+%    \framesubtitle{Mesure directe dans les simulations}
+%    %
+%    \footnotesize
+%    \begin{definition}
+%        \centering
+%        Algorithmes identifiant et reliant entre eux les points de grille qui satisfont une ou plusieurs conditions.
+%    \end{definition}
+%    \begin{columns}
+%        \begin{column}{0.45\textwidth}
+%            \begin{examples}[Avantages]
+%                \scriptsize
+%                \begin{itemize}
+%                    \item Mesure directe
+%                \end{itemize}
+%            \end{examples}
+%        \end{column}
+%        \begin{column}{0.45\textwidth}
+%            \begin{alertblock}[Inconvénients] 
+%                \scriptsize
+%                \begin{itemize}
+%                    \item Nécessite des simulations à haute résolution (coûteux)
+%                \end{itemize}
+%            \end{alertblock}
+%        \end{column}
+%    \end{columns}
+%    %
+%    \vskip0ptplus1filll\relax
+%    \begin{center}
+%        \begin{minipage}{0.7\linewidth}
+%            \begin{columns}
+%                \captionsetup{width=4cm}
+%                \begin{column}{0.5\textwidth}
+%                    \begin{figure}[h]
+%                        \centering 
+%                        \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
+%                        \caption{Animation du cyclone Ophelia (2017) sur fond de vorticité à 850 hPa (ERA5)}
+%                    \end{figure}
+%                \end{column}
+%                \begin{column}{0.5\textwidth}
+%                    \begin{figure}
+%                        \centering
+%                        \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
+%                        \caption{Animation du cyclone Ophelia (2017) sur fond de pression au niveau de la mer (ERA5)}
+%                    \end{figure}
+%                \end{column}
+%            \end{columns}
+%        \end{minipage}
+%    \end{center}
+%\end{frame}
+
 \section{Test}
 
+%=========================================================
 \begin{frame}[t]
     \frametitle{Plan}
     \tableofcontents[currentsection]
 \end{frame}
 
-\begin{frame}[c]
-    \frametitle{Avec juste un bloc}
-    \framesubtitle{Voyons voir ce que ça donne}
-    
-    \begin{examples}[Test]
-       Ceci est un bloc 
-    \end{examples}
-\end{frame}
-
 \section{Test 2}
 
-\begin{frame}[c]
-    \frametitle{Avec des listes...}
-    
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{itemize}
-                \item Foo
-                \item Bar
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-           \begin{enumerate}
-               \item Alpha
-               \item Beta
-           \end{enumerate} 
-        \end{column}
-    \end{columns}
-\end{frame}
 
 \end{document}
