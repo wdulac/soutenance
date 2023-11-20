@@ -228,7 +228,7 @@
     \end{columns}
 \end{frame}
 
-\subsection[Méthodologies]{Comment sont réalisées ces projections ?}
+\subsection[Méthodologies d'évaluation]{Comment sont réalisées ces projections ?}
 \makesubsecslide
 
 %=========================================================
@@ -240,7 +240,7 @@
             \footnotesize
             \begin{definition} 
                 Discrétisation de l'évolution de l'état de l'atmosphère dans le temps et \alert{l'espace}\\
-                \rightarrow ~L'échelle de la \alert{maille}
+                $\longrightarrow$ ~L'échelle de la \alert{maille}
             \end{definition}
             \vspace{1em}%
             \begin{block}[Résolutions horizontales des modèles actuels \parencite{ipcc_annex_2021}]
@@ -273,7 +273,7 @@
 %=========================================================
 \begin{frame}[c]
     \frametitle{Détection et suivi objectif}
-    \framesubtitle{Mesure directe dans les simulations}
+    \framesubtitle{Mesure directe dans les simulations haute résolution}
     \begin{columns}
         \begin{column}{0.66\textwidth}
             \footnotesize
@@ -281,47 +281,117 @@
                 \centering
                 Algorithmes identifiant et reliant entre eux les points de grille qui satisfont une ou plusieurs conditions.
             \end{definition}
+            \vspace{1em}
+            \onslide<2->{
+                \begin{block}
+                    \centering
+                    Statistiques descriptives sur le nombre et les propriétés des cyclones détectées dans des simulations en climat futur
+                \end{block}
+            }
             \begin{columns}[t]
                 \setlength{\leftmargini}{2.5ex}
                 \begin{column}{0.45\textwidth}
-                    \begin{examples}[Intérêt principal]
-                        \scriptsize
-                        \begin{itemize}
-                            \item Mesure directe
-                        \end{itemize}
-                        \tcblower
-                    \end{examples}
+                    \onslide<3->{
+                        \begin{examples}[Intérêt principal]
+                            \scriptsize
+                            Mesure \alert{directe}
+                            \tcblower
+                            \scriptsize
+                            \begin{itemize}
+                                \item Capture le cycle de vie
+                                \item Permet une évaluation de tous les aspects de l'activité cyclonique
+                            \end{itemize}
+                        \end{examples}
+                    }
                 \end{column}
                 \begin{column}{0.45\textwidth}
-                    \begin{alertblock}[Inconvénients] 
-                        \scriptsize
-                        \begin{itemize}
-                            \item Nécessite des simulations à haute résolution (coûteux)
-                        \end{itemize}
-                    \end{alertblock}
+                    \onslide<4->{
+                        \begin{alertblock}[Inconvénients] 
+                            \scriptsize
+                            \begin{itemize}
+                                \item Nécessite des simulations à haute résolution (coûteuses et encore trop peu nombreuses)
+                                \item Sensibilité à la méthodologie de détection \parencite{horn_tracking_2014,bourdin_intercomparison_2022}
+                            \end{itemize}
+                        \end{alertblock}
+                    }
+                \end{column}
+            \end{columns}
+            %\vspace{1em}
+        \end{column}
+        %
+        \onslide<1->{
+                \begin{column}{0.33\textwidth}
+                \captionsetup{width=4cm}
+                \vspace{-3em}
+                \begin{figure}
+                    \centering 
+                    \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
+                    \caption{Animation du cyclone \href{run:../Figures/Ophelia/vo850/ophelia-vo850.gif}{Ophelia} (2017) sur fond de \alert{vorticité relative à 850 hPa} (ERA5)}
+                \end{figure}
+                %
+                \begin{figure}
+                    \centering
+                    \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
+                    \caption{Animation du cyclone \href{run:../Figures/Ophelia/msl/ophelia-msl.gif}{Ophelia} (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
+                \end{figure}
+            \end{column}
+        }
+    \end{columns}
+\end{frame}
+
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Indices de cyclogénèse}
+    \framesubtitle{Inférence de l'activité par l'environnement de grande échelle}
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \begin{definition}
+                \scriptsize
+                %\centering
+                \underline{Fréquence d'occurrence} des TC en un point de grille proportionnelle à une \mbox{combinaison} de variables \alert{thermiques} et
+                \mbox{\alert{dymamiques}} de grande échelle \parencite{gray_tropical_1975}.
+            \end{definition}
+            \onslide<2->{
+                \vspace{1em}
+                \begin{block}
+                    \scriptsize
+                    \centering
+                    Relations établies en climat présent pour application à des simulations en climat futur.
+                \end{block}
+            }
+            \begin{columns}[t]
+                \setlength{\leftmargini}{2ex}
+                \begin{column}{0.5\textwidth}
+                    \onslide<3->{
+                        \footnotesize
+                        \begin{examples}[Intérêt principal]
+                            \scriptsize
+                            Applicable à des modèles basse résolution\\(plus nombreux \Rightarrow Meilleure estimation de l'incertitude)
+                        \end{examples}
+                    }
+                \end{column}
+                \begin{column}{0.5\textwidth}
+                    \onslide<4->{
+                        \footnotesize
+                        \begin{alertblock}[Inconvénients]
+                            \scriptsize
+                            \begin{itemize}
+                                \item Mesure \alert{indirecte}
+                                \item Incertitudes sur le choix des variables
+                            \end{itemize}
+                        \end{alertblock}
+                    }
                 \end{column}
             \end{columns}
         \end{column}
-        \begin{column}{0.33\textwidth}
-            \captionsetup{width=4cm}
+        \begin{column}{0.5\textwidth}
             \vspace{-3em}
-            \begin{figure}[h]
-                \centering 
-                \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
-                \caption{Animation du cyclone \href{run:../Figures/Ophelia/vo850/ophelia-vo850.gif}{Ophelia} (2017) sur fond de \alert{vorticité relative à 850 hPa} (ERA5)}
-            \end{figure}
-            %
             \begin{figure}
                 \centering
-                \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
-                \caption{Animation du cyclone \href{run:../Figures/Ophelia/msl/ophelia-msl.gif}{Ophelia} (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
-            \end{figure}
-            % \begin{figure}[h]
-            %     \centering
-            %     \transduration<0-27>{5}
-            %     \multiinclude[<+->][format=png, graphics={width=4cm}]{Figures/Ophelia/msl/ophelia-msl}
-            %     \caption{Animation du cyclone Ophelia (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
-            % \end{figure}
+                \includegraphics[width=\textwidth]{Figures/acgi_mean_IBTrACS_season.png}
+                \caption{Moyennes saisonnières de trois indices moyennés entre eux (GPI, TCS et CYGP), et densité observée de cyclogénèse entre 1980 et 2019
+                (IBTrACS).}
+            \end{figure}        
         \end{column}
     \end{columns}
 \end{frame}
@@ -388,5 +458,10 @@
 
 \section{Test 2}
 
+%\section*{Bibliographie}
+%
+%\begin{frame}[t,allowframebreaks]{Bibliographie}
+%    \printbibliography
+%\end{frame}
 
 \end{document}
