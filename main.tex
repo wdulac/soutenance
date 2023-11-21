@@ -326,13 +326,13 @@
                 \begin{figure}
                     \centering 
                     \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
-                    \caption{Animation du cyclone \href{run:./ophelia-vo850.gif}{Ophelia} (2017) sur fond de \alert{vorticité relative à 850 hPa} (ERA5)}
+                    \caption{\href{run:./ophelia-vo850.gif}{Animation} du cyclone Ophelia (2017) sur fond de \alert{vorticité relative à 850 hPa} (ERA5)}
                 \end{figure}
                 %
                 \begin{figure}
                     \centering
                     \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
-                    \caption{Animation du cyclone \href{run:./ophelia-msl.gif}{Ophelia} (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
+                    \caption{\href{run:./ophelia-msl.gif}{Animation} du cyclone Ophelia (2017) sur fond de \alert{pression au niveau de la mer} (ERA5)}
                 \end{figure}
             \end{column}
         }
@@ -396,67 +396,77 @@
     \end{columns}
 \end{frame}
 
-%\begin{frame}[c]
-%    \frametitle{Détection et suivi objectif}
-%    \framesubtitle{Mesure directe dans les simulations}
-%    %
-%    \footnotesize
-%    \begin{definition}
-%        \centering
-%        Algorithmes identifiant et reliant entre eux les points de grille qui satisfont une ou plusieurs conditions.
-%    \end{definition}
-%    \begin{columns}
-%        \begin{column}{0.45\textwidth}
-%            \begin{examples}[Avantages]
-%                \scriptsize
-%                \begin{itemize}
-%                    \item Mesure directe
-%                \end{itemize}
-%            \end{examples}
-%        \end{column}
-%        \begin{column}{0.45\textwidth}
-%            \begin{alertblock}[Inconvénients] 
-%                \scriptsize
-%                \begin{itemize}
-%                    \item Nécessite des simulations à haute résolution (coûteux)
-%                \end{itemize}
-%            \end{alertblock}
-%        \end{column}
-%    \end{columns}
-%    %
-%    \vskip0ptplus1filll\relax
-%    \begin{center}
-%        \begin{minipage}{0.7\linewidth}
-%            \begin{columns}
-%                \captionsetup{width=4cm}
-%                \begin{column}{0.5\textwidth}
-%                    \begin{figure}[h]
-%                        \centering 
-%                        \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/vo850/ophelia-vo850-}{0}{27}
-%                        \caption{Animation du cyclone Ophelia (2017) sur fond de vorticité à 850 hPa (ERA5)}
-%                    \end{figure}
-%                \end{column}
-%                \begin{column}{0.5\textwidth}
-%                    \begin{figure}
-%                        \centering
-%                        \animategraphics[autoplay,loop,width=4cm,poster=22]{5}{Figures/Ophelia/msl/ophelia-msl-}{0}{27}
-%                        \caption{Animation du cyclone Ophelia (2017) sur fond de pression au niveau de la mer (ERA5)}
-%                    \end{figure}
-%                \end{column}
-%            \end{columns}
-%        \end{minipage}
-%    \end{center}
-%\end{frame}
-
-\section{Test}
-
 %=========================================================
-\begin{frame}[t]
-    \frametitle{Plan}
-    \tableofcontents[currentsection]
+\begin{frame}[c]
+    \frametitle{Problématique}
+    \framesubtitle{Introduction de la problématique de la thèse / soutenance}
+
+    \begin{itemize}
+        \item Mentionner la divergence dans les projections futures (sans trop se focaliser dessus puisqu'on ne la résoud pas / ce n'est pas vraiment l'objet de la
+    présentation).
+        \item Mettre plutôt l'accent sur les points sur lesquels on peut améliorer tracking / indices ?
+    \end{itemize}
+
+    
 \end{frame}
 
-\section{Test 2}
+
+\section[Détection et suivi]{Application du schéma de détection du CNRM à la réanalyse ERA5}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Plan}
+    \addtocounter{framesinsection}{-1}
+    \tableofcontents[currentsection,hideallsubsections,sections={1-2}]
+    \vspace{-3em}
+    \tableofcontents[hideallsubsections,sections={3-}]
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Plan}
+    \addtocounter{framesinsection}{-1}
+    \tableofcontents[currentsection,hideothersubsections]
+\end{frame}
+
+%=========================================================
+\subsection{Présentation du traqueur du CNRM \parencite{chauvin_response_2006}}
+\begin{frame}[t]
+    \frametitle{Schéma de détection du CNRM}
+    \footnotesize
+    \begin{block}[Étapes de détection \parencite{chauvin_response_2006}] 
+        \scriptsize
+        \begin{enumerate}
+            \item Seuil de vorticité (\textbf{VOR})
+            \item Estimation de la taille du \textcolor{green}{système} et de son \textcolor{blue}{environnement}
+                \begin{itemize}
+                    \scriptsize
+                    \item Seuil de vent à 10~m (\textbf{RES})
+                    \item Anomalie de température cumulée à 700~hPa, 500~hPa et 300~hPa (\textbf{TANOM})
+                    \item Profil vertical de température entre 300~hPa et 850~hPa (\textbf{PT})
+                    \item Profil vertical de vent entre 300~hPa et 850~hPa (\textbf{PW})
+                \end{itemize}
+            \item Suivi du système (reliage des points)
+            \item \textcolor{violet}{Relaxation} des paramètres pour compléter en amont et en aval (\textbf{REL})
+        \end{enumerate}
+    \end{block}
+    \vspace{1em}
+    \begin{figure}
+        \centering
+        \includegraphics[height=2.8cm]{Figures/schema_etapes_tracking.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Application à ERA5 versus IBTrACS}
+
+\subsection{Représentation des TC dans ERA5}
+
+\subsection{Filtrage des systèmes de moyennes latitudes}
+
+\subsection{Métriques de similarité des trajectoires}
+
+\section[Indices de cyclogénèse]{Construction d'indices de cyclogénèse}
+
+\section{Conclusion et perspectives}
 
 %\section*{Bibliographie}
 %

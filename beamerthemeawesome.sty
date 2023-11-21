@@ -325,7 +325,7 @@
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
 
-\addtobeamertemplate{frametitle continuation}{\color{gray}(}{)}
+%\addtobeamertemplate{frametitle continuation}{\color{gray}(}{)}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
 
@@ -339,6 +339,16 @@
     \textcolor{black}{%
     ~\inserttocsection}\par
 }
+
+%\setbeamertemplate{subsection in toc}{
+%    \mbox{
+%        \hskip1em%
+%        \usebeamercolor[fg]{subsection number projected}%
+%        \inserttocsectionnumber.%
+%        \textsubscript{\inserttocsubsectionnumber}~%
+%        \textcolor{black}{\inserttocsubsection}
+%    }
+%}
 
 \setbeamertemplate{subsection in toc}{
     \usebeamercolor[fg]{subsection number projected}%
@@ -651,7 +661,7 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 {
     \ifawesome@autotoc
         \begin{frame}{Plan}
-            \tableofcontents[currentsection]
+            \tableofcontents[currentsection,hideothersubsections]
         \end{frame}
     \fi
 }
