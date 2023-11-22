@@ -17,7 +17,7 @@
 
 \background{include/Bolaven_2023-10-11_2300Z.jpg}
 
-\usefonttheme[onlymath]{serif}
+%\usefonttheme[onlymath]{serif}
 
 %\setlength\abovecaptionskip{-1pt}
 
@@ -428,15 +428,27 @@
     \tableofcontents[currentsection,hideothersubsections]
 \end{frame}
 
+\subsection*{Motivations}
+\begin{frame}[c]
+    \frametitle{Introduction}
+    \framesubtitle{Pourquoi s'intéresser à ERA5}
+    Slide d'introduction pour justifier le fait de travailler sur ERA5
+    \begin{itemize}
+        \item Dans le contexte de la thèse : validation de l'outil de tracking
+        \item Intérêt pour la communauté scientifique : \textquote{Nouveau} produit de référence, haute résolution, beaucoup d'espoir pour la représentation des
+            TC.
+    \end{itemize}
+\end{frame}
+
 %=========================================================
-\subsection{Présentation du traqueur du CNRM \parencite{chauvin_response_2006}}
+\subsection{Données et outils}
 \begin{frame}[t]
     \frametitle{Schéma de détection du CNRM}
     \footnotesize
     \begin{block}[Étapes de détection \parencite{chauvin_response_2006}] 
         \scriptsize
         \begin{enumerate}
-            \item Seuil de vorticité (\textbf{VOR})
+            \item \textcolor[HTML]{ff0011}{Seuil} de vorticité (\textbf{VOR})
             \item Estimation de la taille du \textcolor{green}{système} et de son \textcolor{blue}{environnement}
                 \begin{itemize}
                     \scriptsize
@@ -449,22 +461,251 @@
             \item \textcolor{violet}{Relaxation} des paramètres pour compléter en amont et en aval (\textbf{REL})
         \end{enumerate}
     \end{block}
-    \vspace{1em}
+    %\vspace{1em}
     \begin{figure}
         \centering
         \includegraphics[height=2.8cm]{Figures/schema_etapes_tracking.png}
     \end{figure}
 \end{frame}
 
-\subsection{Application à ERA5 versus IBTrACS}
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Application à la réanalyse ERA5}
+    \framesubtitle{Données et outils}
+    \begin{columns}[t]
+        \begin{column}{0.6\textwidth}
+            \vspace{-1.5em}
+            \onslide<1->{
+                \scriptsize
+                \begin{examples}[Jeux de données]
+                    \scriptsize
+                    \setlength{\leftmargini}{2.5ex}
+                    \begin{itemize}
+                        \item Réanalyse ERA5 à 0.25° 1981 -- 2019 \parencite{hersbach_era5_2020}
+                        \item Base de données d'observations IBTrACS (version 4) 1981 -- 2019 \parencite{knapp_international_2010}
+                    \end{itemize}
+                \end{examples}
+            }
+            \vspace{1em}
+            \onslide<2->{
+                \scriptsize
+                \begin{block}[Appariement des trajectoires]
+                    \scriptsize
+                    Pour chaque trajectoire détectée dans ERA5 :
+                    \setlength{\leftmargini}{4.5ex}
+                    \begin{enumerate}
+                        \item Recherche des candidats IBTrACS par correspondance spatio-temporelle
+                        \item Score basé sur la quantité de points en commun à moins de 300 km
+                        \item Sélection de la paire de trajectoires avec le meilleur score
+                    \end{enumerate}
+                    $\Rightarrow$ Calcul du taux de l'efficacité de détection (POD) et du taux de fausses détections (FAR).
+                \end{block}
+            }
+            \vspace{1em}
+            \onslide<3->{
+                \scriptsize
+                \begin{definition}
+                    Seuils de détection du traqueur qui optimisent le POD et le FAR sur ERA5 :\\
+                    \textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
+                    \textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
+                \end{definition}
+            }
+        \end{column}
+        \onslide<2->{
+            \begin{column}{0.4\textwidth}
+                \vspace{-1.8em}
+                \begin{figure}
+                    \captionsetup{width=5cm}
+                    \centering
+                    \includegraphics[width=5cm]{Figures/katrina_era5.png}
+                    \caption{Ouragan Katrina (2005) observée (rouge) et détectée dans ERA5 (bleu), résultant de l'appariement des trajectoires.}
+                \end{figure}
+            \end{column}
+        }
+    \end{columns} 
+\end{frame}
 
-\subsection{Représentation des TC dans ERA5}
+
+%=========================================================
+\subsection[Représentation des cyclones dans ERA 5]{Représentation des cyclones dans ERA5}
+\begin{frame}
+    \frametitle{Relation vent-pression dans ERA5}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/ERA5_PV_myVTU.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+            \setlength{\leftmargini}{3.5ex}
+            \vspace{1.25ex}
+            \begin{examples}[Méthodologie] 
+                \begin{itemize}
+                    \item Ensemble des échéances partagées pour chaque paire de systèmes\\(58 920 points dans chacun des jeux de données)
+                    \item Échelle globale (tous bassins sauf Nord Indien)
+                    \item Fit loi de puissance $V = a\Delta P^b$ \parencite{atkinson_tropical_1977}
+                \end{itemize}
+            \end{examples}
+            \vspace{2em}
+            \begin{block}
+                \begin{itemize}
+                    \item \alert{Forte sous-estimation} des vents maximum dans ERA5
+                    \item Distribution des minimum de pression \underline{mieux représentée} (Cat 4)
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns} 
+\end{frame}
+
+%=========================================================
+\begin{frame}
+    \frametitle{Classes d'intensité croisées}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace{1em}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/crosstable_global_myVTU.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+            \setlength{\leftmargini}{3.5ex}
+            \begin{examples}[Méthodologie]
+                \begin{itemize}
+                    \item Classes Saffir-Simpson basées sur la \alert{pression}\\\parencite{klotzbach_surface_2020}
+                    \item Paires de systèmes avec moins de 75\% de valeurs manquantes
+                    \item Toutes les régions sauf Nord Indien
+                \end{itemize}    
+            \end{examples}
+            \vspace{2em}
+            \begin{block}
+               \begin{itemize}
+                    \item Accord relatif dans l'ensemble (pente attendue)
+                    \item \alert{Dispersion importante} vers les catégories les plus hautes
+               \end{itemize} 
+            \end{block}
+        \end{column}
+    \end{columns} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Décalage dans les maximum d'intensité}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/lag_max_intensity_myVTU.png}
+    \end{figure}
+    \begin{columns}
+        \footnotesize
+        \setlength{\leftmargini}{3ex}
+        \begin{column}{0.5\textwidth}
+            \begin{examples}
+                \begin{itemize}
+                    \item Délais (en heures) entre le maximum d'intensité des paires ERA5/IBTrACS par classe d'intensité (IBTrACS)
+                    \item Délai > 0 indique que le TC dans ERA5 est \underline{en retard}
+                \end{itemize}
+            \end{examples}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{block} 
+                \begin{itemize}
+                    \item Délai moyen toutes catégories de \alert{+13 heures} (significatif)
+                    \item Délai \alert{augmente} avec la classe d'intensité\\(45 heures pour Cat 5)
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Représentation des cyclones dans ERA5}
+    \framesubtitle{Conclusion}
+    Slide de conclusion sur cette partie : Pourquoi ces résultats sont importants :
+    \begin{itemize}
+        \item Attention quand on veut aller voir la tête d'un TC observé dans ERA5 (vent sous-estimé + pas forcément même classe d'intensité)
+        \item C'est également fortement déconseillé d'aller directement extraire les champs ERA5 en lieu et place du max d'intensité d'un TC observé (à cause du
+            délai)
+    \end{itemize}
+\end{frame}
 
 \subsection{Filtrage des systèmes de moyennes latitudes}
 
-\subsection{Métriques de similarité des trajectoires}
+%=========================================================
+\subsection[Similarité des trajectoires]{Métriques de similarité des trajectoires}
+\makesubsecslide
+\begin{frame}[c]
+    \frametitle{Similarité des trajectoires}
+    \framesubtitle{Motivations}
+    Slide d'introduction : Pourquoi chercher à mesurer la similarité des trajectoires ?
+    \begin{itemize}
+        \item Métriques de performances du traqueur intégrée sur les trajectoires (par rapport à \textit{hit or miss})
+        \item Proportion non-nulle des composantes ERA5 de chaque paire de trajectoires qui se trouve à plus de 300 km de la composante IBTrACS
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/coverage_ratio_and_missed.png}
+    \end{figure}
+\end{frame}
 
-\section[Indices de cyclogénèse]{Construction d'indices de cyclogénèse}
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Similarité des trajectoires}
+    \framesubtitle{Principe de fonctionnement}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+           \begin{definition}
+               \centering
+               Décomposition d'une trajectoire en séquence de vecteurs de déplacement relatifs
+           \end{definition}
+           \begin{itemize}
+               \item Définition de la similarité angulaire entre deux vecteurs (nouveau schéma ?)
+               \item Définition de $C \cap Q$, $C \ominus N$ et aussi de $C \cup Q$
+           \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+           \begin{figure}
+               \centering
+               \includegraphics[width=\textwidth]{Figures/schema_vec_sequence.png}
+           \end{figure} 
+        \end{column}
+    \end{columns} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Métriques de similarité}
+    Introduction des trois métriques : MAS$^\cap$, MAS$^\cup$ et wMAS
+    %\vskip0ptplus1filll\relax
+    \vspace{2em}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/MAS_vs_Ndiff.png}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Application}
+    \framesubtitle{Optimisation des paramètres du traqueur : Quel impact ?}
+    Introduire la situation :
+    \begin{itemize}
+        \item Deux jeux de trajectoires ERA5 à différents paramètres seuils
+        \item Les deux jeux sont appariés à IBTrACS : 2 trajectoires ERA5 pour chaque trajectoire IBTrACS
+    \end{itemize}
+    %
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Figures/delta_MAS.png}
+    \end{center}
+    %
+    (Il faudra peut-être deux slides pour présenter le cas d'étude + résultats)
+\end{frame}
+
+\section{Construction d'indices de cyclogénèse}
 
 \section{Conclusion et perspectives}
 
