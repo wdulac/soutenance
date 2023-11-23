@@ -18,6 +18,8 @@
 \background{include/Bolaven_2023-10-11_2300Z.jpg}
 
 %\usefonttheme[onlymath]{serif}
+%\usefonttheme{professionalfonts}
+%\usefonttheme{default}
 
 %\setlength\abovecaptionskip{-1pt}
 
@@ -271,6 +273,15 @@
 \end{frame}
 
 %=========================================================
+\begin{frame}
+    \frametitle{Les modèles de climat}
+    \framesubtitle{ARPEGE et ERA5}
+
+    Je penche de plus en plus vers une slide supplémentaire ici pour introduire brièvement la distinction modèle climat / réanalyse, i.e ARPEGE / ERA5.
+    
+\end{frame}
+
+%=========================================================
 \begin{frame}[c]
     \frametitle{Détection et suivi objectif}
     \framesubtitle{Mesure directe dans les simulations haute résolution}
@@ -411,7 +422,7 @@
 \end{frame}
 
 
-\section[Détection et suivi]{Application du schéma de détection du CNRM à la réanalyse ERA5}
+\section[Détection et suivi]{Détection et suivi : Application du traqueur CNRM à la réanalyse ERA5}
 
 %=========================================================
 \begin{frame}[c]
@@ -458,7 +469,7 @@
                     \item Profil vertical de vent entre 300~hPa et 850~hPa (\textbf{PW})
                 \end{itemize}
             \item Suivi du système (reliage des points)
-            \item \textcolor{violet}{Relaxation} des paramètres pour compléter en amont et en aval (\textbf{REL})
+            \item \textcolor{violet}{Relaxation} des paramètres pour \underline{compléter} en amont et en aval (\textbf{REL})
         \end{enumerate}
     \end{block}
     %\vspace{1em}
@@ -494,9 +505,9 @@
                     Pour chaque trajectoire détectée dans ERA5 :
                     \setlength{\leftmargini}{4.5ex}
                     \begin{enumerate}
-                        \item Recherche des candidats IBTrACS par correspondance spatio-temporelle
-                        \item Score basé sur la quantité de points en commun à moins de 300 km
-                        \item Sélection de la paire de trajectoires avec le meilleur score
+                        \item Recherche des candidats IBTrACS par correspondance \alert{spatio-temporelle}
+                        \item \alert{Score} basé sur la quantité de points en commun à moins de 300 km
+                        \item Sélection de la \alert{paire de trajectoires} avec le meilleur score
                     \end{enumerate}
                     $\Rightarrow$ Calcul du taux de l'efficacité de détection (POD) et du taux de fausses détections (FAR).
                 \end{block}
@@ -505,7 +516,7 @@
             \onslide<3->{
                 \scriptsize
                 \begin{definition}
-                    Seuils de détection du traqueur qui optimisent le POD et le FAR sur ERA5 :\\
+                    Seuils de détection du traqueur qui \alert{optimisent} le POD et le FAR sur ERA5 :\\
                     \textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
                     \textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
                 \end{definition}
@@ -657,7 +668,8 @@
     \frametitle{Similarité des trajectoires}
     \framesubtitle{Principe de fonctionnement}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.4\textwidth}
+            \footnotesize
            \begin{definition}
                \centering
                Décomposition d'une trajectoire en séquence de vecteurs de déplacement relatifs
@@ -667,7 +679,7 @@
                \item Définition de $C \cap Q$, $C \ominus N$ et aussi de $C \cup Q$
            \end{itemize}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.6\textwidth}
            \begin{figure}
                \centering
                \includegraphics[width=\textwidth]{Figures/schema_vec_sequence.png}
@@ -679,33 +691,159 @@
 %=========================================================
 \begin{frame}[c]
     \frametitle{Métriques de similarité}
-    Introduction des trois métriques : MAS$^\cap$, MAS$^\cup$ et wMAS
+    Introduction des trois métriques : MAS$^\cap$, MAS$^\cup$ et wMAS, qui se distinguent par leur façon de comptabiliser $N_\ominus$
     %\vskip0ptplus1filll\relax
     \vspace{2em}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth]{Figures/MAS_vs_Ndiff.png}
+        \includegraphics[width=0.9\textwidth]{Figures/MAS_vs_Ndiff.png}
     \end{figure}
+    Cette-figure là ou bien les trois exemples ? (C'est peut-être possible de faire les deux sur une slide)
 \end{frame}
 
 %=========================================================
 \begin{frame}[c]
-    \frametitle{Application}
+    \frametitle{Application des métriques}
     \framesubtitle{Optimisation des paramètres du traqueur : Quel impact ?}
-    Introduire la situation :
+    Introduire la situation (possiblement avec un schéma pour clarifier le plus possible) :
     \begin{itemize}
-        \item Deux jeux de trajectoires ERA5 à différents paramètres seuils
+        \item Deux jeux de trajectoires ERA5 à différents paramètres seuils (lister les paramètres)
         \item Les deux jeux sont appariés à IBTrACS : 2 trajectoires ERA5 pour chaque trajectoire IBTrACS
+        \item $\longrightarrow$ On regarde le changement de similarité entre les deux paires
     \end{itemize}
-    %
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{Figures/delta_MAS.png}
-    \end{center}
-    %
-    (Il faudra peut-être deux slides pour présenter le cas d'étude + résultats)
 \end{frame}
 
-\section{Construction d'indices de cyclogénèse}
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Changements dans les similarités}
+    \framesubtitle{Résultats}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{Figures/delta_MAS.png}
+            \end{center}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            Présenter aussi pour $N_\ominus = 0$ et $N_\cap = 0$
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%=========================================================
+\begin{frame}
+    \frametitle{Similarité des trajectories}
+    \framesubtitle{Synthèse}
+        Synthèse de cette partie ? Voire de toute la section tracking avant de passer à la suite ?
+\end{frame}
+
+%=========================================================
+\section[Indices de cyclogénèse]{Indices de cyclogénèse : Vers une meilleure représentation de la variabilité interannuelle}
+\begin{frame}[c]
+    \frametitle{Plan}
+    \addtocounter{framesinsection}{-1}
+    \tableofcontents[currentsection,hideallsubsections,sections={1-3}]
+    \vspace{-3em}
+    \tableofcontents[hideallsubsections,sections={4-}]
+\end{frame}
+%
+\begin{frame}[c]
+    \frametitle{Plan}
+    \addtocounter{framesinsection}{-1}
+    \tableofcontents[currentsection,hideothersubsections]
+\end{frame}
+
+%\makesecslide
+
+%=========================================================
+\subsection*{Motivations}
+\begin{frame}
+    \frametitle{Motivations}
+    \begin{itemize}
+        \item Trois indices : GPI / CYGP / TCS
+        \item Illustrer le problème de la variabilité interannuelle (avec corrélation)
+    \end{itemize} 
+    %
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figures/tcs_cygp_gpi_interannual.png}
+    \end{figure}
+    $\longrightarrow$ Focus sur TCS car plus facile à manipuler (régression stat)
+\end{frame}
+
+%=========================================================
+\subsection[Méthodologie]{Méthodologie de construction de l'indice}
+\begin{frame}[c]
+    \frametitle{Indices de cyclogénèse}
+    \framesubtitle{Méthodologie de la régression de Poisson}
+    \footnotesize
+    Distribution de Poisson = Données de comptage (discret)\\
+    Régressions utilisées pour modéliser ce type de données, y compris TC
+    \vspace{1em}
+    \begin{center}
+        \begin{minipage}{4cm}
+            \begin{definition}
+                \centering
+                $\log y = \mathbf{b}^{\text{T}} \mathbf{x} + \log (\cos \phi)$
+            \end{definition}
+        \end{minipage}
+    \end{center}
+    \begin{itemize}
+        \item Prédictant y : Densité de cyclogénèse issues des trajectoires (taille $m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$)
+        \item Matrice $\mathbf{x}$ : Variables thermiques et dynamiques de grande échelle
+        \item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)
+    \end{itemize}
+    \vspace{1em}
+    Ce qui définit un indice construit par R.P = (1) Les prédicteurs (2) Leurs coefficients
+\end{frame}
+
+%=========================================================
+\subsection{Coefficients du modèle}
+\begin{frame}
+    \frametitle{Indice par régression de Poisson}
+    \framesubtitle{Coefficients du modèle}
+
+    1 slide sur les efforts réalisés pour améliorer la variabilité interannuelle via les coefficients
+    \begin{itemize}
+        \item Résolution spatiale
+        \item Résolution temporelle
+        \item Indices régionaux
+    \end{itemize}
+    \vspace{1em}
+    Possiblement sous forme de tableau ?\\
+    $\longrightarrow$ La (mauvaise) représentation de variabilité interannuelle est en fait très robuste aux coefficients
+\end{frame}
+
+%=========================================================
+\subsection{Prédicteurs utilisés dans la régression}
+\begin{frame}
+    \frametitle{Introduction d'un indice Niño}
+    \framesubtitle{Définitions}
+
+    Définition ONI
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{Figures/ONI.png}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{Figures/corr_ONI_bassin.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introduction d'un indice Niño}
+    \framesubtitle{Résultats}
+    \begin{itemize}
+        \item Présenter la régression (locale)
+        \item Fig comparaison de l'indice LOA
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Déficit de saturation d'humidité}
+    
+\end{frame}
+
 
 \section{Conclusion et perspectives}
 
