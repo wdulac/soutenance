@@ -38,7 +38,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\RequirePackage{fontspec}
+%\RequirePackage{arevmath}
+\RequirePackage[no-math]{fontspec}
+\RequirePackage{mathtools}
+\RequirePackage[italic]{mathastext}
+
 \RequirePackage{calc}
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
@@ -46,6 +50,12 @@
 \RequirePackage{tcolorbox}
 \RequirePackage{caption}
 %\RequirePackage{colortbl}
+
+%\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+%\RequirePackage{amsthm}
+%\RequirePackage{unicode-math-luatex}
+
 \tcbuselibrary{skins}
 
 \RequirePackage[
@@ -249,6 +259,7 @@
 	Ligatures=TeX,
 	BoldFont={* Medium},
 ]{Fira Sans}
+
 \setmonofont[
 	Path = ./fonts/,
 	Scale = 0.9,
