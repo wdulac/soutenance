@@ -28,7 +28,7 @@
 \ProcessKeyvalOptions*
 
 \ifawesome@english@
-	\RequirePackage[english]{babel}
+	\RequirePackage[french]{babel}
 \else
 	\RequirePackage[ngerman]{babel}
 \fi
@@ -100,6 +100,7 @@
     isbn=false,
 	sorting=ynt
 ]{biblatex}
+\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
 \RequirePackage[strict, autostyle]{csquotes}
 %\nocite{*}
 
@@ -240,7 +241,8 @@
 
 \setbeamercolor{section in toc}{fg=black}
 \setbeamercolor{section number projected}{bg=black, fg=accent}
-\setbeamercolor{subsection number projected}{bg=lightgray, fg=accent}
+%\setbeamercolor{subsection number projected}{bg=lightgray, fg=accent}
+\setbeamercolor{subsection number projected}{bg=accent, fg=accent}
 
 \setbeamercolor{structure}{fg=black}
 \setbeamercolor{normal text}{fg=black}
@@ -361,10 +363,17 @@
 %    }
 %}
 
-\setbeamertemplate{subsection in toc}{
-    \usebeamercolor[fg]{subsection number projected}%
-    \leavevmode\leftskip=1.5em\inserttocsectionnumber.\textsubscript{\inserttocsubsectionnumber}~\textcolor{black}{\inserttocsubsection}\par
-}
+%\setbeamertemplate{subsection in toc}{
+%    \usebeamercolor[fg]{subsection number projected}%
+%    \leavevmode\leftskip=1.5em\inserttocsectionnumber.\textsubscript{\inserttocsubsectionnumber}~\textcolor{black}{\inserttocsubsection}\par
+%}
+
+%\setbeamertemplate{subsection in toc}{
+%     \usebeamercolor[fg]{subsection number projected}%
+%     \leavevmode\leftskip=1.5em\textcolor{black}{\inserttocsubsection}\par
+%}
+
+\setbeamertemplate{subsection in toc}[square]
 
 %\setbeamertemplate{subsection in toc}{
 %	\par%
@@ -598,20 +607,22 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 			\hfill%
 			\hyperlinkdocumentstart{\insertshorttitle}%
 			\hfill%
-			\colorbox{accent}{
-				\color{white}
-				\hspace{0.3cm}%
-				\ifawesome@english@
-				Section
-				\else
-				Kapitel
-				\fi
-				~\thesection
-				\ifx\insertsubsection\empty\else
-					.\thesubsection
-				\fi
-				\hspace{0.3cm}
-			}%
+            \hfill%
+            \hfill
+			 % \colorbox{accent}{
+			 % 	\color{white}
+			 % 	\hspace{0.3cm}%
+			 % 	\ifawesome@english@
+			 % 	Section
+			 % 	\else
+			 % 	Kapitel
+			 % 	\fi
+			 % 	~\thesection
+			 % 	\ifx\insertsubsection\empty\else
+			 % 		.\thesubsection
+			 % 	\fi
+			 % 	\hspace{0.3cm}
+			 % }%
 		\end{beamercolorbox}%
 	}
 	\vskip0pt%
@@ -659,11 +670,11 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
         \thispagestyle{navigation@sec}%
         \centering%
         \usebeamerfont{title}%
-        \usebeamercolor[fg]{section number projected}%
-        \scalebox{1.3}{\raisebox{-1pt}{\insertsectionnumber}}.%
-        \usebeamercolor[fg]{subsection number projected}%
-        \textsubscript{\insertsubsectionnumber}~%
-        \usebeamercolor[fg]{title}%
+        %\usebeamercolor[fg]{section number projected}%
+        %\scalebox{1.3}{\raisebox{-1pt}{\insertsectionnumber}}.%
+        %\usebeamercolor[fg]{subsection number projected}%
+        %\textsubscript{\insertsubsectionnumber}~%
+        %\usebeamercolor[fg]{title}%
         \insertsubsection\par
     \end{frame}
 }
