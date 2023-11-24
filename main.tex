@@ -196,13 +196,13 @@
             \begin{figure}
                 \centering
                 \begin{tikzpicture}
-                    \node[anchor=south west, inner sep=0] (image) at (0,0)%
+                    \node<1->[anchor=south west, inner sep=0] (image) at (0,0)%
                         {\includegraphics[width=\textwidth]{Figures/Fig_5_Knutson_BAMS_revised_3_9_20-scaled_cropped.png}};
                     \begin{scope}[x={(image.south east)},y={(image.north west)}]
-                        \draw[rounded corners=0.5mm, red, fill, fill opacity=0.1, line width=0.5] (0.627, 0.018) rectangle (0.69, 0.055);
-                        \draw[rounded corners=0.5mm, green, fill, fill opacity=0.1, line width=0.5] (0.6955, 0.018) rectangle (0.749, 0.055);
-                        \draw[rounded corners=0.5mm, blue, fill, fill opacity=0.1, line width=0.5] (0.755, 0.018) rectangle (0.818, 0.055);
-                        \draw[rounded corners=0.5mm, purple, fill, fill opacity=0.1, line width=0.5] (0.825, 0.018) rectangle (0.898, 0.055);
+                        \draw<2->[rounded corners=0.5mm, red, fill, fill opacity=0.1, line width=0.5] (0.627, 0.018) rectangle (0.69, 0.055);
+                        \draw<3->[rounded corners=0.5mm, green, fill, fill opacity=0.1, line width=0.5] (0.6955, 0.018) rectangle (0.749, 0.055);
+                        \draw<4->[rounded corners=0.5mm, blue, fill, fill opacity=0.1, line width=0.5] (0.755, 0.018) rectangle (0.818, 0.055);
+                        \draw<5->[rounded corners=0.5mm, purple, fill, fill opacity=0.1, line width=0.5] (0.825, 0.018) rectangle (0.898, 0.055);
                     \end{scope}
                 \end{tikzpicture}
                 \caption{Synthèse des projections de l'activité cyclonique pour un réchauffement de 2°C par rapport à 1986 -- 2005
@@ -212,20 +212,23 @@
         \begin{column}{0.25\textwidth}
            \footnotesize
            \setlength{\leftmargini}{2.5ex}
-           \begin{block}[Résumé]
-               \scriptsize
-               \begin{itemize}
-                    \item \textcolor{red}{Baisse} probable de la fréquence en général 
-                    \item \textcolor{green}{Hausse} \underline{relative} de la fréquence des cyclones forts
-                    \item \textcolor{blue}{Hausse} fortement probable de l'intensité maximale
-                    \item \textcolor{purple}{Hausse} très fortement probable des précipitations
-               \end{itemize}
-           \end{block}
-           \pause
-           \begin{alertblock}
-                \scriptsize
-                Incertitudes conséquentes, y compris parfois sur le signe du changement
-           \end{alertblock}
+           \onslide<2->{
+               \begin{block}[Résumé]
+                   \scriptsize
+                   \begin{itemize}
+                        \item<2-> \textcolor{red}{Fréquence toutes catégories} : Baisse probable
+                        \item<3-> \textcolor{green}{Fréquence des cyclones forts} : Hausse \underline{relative}
+                        \item<4-> \textcolor{blue}{Intensité maximale} : Hausse fortement probable
+                        \item<5-> \textcolor{purple}{Précipitations} : Hausse très fortement probable
+                   \end{itemize}
+               \end{block}
+           }
+           \onslide<6->{
+               \begin{alertblock}
+                    \scriptsize
+                    Incertitudes conséquentes, y compris parfois sur le signe du changement
+               \end{alertblock}
+           }
         \end{column}
     \end{columns}
 \end{frame}
@@ -241,20 +244,23 @@
         \begin{column}{0.55\textwidth}
             \footnotesize
             \begin{definition} 
-                Discrétisation de l'évolution de l'état de l'atmosphère dans le temps et \alert{l'espace}\\
+                Discrétisation des équations régissant l'évolution de l'état de \mbox{l'atmosphère} dans le temps et \alert{l'espace}\\
                 $\longrightarrow$ ~L'échelle de la \alert{maille}
             \end{definition}
             \vspace{1em}%
-            \begin{block}[Résolutions horizontales des modèles actuels \parencite{ipcc_annex_2021}]
-                \begin{itemize}
-                    \item Hautes résolutions : 20 \sim~80 km
-                    \item Basses résolutions : 100 \sim~250 km
-                \end{itemize}
-            \end{block}
-            \vspace{1em}%
             \onslide<2->{
+                \begin{block}[Résolutions horizontales des modèles actuels \parencite{ipcc_annex_2021}]
+                    \begin{itemize}
+                        \item Hautes résolutions : 20 \sim~80 km
+                        \item Basses résolutions : 100 \sim~250 km
+                    \end{itemize}
+                \end{block}
+            }
+            \vspace{1em}%
+            \onslide<3->{
                 \begin{alertblock}
-                    On commence tout juste à pouvoir descendre à l'échelle nécessaire pour simuler des TC \underline{réalistes}
+                    On commence tout juste à pouvoir descendre à l'échelle nécessaire pour simuler des TC \underline{réalistes} aux échelles de temps
+                    climatiques
                 \end{alertblock}
             }
         \end{column}
@@ -283,7 +289,7 @@
 
 %=========================================================
 \begin{frame}[c]
-    \frametitle{Détection et suivi objectif}
+    \frametitle{1\iere~approche : Détection et suivi objectif}
     \framesubtitle{Mesure directe dans les simulations haute résolution}
     \begin{columns}
         \begin{column}{0.66\textwidth}
@@ -296,7 +302,7 @@
             \onslide<2->{
                 \begin{block}
                     \centering
-                    Statistiques descriptives sur le nombre et les propriétés des cyclones détectées dans des simulations en climat futur
+                    Statistiques descriptives sur le nombre et les propriétés des cyclones détectés dans des simulations en climat futur
                 \end{block}
             }
             \begin{columns}[t]
@@ -309,7 +315,7 @@
                             \tcblower
                             \scriptsize
                             \begin{itemize}
-                                \item Capture le cycle de vie
+                                \item Capture le cycle de vie et la structure spatiale des cyclones
                                 \item Permet une évaluation de tous les aspects de l'activité cyclonique
                             \end{itemize}
                         \end{examples}
@@ -320,7 +326,8 @@
                         \begin{alertblock}[Inconvénients] 
                             \scriptsize
                             \begin{itemize}
-                                \item Nécessite des simulations à haute résolution (coûteuses et encore trop peu nombreuses)
+                                \item Nécessite des simulations à haute résolution (\alert{coûteuses} et encore trop \alert{peu nombreuses})
+                                \vspace{2.9ex}
                                 \item Sensibilité à la méthodologie de détection \parencite{horn_tracking_2014,bourdin_intercomparison_2022}
                             \end{itemize}
                         \end{alertblock}
@@ -352,7 +359,7 @@
 
 %=========================================================
 \begin{frame}[t]
-    \frametitle{Indices de cyclogénèse}
+    \frametitle{2\ieme~ approche : Indices de cyclogénèse}
     \framesubtitle{Inférence de l'activité par l'environnement de grande échelle}
     \begin{columns}[t]
         \begin{column}{0.5\textwidth}
@@ -367,7 +374,8 @@
                 \begin{block}
                     \scriptsize
                     \centering
-                    Relations établies en climat présent pour application à des simulations en climat futur.
+                    %Relations établies en climat présent pour application à des simulations en climat futur.
+                    Relations caractérisant la climatologie spatio-temporelle présente, et appliquées à des simulations en climat futur.
                 \end{block}
             }
             \begin{columns}[t]
@@ -388,6 +396,7 @@
                             \scriptsize
                             \begin{itemize}
                                 \item Mesure \alert{indirecte}
+                                \vspace{1ex}
                                 \item Incertitudes sur le choix des variables
                             \end{itemize}
                         \end{alertblock}
@@ -410,7 +419,7 @@
 %=========================================================
 \begin{frame}[c]
     \frametitle{Problématique}
-    \framesubtitle{Introduction de la problématique de la thèse / soutenance}
+    \framesubtitle{Contexte général}
 
     \begin{itemize}
         \item Mentionner la divergence dans les projections futures (sans trop se focaliser dessus puisqu'on ne la résoud pas / ce n'est pas vraiment l'objet de la
@@ -421,10 +430,20 @@
     
 \end{frame}
 
-
-\section[Détection et suivi]{Détection et suivi : Application du traqueur CNRM à la réanalyse ERA5}
+%=========================================================
+\begin{frame}
+    \frametitle{Problématique}
+    \framesubtitle{Actions entreprises}
+    2 colones :
+    \begin{itemize}
+        \item Hypothèse de la variabilité interannuelle (indices)
+        \item Qu'est-ce qu'on détecte vraiment avec un traqueur (tracking)
+    \end{itemize}
+    
+\end{frame}
 
 %=========================================================
+\section[Détection et suivi]{Détection et suivi : Application du traqueur CNRM à la réanalyse ERA5}
 \begin{frame}[c]
     \frametitle{Plan}
     \addtocounter{framesinsection}{-1}
@@ -676,7 +695,7 @@
            \end{definition}
            \begin{itemize}
                \item Définition de la similarité angulaire entre deux vecteurs (nouveau schéma ?)
-               \item Définition de $C \cap Q$, $C \ominus N$ et aussi de $C \cup Q$
+               \item Définition de $C \cap Q$, $C \ominus Q$ et aussi de $C \cup Q$
            \end{itemize}
         \end{column}
         \begin{column}{0.6\textwidth}
