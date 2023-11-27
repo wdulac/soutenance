@@ -281,10 +281,32 @@
 %=========================================================
 \begin{frame}
     \frametitle{Les modèles de climat}
-    \framesubtitle{ARPEGE et ERA5}
-
-    Je penche de plus en plus vers une slide supplémentaire ici pour introduire brièvement la distinction modèle climat / réanalyse, i.e ARPEGE / ERA5.
-    
+    \framesubtitle{Modèles de climat et réanalyses}
+    \begin{columns}[t]
+        \begin{column}{0.45\textwidth}
+           \begin{figure}
+               \centering
+               \includegraphics[height=4.5cm]{Figures/schema_reanalyse_intermediaire.png}
+           \end{figure} 
+        \end{column}
+        \begin{column}{0.45\textwidth}
+           \begin{figure}
+               \centering
+               \includegraphics[width=\textwidth]{Figures/schema_reanalyse.jpg}
+               \caption{Principe de fonctionnement de la réanalyse atmosphérique.\\\textit{Illustration du CEPMMT (ECMWF)}}
+           \end{figure} 
+        \end{column}
+    \end{columns} 
+    %
+    \begin{center}
+        \begin{minipage}{12cm}
+            \begin{definition}
+                \centering
+                \small
+                Les réanalyses font le lien entre les sorties des modèles de climat et les observations
+            \end{definition}
+        \end{minipage}
+    \end{center}
 \end{frame}
 
 %=========================================================
@@ -417,30 +439,123 @@
 \end{frame}
 
 %=========================================================
-\begin{frame}[c]
+\subsection{Problématique}
+\begin{frame}[t]
     \frametitle{Problématique}
     \framesubtitle{Contexte général}
-
-    \begin{itemize}
-        \item Mentionner la divergence dans les projections futures (sans trop se focaliser dessus puisqu'on ne la résoud pas / ce n'est pas vraiment l'objet de la
-    présentation).
-        \item Mettre plutôt l'accent sur les points sur lesquels on peut améliorer tracking / indices ?
-    \end{itemize}
-
-    
+    \vspace{-1em}
+    \begin{columns}[b]
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\textwidth]{Figures/density_fitted_title.png}
+                \caption{Changement dans la densité de cyclogénèse (par 50 ans) par mesure \alert{directe} sur la période 2031 -- 2080 (RCP 8.5) par rapport à 1965 -- 2013
+                \parencite{chauvin_future_2020}}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\textwidth]{Figures/gpi_fitted_2_good_title.png}
+                \caption{Changement dans la densityé de cyclogénèse (par 50 ans) par mesure \alert{indirecte} (GPI) sur la période 2031 -- 2080 (RCP 8.5) par
+                rapport à 1965 -- 2013}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    %
+    \onslide<2->{
+        \begin{center}
+            \begin{minipage}{3.5cm}
+                \begin{alertblock}
+                    \centering
+                    \footnotesize
+                    Les projections \underline{\alert{divergent}}
+                \end{alertblock}
+            \end{minipage}
+        \end{center}
+    }
 \end{frame}
 
 %=========================================================
-\begin{frame}
+%\begin{frame}
+%    \frametitle{Problématique}
+%    \framesubtitle{Recherches menées}
+%    2 colones :
+%    \begin{itemize}
+%        \item Hypothèse de la variabilité interannuelle (indices)
+%        \item Qu'est-ce qu'on détecte vraiment avec un traqueur (tracking)
+%    \end{itemize}
+%    
+%\end{frame}
+
+\begin{frame}[t]
     \frametitle{Problématique}
-    \framesubtitle{Actions entreprises}
-    2 colones :
-    \begin{itemize}
-        \item Hypothèse de la variabilité interannuelle (indices)
-        \item Qu'est-ce qu'on détecte vraiment avec un traqueur (tracking)
-    \end{itemize}
-    
+    \framesubtitle{Recherches menées}
+    \vspace{-2em}
+    \begin{columns}[t]
+        \begin{column}{0.475\textwidth}
+            \onslide<1->{
+                \begin{center}
+                    \large
+                    \textbf{Détection et suivi} 
+                \end{center}
+            }
+            \vspace{0.8em}
+            \footnotesize
+            \onslide<2->{
+                \begin{alertblock}[Verrous identifiés]
+                    \setlength{\leftmargini}{2.5ex}
+                    \begin{itemize}
+                        \item Influence du choix du traqueur dans les projections \parencite{horn_tracking_2014} 
+                        \item Qu'est-ce que détecte réellement un traqueur ?
+                    \end{itemize}
+                \end{alertblock}
+            }
+            \vspace{2em}
+            \onslide<3->{
+                \begin{examples}[Axe de recherche]
+                    Caractériser en détails le schéma de détection du CNRM pour identifier des pistes de perfectionnement
+                \end{examples}
+            }
+            \vspace{1em}
+            \onslide<4->{
+                $\longrightarrow$ Développement de métriques d'évaluation des performances d'un schéma de détection
+            }
+        \end{column}
+        %
+        \begin{column}{0.475\textwidth}
+            \onslide<1->{
+                \begin{center}
+                    \large
+                    \textbf{Indices de cyclogénèse} 
+                \end{center}
+            }
+            \vspace{0.5em}
+            \footnotesize
+            \onslide<5->{
+                \begin{alertblock}[Verrous identifiés]
+                    \setlength{\leftmargini}{2.5ex}
+                    \begin{itemize}
+                        \item Tendances projetées à l'opposé de l'approche directe \parencite{camargo_testing_2014}
+                        \item Mauvaise représentation de la variabilité interannuelle \parencite{menkes_comparison_2012,cavicchia_tropical_2023}
+                    \end{itemize}
+                \end{alertblock}
+            }
+            \vspace{1em}
+            \onslide<6->{
+                \begin{examples}[Hypothèse de travail]
+                    Améliorer la variabilité interannuelle pour avoir une meilleure confiance dans les projections futures
+                \end{examples}
+            }
+            \vspace{1em}
+            \onslide<7->{
+                $\longrightarrow$ Recherche de l'amélioration de la représentation de la variabilité interannuelle par les indices de cyclogénèse
+            }
+        \end{column}
+    \end{columns}
 \end{frame}
+
+
 
 %=========================================================
 \section[Détection et suivi]{Détection et suivi : Application du traqueur CNRM à la réanalyse ERA5}
@@ -458,16 +573,64 @@
     \tableofcontents[currentsection,hideothersubsections]
 \end{frame}
 
+%=========================================================
 \subsection*{Motivations}
-\begin{frame}[c]
+\begin{frame}[t]
     \frametitle{Introduction}
-    \framesubtitle{Pourquoi s'intéresser à ERA5}
-    Slide d'introduction pour justifier le fait de travailler sur ERA5
-    \begin{itemize}
-        \item Dans le contexte de la thèse : validation de l'outil de tracking
-        \item Intérêt pour la communauté scientifique : \textquote{Nouveau} produit de référence, haute résolution, beaucoup d'espoir pour la représentation des
-            TC.
-    \end{itemize}
+    \framesubtitle{Intérêts de la réanalyse ERA5}
+    \onslide<1->{
+        \begin{center}
+            \begin{minipage}{10cm}
+                \small
+                \begin{definition}[Réanalyse ERA5 \parencite{hersbach_era5_2020}]
+                    \footnotesize
+                    \begin{itemize}
+                        \item Dernière réanalyse en date du CEPMMT
+                        \item Résolution horizontale $\sim$ 0.28° (25 km) sur tout le globe
+                        \item De 1940 à aujourd'hui (en cours)
+                    \end{itemize}
+                \end{definition}
+            \end{minipage}
+        \end{center}
+    }
+    %
+    \vspace{1.5em}
+    %
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \onslide<2->{
+                \small
+                \begin{block}[Contexte de la thèse]
+                    \footnotesize
+                    Meilleure approximation de l'état \underline{historique} de l'atmosphère
+                    \tcblower
+                    \begin{itemize}
+                        \footnotesize
+                        \item La plupart des TC observés sont présents dedans
+                        \item Permet la validation du schéma de détection
+                    \end{itemize}
+                \end{block}
+            }
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \onslide<3->{
+                \small
+                \begin{block}[Intérêt scientifique]
+                    \begin{itemize}
+                        \footnotesize
+                        \item Produit de référence utilisé pour combler le manque entre les observations et les sorties de modèle 
+                        \item Beaucoup d'attentes pour la représentation des TC en raison de sa haute résolution
+                    \end{itemize}
+                \end{block}
+            }
+        \end{column}
+    \end{columns}
+    % Slide d'introduction pour justifier le fait de travailler sur ERA5
+    % \begin{itemize}
+    %     \item Dans le contexte de la thèse : validation de l'outil de tracking
+    %     \item Intérêt pour la communauté scientifique : \textquote{Nouveau} produit de référence, haute résolution, beaucoup d'espoir pour la représentation des
+    %         TC.
+    % \end{itemize}
 \end{frame}
 
 %=========================================================
@@ -478,23 +641,30 @@
     \begin{block}[Étapes de détection \parencite{chauvin_response_2006}] 
         \scriptsize
         \begin{enumerate}
-            \item \textcolor[HTML]{ff0011}{Seuil} de vorticité (\textbf{VOR})
-            \item Estimation de la taille du \textcolor{green}{système} et de son \textcolor{blue}{environnement}
-                \begin{itemize}
-                    \scriptsize
-                    \item Seuil de vent à 10~m (\textbf{RES})
-                    \item Anomalie de température cumulée à 700~hPa, 500~hPa et 300~hPa (\textbf{TANOM})
-                    \item Profil vertical de température entre 300~hPa et 850~hPa (\textbf{PT})
-                    \item Profil vertical de vent entre 300~hPa et 850~hPa (\textbf{PW})
-                \end{itemize}
-            \item Suivi du système (reliage des points)
-            \item \textcolor{violet}{Relaxation} des paramètres pour \underline{compléter} en amont et en aval (\textbf{REL})
+            \item<1-> \textcolor[HTML]{ff0011}{Seuil} de vorticité (\textbf{VOR})
+            \item<3-> Estimation de la taille du \textcolor{green}{système} \onslide<4->{et de son \textcolor{blue}{environnement}}
+                \onslide<5->{
+                    \begin{itemize}
+                        \scriptsize
+                        \item Seuil de vent à 10~m (\textbf{RES})
+                        \item Anomalie de température cumulée à 700~hPa, 500~hPa et 300~hPa (\textbf{TANOM})
+                        \item Profil vertical de température entre 300~hPa et 850~hPa (\textbf{PT})
+                        \item Profil vertical de vent entre 300~hPa et 850~hPa (\textbf{PW})
+                    \end{itemize}
+                }
+            \item<6-> Suivi du système (reliage des points)
+            \item<7-> \textcolor{violet}{Relaxation} des paramètres pour \underline{compléter} en amont et en aval (\textbf{REL})
         \end{enumerate}
     \end{block}
     %\vspace{1em}
     \begin{figure}
         \centering
-        \includegraphics[height=2.8cm]{Figures/schema_etapes_tracking.png}
+        \includegraphics<2>[height=2.8cm]{Figures/fonctionnement_tracker/step1.png}%
+        \includegraphics<3>[height=2.8cm]{Figures/fonctionnement_tracker/step2.png}%
+        \includegraphics<4>[height=2.8cm]{Figures/fonctionnement_tracker/step3.png}%
+        \includegraphics<5>[height=2.8cm]{Figures/fonctionnement_tracker/step4.png}%
+        \includegraphics<6>[height=2.8cm]{Figures/fonctionnement_tracker/step5.png}%
+        \includegraphics<7>[height=2.8cm]{Figures/fonctionnement_tracker/step6.png}%
     \end{figure}
 \end{frame}
 
@@ -516,7 +686,7 @@
                     \end{itemize}
                 \end{examples}
             }
-            \vspace{1em}
+            \vspace{0.33em}
             \onslide<2->{
                 \scriptsize
                 \begin{block}[Appariement des trajectoires]
@@ -531,10 +701,10 @@
                     $\Rightarrow$ Calcul du taux de l'efficacité de détection (POD) et du taux de fausses détections (FAR).
                 \end{block}
             }
-            \vspace{1em}
+            \vspace{0.33em}
             \onslide<3->{
                 \scriptsize
-                \begin{definition}
+                \begin{definition}[Optimisation du schéma de détection pour ERA5 \parencite{dulac_assessing_2023}]
                     Seuils de détection du traqueur qui \alert{optimisent} le POD et le FAR sur ERA5 :\\
                     \textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
                     \textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
