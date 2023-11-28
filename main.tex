@@ -465,7 +465,7 @@
     %
     \onslide<2->{
         \begin{center}
-            \begin{minipage}{3.5cm}
+            \begin{minipage}{4.5cm}
                 \begin{alertblock}
                     \centering
                     \footnotesize
@@ -659,6 +659,7 @@
     %\vspace{1em}
     \begin{figure}
         \centering
+        \includegraphics<1>[height=2.8cm]{Figures/fonctionnement_tracker/step0.png}%
         \includegraphics<2>[height=2.8cm]{Figures/fonctionnement_tracker/step1.png}%
         \includegraphics<3>[height=2.8cm]{Figures/fonctionnement_tracker/step2.png}%
         \includegraphics<4>[height=2.8cm]{Figures/fonctionnement_tracker/step3.png}%
@@ -727,7 +728,54 @@
 
 
 %=========================================================
-\subsection[Représentation des cyclones dans ERA 5]{Représentation des cyclones dans ERA5}
+\subsection*{Performances du traqueur}
+\begin{frame}[t]
+    \frametitle{Performances du traqueur sur ERA5}
+    \footnotesize
+    \begin{examples}[Probabilité de détection et taux de fausses alertes]    
+        \scriptsize
+        \[ \text{FAR} = \frac{N_{\text{ERA5}} - N_{\text{Hit}}}{N_{\text{ERA5}}}, \quad\quad \text{POD} = \frac{N_{\text{Hit}}}{N_{\text{IBTrACS}}} \]
+        %
+        \setlength{\leftmargini}{2.5ex}
+        \begin{itemize}
+            \item $N_{\text{ERA5}}$ et $N_{\text{IBTrACS}}$ resp. le nombre de trajectoires dans chaque jeu de données
+            \item $N_{\text{Hit}}$ le nombre de trajectoires ERA5 appariées à IBTrACS
+        \end{itemize}
+        $\longrightarrow$ Il suffit \alert{d'une seule échéance} en commun suffit pour compter dans $N_{\text{Hit}}$.
+    \end{examples}
+    %
+    \pause
+    %
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+        \footnotesize
+        \vspace{-0.5em}
+        \begin{figure}
+            \centering
+            \includegraphics[height=3.8cm]{Figures/far_pod.png}
+        \end{figure}
+        \end{column}
+        \begin{column}{0.4\linewidth}
+        \scriptsize
+        \vspace{-1em}
+        \begin{block}        
+            Valeurs seuils optimisées + filtre des systèmes de moyennes latitudes \parencite{hart_cyclone_2003}
+            \tcblower
+            \setlength{\leftmargini}{2.5ex}
+            \alert{Majorité} des systèmes détectés dans ERA5 :
+            \begin{itemize}
+                \item Moyennes FAR et POD resp. 23,5~\% et 67,4~\%
+                \item Performances variables selon les régions
+            \end{itemize}
+            $\longrightarrow$ Appariement permet d'étudier \underline{uniquement} les \alert{\mbox{systèmes} identifiés} dans IBTrACS
+        \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+%=========================================================
+\subsection[Représentation des cyclones dans ERA5]{Représentation des cyclones dans ERA5}
 \begin{frame}
     \frametitle{Relation vent-pression dans ERA5}
     \begin{columns}
@@ -825,15 +873,32 @@
 \begin{frame}[c]
     \frametitle{Représentation des cyclones dans ERA5}
     \framesubtitle{Conclusion}
-    Slide de conclusion sur cette partie : Pourquoi ces résultats sont importants :
-    \begin{itemize}
-        \item Attention quand on veut aller voir la tête d'un TC observé dans ERA5 (vent sous-estimé + pas forcément même classe d'intensité)
-        \item C'est également fortement déconseillé d'aller directement extraire les champs ERA5 en lieu et place du max d'intensité d'un TC observé (à cause du
-            délai)
-    \end{itemize}
+    %Slide de conclusion sur cette partie : Pourquoi ces résultats sont importants :
+    %\begin{itemize}
+    %    \item Attention quand on veut aller voir la tête d'un TC observé dans ERA5 (vent sous-estimé + pas forcément même classe d'intensité)
+    %    \item C'est également fortement déconseillé d'aller directement extraire les champs ERA5 en lieu et place du max d'intensité d'un TC observé (à cause du
+    %        délai)
+    %\end{itemize}
+    \begin{block}[Messages clefs]
+        \small
+        \begin{enumerate}
+            \setlength\itemsep{1em}
+            \item<1-> \alert{Bonnes performances} du traqueur (FAR et POD), grâce à l'optimisation et à l'utilisation d'un filtre de systèmes de
+                moyennes latitudes adapté
+            \item<2-> Forte \alert{sous-estimation} des vents associés aux TC, pression minimale mieux représentée
+            \item<3-> \alert{Dipersion} dans les classes d'intensité entre ERA5 et IBTrACS + \alert{retard} dans l'intensification
+        \end{enumerate}
+        \vspace{1em}
+        \onslide<4->{\hskip1em $\longrightarrow$ Nécessité de traquer ERA5 pour l'étude des TC}
+    \end{block}
+    \onslide<5->{
+        \large 
+        \vspace{\baselineskip}
+        \begin{center}
+            Vers des métriques d'évaluation de la \alert{qualité} des trajectoires ?
+        \end{center}
+    }
 \end{frame}
-
-\subsection{Filtrage des systèmes de moyennes latitudes}
 
 %=========================================================
 \subsection[Similarité des trajectoires]{Métriques de similarité des trajectoires}
@@ -1041,5 +1106,53 @@
 %\begin{frame}[t,allowframebreaks]{Bibliographie}
 %    \printbibliography
 %\end{frame}
+
+%=========================================================
+\appendix
+\section*{Annexes}
+\subsection*{Optimisation du schéma de détection}
+
+\begin{frame}[c]
+    \frametitle{Optimisation des paramètres de détection}
+    \framesubtitle{Étude de sensibilité du traqueur à ses paramètres}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/optimisation_vectors.png}
+        \caption{\small Sensibilité des paramètres du traqueur en termes de FAR et POD sur les bassins NAtl et NInd entre 2008 et 2018. Chaque point correspond
+        à une combinaison de 5 paramètres (243 au total).}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\subsection*{Représentation des TC dans ERA5}
+\begin{frame}[t]
+    \frametitle{Classes d'intensité croisées}
+    \framesubtitle{Contingence par bassin océanique}
+    \begin{columns}
+        \begin{column}{0.85\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/Annexes/crosstable_region.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.15\textwidth}
+            \scriptsize
+            \begin{block}
+               Relation et dispersion variable selon les régions 
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Composites de la structure interne des TC dans ERA5}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/all_composites.png}
+        \caption{\small Composites ERA5 moyennés par classe d'intensité de la composante IBTrACS, indépendamment de l'intensité dans ERA5.}
+    \end{figure}
+   
+\end{frame}
 
 \end{document}
