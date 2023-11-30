@@ -402,7 +402,7 @@
             }
             \begin{columns}[t]
                 \setlength{\leftmargini}{2ex}
-                \begin{column}{0.5\textwidth}
+                \begin{column}{0.45\textwidth}
                     \onslide<3->{
                         \footnotesize
                         \begin{examples}[Intérêt principal]
@@ -411,7 +411,7 @@
                         \end{examples}
                     }
                 \end{column}
-                \begin{column}{0.5\textwidth}
+                \begin{column}{0.45\textwidth}
                     \onslide<4->{
                         \footnotesize
                         \begin{alertblock}[Inconvénients]
@@ -747,15 +747,15 @@
     \pause
     %
     \begin{columns}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.56\textwidth}
         \footnotesize
-        \vspace{-0.5em}
+        \vspace{-1.5em}
         \begin{figure}
             \centering
             \includegraphics[height=3.8cm]{Figures/far_pod.png}
         \end{figure}
         \end{column}
-        \begin{column}{0.4\linewidth}
+        \begin{column}{0.36\linewidth}
         \scriptsize
         \vspace{-1em}
         \begin{block}        
@@ -906,14 +906,21 @@
 \begin{frame}[c]
     \frametitle{Similarité des trajectoires}
     \framesubtitle{Motivations}
-    Slide d'introduction : Pourquoi chercher à mesurer la similarité des trajectoires ?
-    \begin{itemize}
-        \item Métriques de performances du traqueur intégrée sur les trajectoires (par rapport à \textit{hit or miss})
-        \item Proportion non-nulle des composantes ERA5 de chaque paire de trajectoires qui se trouve à plus de 300 km de la composante IBTrACS
-    \end{itemize}
+    \small
+    \vspace{1em}
+    \begin{definition}
+        \begin{itemize}
+            \item Métriques de performances du traqueur \alert{intégrée} sur les trajectoires (par rapport au FAR et POD)
+            \item Proportion non-nulle des composantes ERA5 de chaque paire de trajectoires qui se trouve à plus de \mbox{300 km} de la composante IBTrACS
+        \end{itemize}
+    \end{definition}
+    %\vspace{1em}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{Figures/coverage_ratio_and_missed.png}
+        \includegraphics[width=\textwidth]{Figures/coverage_ratio_and_missed.png}
+        \captionsetup{width=0.75\textwidth}
+        \caption{Statistiques réalisées sur les 2 244 paires de trajectoires de \cite{dulac_assessing_2023} dont l'intensité de la composante IBTrACS est
+        classifiable (moins de 75\% de valeurs manquantes) et sur les 5 bassins géographiques (NInd exclu).}
     \end{figure}
 \end{frame}
 
@@ -921,23 +928,58 @@
 \begin{frame}[c]
     \frametitle{Similarité des trajectoires}
     \framesubtitle{Principe de fonctionnement}
-    \begin{columns}
+    \begin{columns}[t]
         \begin{column}{0.4\textwidth}
-            \footnotesize
-           \begin{definition}
-               \centering
-               Décomposition d'une trajectoire en séquence de vecteurs de déplacement relatifs
-           \end{definition}
-           \begin{itemize}
-               \item Définition de la similarité angulaire entre deux vecteurs (nouveau schéma ?)
-               \item Définition de $C \cap Q$, $C \ominus Q$ et aussi de $C \cup Q$
-           \end{itemize}
+           \onslide<1->{ 
+               \vspace{-1em}
+               \footnotesize
+               \begin{definition}
+                   \scriptsize
+                   \centering
+                   Décomposition d'une trajectoire en séquence de vecteurs de déplacement relatifs
+               \end{definition}
+           }
+           %
+           \onslide<4->{
+               \footnotesize
+               \begin{examples}[Similarité angulaire]
+                   \scriptsize
+                   Pour deux vecteurs issus au temps $t$ issus de trajectoires différentes :
+                   %
+                   \onslide<5->{
+                       \setlength{\belowdisplayskip}{-2mm}
+                       \begin{align*}
+                           \cos \theta &= \frac{\mathbf{c}_i \cdot \mathbf{q}_i}{\lVert \mathbf{c}_i \rVert \lVert \mathbf{q}_i \rVert} \in [-1; 1] \\
+                           S_{\theta} &= 1 - \frac{\theta}{\pi} \in [0; 1]
+                       \end{align*}
+                   }
+               \end{examples}
+           }
+           %
+           \onslide<6->{
+           \footnotesize
+           \begin{block}
+               \scriptsize
+               \setlength{\leftmargini}{2.5ex}
+               \begin{itemize}
+                   \item<6-> Union $C \cup Q$ : Ensemble des points des deux trajectoires
+                   \item<7-> \alert{Intersection} $C \cap Q$ : Co-existance des deux trajectoires aux mêmes temps $t$
+                   \item<8-> \textcolor{green}{Différence symmétrique} $C \ominus Q$ : Points où une seule trajectoire est définie
+               \end{itemize}
+           \end{block}
+       }
         \end{column}
         \begin{column}{0.6\textwidth}
-           \begin{figure}
-               \centering
-               \includegraphics[width=\textwidth]{Figures/schema_vec_sequence.png}
-           \end{figure} 
+            \vspace{-3.5em}
+            \begin{figure}
+                \centering
+                \includegraphics<1>[width=\textwidth]{Figures/schema_vec_sequence/step0.png}%
+                \includegraphics<2>[width=\textwidth]{Figures/schema_vec_sequence/step1.png}%
+                \includegraphics<3>[width=\textwidth]{Figures/schema_vec_sequence/step2.png}%
+                \includegraphics<4>[width=\textwidth]{Figures/schema_vec_sequence/step3.png}%
+                \includegraphics<5>[width=\textwidth]{Figures/schema_vec_sequence/step4.png}%
+                \includegraphics<6->[width=\textwidth]{Figures/schema_vec_sequence/step5.png}%
+            \end{figure} 
         \end{column}
     \end{columns} 
 \end{frame}
