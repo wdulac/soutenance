@@ -942,9 +942,9 @@
            %
            \onslide<4->{
                \footnotesize
-               \begin{examples}[Similarité angulaire]
+               \begin{examples}[Similarité angulaire $S_\theta$]
                    \scriptsize
-                   Pour deux vecteurs issus au temps $t$ issus de trajectoires différentes :
+                   Pour deux vecteurs au temps $t$ issus de deux trajectoires différentes :
                    %
                    \onslide<5->{
                        \setlength{\belowdisplayskip}{-2mm}
@@ -962,9 +962,9 @@
                \scriptsize
                \setlength{\leftmargini}{2.5ex}
                \begin{itemize}
-                   \item<6-> Union $C \cup Q$ : Ensemble des points des deux trajectoires
-                   \item<7-> \alert{Intersection} $C \cap Q$ : Co-existance des deux trajectoires aux mêmes temps $t$
-                   \item<8-> \textcolor{green}{Différence symmétrique} $C \ominus Q$ : Points où une seule trajectoire est définie
+                   \item<6-> \alert{Intersection} $C \cap Q$ : Points où les deux trajectoires co-existent aux mêmes temps $t$
+                   \item<7-> \textcolor{green}{Différence symmétrique} $C \ominus Q$ : Points où une seule trajectoire est définie
+                   \item<8-> Union $C \cup Q$ : Ensemble des points des deux trajectoires
                \end{itemize}
            \end{block}
        }
@@ -985,16 +985,43 @@
 \end{frame}
 
 %=========================================================
-\begin{frame}[c]
+\begin{frame}[t]
     \frametitle{Métriques de similarité}
-    Introduction des trois métriques : MAS$^\cap$, MAS$^\cup$ et wMAS, qui se distinguent par leur façon de comptabiliser $N_\ominus$
     %\vskip0ptplus1filll\relax
-    \vspace{2em}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.9\textwidth]{Figures/MAS_vs_Ndiff.png}
-    \end{figure}
-    Cette-figure là ou bien les trois exemples ? (C'est peut-être possible de faire les deux sur une slide)
+    \begin{columns}[t]
+        \begin{column}{0.66\textwidth}
+            \footnotesize
+            \vspace{-1.5em}
+            \begin{examples}[Métriques de similarité angulaire moyenne ({MAS, \textit{Mean Angular Similarity}})]
+                \begin{enumerate}[(a)]
+                    \item<1-> $\text{MAS}^\cap = \bar{S_\theta}^\cap = \frac{1}{\alert{N_\cap}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
+                    \item<2-> $\text{MAS}^\cup = \bar{S_\theta}^\cup = \frac{1}{\textcolor{violet}{N_\cup}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
+                    \item<3-> $\text{wMAS} = \frac{ \alert{w_1}}{ \alert{w_1 N_\cap} + \textcolor{red}{w_2 N_\ominus}} \sum_{i=1}^{N_\cap} S_{\theta}(\mathbf{c}_i, \mathbf{q}_i) \quad\quad 
+                    \begin{cases}
+                        \alert{w_1} = 1 + \bar{S_\theta}^\cap \\
+                        \textcolor{red}{w_2} = 2 - \bar{S_\theta}^\cap \\
+                    \end{cases}$
+                \end{enumerate}
+            \end{examples}
+        \end{column}
+        \begin{column}{0.33\textwidth}
+            \footnotesize
+            \onslide<4->{
+                \vspace{-7em}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{Figures/exemple_similarity.png}
+                \end{figure}
+            }
+        \end{column}
+    \end{columns}
+    \onslide<5->{
+        %\vspace{-1em}
+        \begin{figure}
+            \centering
+            \includegraphics[height=3.5cm]{Figures/MAS_vs_Ndiff.png}
+        \end{figure}
+    }
 \end{frame}
 
 %=========================================================
