@@ -97,7 +97,7 @@
             \begin{figure}[h]
                 \centering
                 \includegraphics[width=\textwidth]{Figures/Bassins_et_trajectoires_soutenance.png}
-                \caption{Échantillon de trajectoires historiques observées (IBTrACS) entre 1980 et 2019.}
+                \caption{Données issues de la basé de données de cyclones IBTrACS, version 4}
             \end{figure}
         \end{column}
         \begin{column}{0.35\textwidth}
@@ -280,21 +280,29 @@
 
 %=========================================================
 \begin{frame}
-    \frametitle{Les modèles de climat}
-    \framesubtitle{Modèles de climat et réanalyses}
-    \begin{columns}[t]
-        \begin{column}{0.45\textwidth}
-           \begin{figure}
-               \centering
-               \includegraphics[height=4.5cm]{Figures/schema_reanalyse_intermediaire.png}
-           \end{figure} 
+    \frametitle{Les réanalyses atmosphériques}
+    \framesubtitle{Simulation numérique de l'état passé de l'atmosphère}
+    \begin{columns}[c]
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+            \begin{block}
+                \begin{itemize}
+                \setlength\itemsep{3.5ex}
+                    \item \alert{Reconstruction} spatiale (3D) et temporelle de l'état passé de l'atmosphère
+                    \item Versions figées du modèle et du schéma d'assimilation\\
+                        $\longrightarrow$ Jeu de données \alert{complet} et \alert{cohérent} dans le temps et l'espace
+                    \item Souvent utilisées comme proxy d'observations \textit{in-situ}
+                \end{itemize}
+            \end{block}
         \end{column}
-        \begin{column}{0.45\textwidth}
-           \begin{figure}
-               \centering
-               \includegraphics[width=\textwidth]{Figures/schema_reanalyse.jpg}
-               \caption{Principe de fonctionnement de la réanalyse atmosphérique.\\\textit{Illustration du CEPMMT (ECMWF)}}
-           \end{figure} 
+        \begin{column}{0.5\textwidth}
+            \vspace{-2em}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/schema_reanalyse_top_custom.png}
+                \animategraphics[autoplay,loop,width=\textwidth,poster=59]{13}{Figures/u850_octobre_2017/frame.00}{000}{123}
+                \caption{Principe de fonctionnement de la réanalyse atmosphérique.\\Vent zonal à 850 hPa pour Octobre 2017 (ERA5).\\\textit{Adapté d'une illustration du CEPMMT (ECMWF)}}
+            \end{figure} 
         \end{column}
     \end{columns} 
     %
@@ -911,13 +919,14 @@
     \begin{definition}
         \begin{itemize}
             \item Métriques de performances du traqueur \alert{intégrée} sur les trajectoires (par rapport au FAR et POD)
-            \item Proportion non-nulle des composantes ERA5 de chaque paire de trajectoires qui se trouve à plus de \mbox{300 km} de la composante IBTrACS
+            %\item Proportion non-nulle des composantes ERA5 de chaque paire de trajectoires qui se trouve à plus de \mbox{300 km} de la composante IBTrACS
+            \item Appariement $<$ 100~\% : Trajectoires détectées trop courtes \alert{et/ou} située à plus de 300 km d'IBTrACS
         \end{itemize}
     \end{definition}
     %\vspace{1em}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth]{Figures/coverage_ratio_and_missed.png}
+        \includegraphics[height=4cm]{Figures/coverage_ratio.png}
         \captionsetup{width=0.75\textwidth}
         \caption{Statistiques réalisées sur les 2 244 paires de trajectoires de \cite{dulac_assessing_2023} dont l'intensité de la composante IBTrACS est
         classifiable (moins de 75\% de valeurs manquantes) et sur les 5 bassins géographiques (NInd exclu).}
@@ -995,7 +1004,8 @@
             \begin{examples}[Métriques de similarité angulaire moyenne ({MAS, \textit{Mean Angular Similarity}})]
                 \begin{enumerate}[(a)]
                     \item<1-> $\text{MAS}^\cap = \bar{S_\theta}^\cap = \frac{1}{\alert{N_\cap}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
-                    \item<2-> $\text{MAS}^\cup = \bar{S_\theta}^\cup = \frac{1}{\textcolor{violet}{N_\cup}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
+                    \item<2-> $\text{MAS}^\cup = \bar{S_\theta}^\cup = \frac{1}{\underbrace{\textcolor{blue}{N_\cap} + \textcolor{red}{N_\ominus}}_{=
+                        N_\cup}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
                     \item<3-> $\text{wMAS} = \frac{ \alert{w_1}}{ \alert{w_1 N_\cap} + \textcolor{red}{w_2 N_\ominus}} \sum_{i=1}^{N_\cap} S_{\theta}(\mathbf{c}_i, \mathbf{q}_i) \quad\quad 
                     \begin{cases}
                         \alert{w_1} = 1 + \bar{S_\theta}^\cap \\
@@ -1016,7 +1026,7 @@
         \end{column}
     \end{columns}
     \onslide<5->{
-        %\vspace{-1em}
+        \vspace{-0.5em}
         \begin{figure}
             \centering
             \includegraphics[height=3.5cm]{Figures/MAS_vs_Ndiff.png}
@@ -1028,12 +1038,44 @@
 \begin{frame}[c]
     \frametitle{Application des métriques}
     \framesubtitle{Optimisation des paramètres du traqueur : Quel impact ?}
-    Introduire la situation (possiblement avec un schéma pour clarifier le plus possible) :
-    \begin{itemize}
-        \item Deux jeux de trajectoires ERA5 à différents paramètres seuils (lister les paramètres)
-        \item Les deux jeux sont appariés à IBTrACS : 2 trajectoires ERA5 pour chaque trajectoire IBTrACS
-        \item $\longrightarrow$ On regarde le changement de similarité entre les deux paires
-    \end{itemize}
+    %Introduire la situation (possiblement avec un schéma pour clarifier le plus possible) :
+    %\begin{itemize}
+    %    \item Deux jeux de trajectoires ERA5 à différents paramètres seuils (lister les paramètres)
+    %    \item Les deux jeux sont appariés à IBTrACS : 2 trajectoires ERA5 pour chaque trajectoire IBTrACS
+    %    \item $\longrightarrow$ On regarde le changement de similarité entre les deux paires
+    %\end{itemize}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+           \footnotesize
+           \begin{definition}
+               \centering
+               Calcul de la différence de similarité dans les paires ERA5 / IBTrACS avant et après l'optimisation des paramètres
+           \end{definition}
+           \vspace{1em}
+           \begin{block}[Jeux de trajectoires]
+               1 649 \alert{triplets} de trajectoires :
+               \begin{itemize}
+                    \item IBTrACS v4
+                    \item Trajectoires ERA5 utilisées dans \cite{dulac_assessing_2023} (Optimisées)
+                    \item Trajectoires ERA5 \alert{avant} optimisation des paramètres :
+                        \begin{itemize}
+                            \footnotesize
+                            \item \textbf{VOR} = 5$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ (resp. 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
+                            \item \textbf{RES} = 15 m.s$^{\text{-1}}$ (resp. 5m~.s$^{\text{-1}}$)
+                            \item \textbf{PT} = -2~K (resp. -1~K)
+                            \item Paramètre de relaxation \alert{identique} (25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
+                        \end{itemize}
+               \end{itemize}
+           \end{block}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-2em} 
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/schema_application_similarite.png}
+            \end{figure} 
+        \end{column}
+    \end{columns}
 \end{frame}
 
 %=========================================================
