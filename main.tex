@@ -1066,6 +1066,7 @@
                             \item Paramètre de relaxation \alert{identique} (25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
                         \end{itemize}
                \end{itemize}
+               $\longrightarrow$ \alert{Deux trajectoires} ERA5 pour chaque trajectoire IBTrACS
            \end{block}
         \end{column}
         \begin{column}{0.4\textwidth}
@@ -1085,20 +1086,50 @@
     \begin{columns}
         \begin{column}{0.7\textwidth}
             \begin{center}
-                \includegraphics[width=\textwidth]{Figures/delta_MAS.png}
+                \includegraphics<1>[width=\textwidth]{Figures/delta_MAS_hists_only.png}%
+                %\includegraphics<2>[width=\textwidth]{Figures/delta_MAS.png}%
+                \includegraphics<2->[width=\textwidth]{Figures/delta_MAS_fit.png}%
             \end{center}
         \end{column}
         \begin{column}{0.3\textwidth}
-            Présenter aussi pour $N_\ominus = 0$ et $N_\cap = 0$
+            \footnotesize
+            \onslide<2->{
+                \begin{block}
+                    $\overline{\Delta N_\ominus} =$ -0,8 échéances\\
+                    \vspace{\baselineskip}
+                    $\longrightarrow$ Amélioration de la similarité par \alert{réduction} da la différence de temporalité
+                \end{block}
+            }
+            %
+            \onslide<3->{
+                \vspace{1em}
+                \begin{alertblock}[Lorsque {$\Delta N_\ominus = 0$} \underline{et} {$\Delta N_\cap = 0$}]
+                    À temporalité \alert{inchangée} ($n =$ 691) :
+                    \begin{enumerate}[(a)]
+                        \item $\overline{\Delta \text{MAS}^\cap} =$ +0,57 p.p
+                        \item $\overline{\Delta \text{MAS}^\cup} =$ +0,34 p.p
+                        \item $\overline{\Delta \text{wMAS}} =$ +0,54 p.p
+                    \end{enumerate}
+                \end{alertblock}
+            }
         \end{column}
     \end{columns}
 \end{frame}
 
 %=========================================================
 \begin{frame}
-    \frametitle{Similarité des trajectories}
+    \frametitle{Détection et suivi des TC dans ERA5}
     \framesubtitle{Synthèse}
-        Synthèse de cette partie ? Voire de toute la section tracking avant de passer à la suite ?
+    \begin{block}[Messages clefs]
+        \small
+        \begin{enumerate}
+            \setlength\itemsep{1em}
+            \item<1-> Utilisation de la réanalyse ERA5 pour caractériser le schéma de détection du CNRM
+            \item<2-> Appariement des trajectoires détectées avec les trajectoires observées
+            \item<3-> Métrique FAR et POD : Détection binaire
+            \item<4-> Métrique de similarité des trajectoires : Combine une information sur la position et sur la durée
+        \end{enumerate}
+    \end{block}
 \end{frame}
 
 %=========================================================
