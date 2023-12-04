@@ -1153,17 +1153,65 @@
 %=========================================================
 \subsection*{Motivations}
 \begin{frame}
-    \frametitle{Motivations}
-    \begin{itemize}
-        \item Trois indices : GPI / CYGP / TCS
-        \item Illustrer le problème de la variabilité interannuelle (avec corrélation)
-    \end{itemize} 
-    %
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.6\textwidth]{Figures/tcs_cygp_gpi_interannual.png}
-    \end{figure}
-    $\longrightarrow$ Focus sur TCS car plus facile à manipuler (régression stat)
+    \frametitle{Introduction}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[height=3.5cm]{Figures/tcs_cygp_gpi_interannual.png} 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+           \scriptsize
+           \vspace{-3.5em}
+           \begin{table}[h]
+               \centering
+               \caption{\footnotesize Corrélation de la variabilité\\ interannuelle ERA5 avec IBTrACS}
+               \begin{tabular}{l|c|c|c}
+                   & TCS & CYGP & GPI \\
+                   \hline
+                   Ouest Pac. & 0,03 & 0,46 & 0,06 \\
+                   Est Pac. & 0,7 & 0,62 & 0,64 \\
+                   Nord Atl. & 0,71 & 0,7 & 0,79 \\
+                   Sud Pac. & 0,35 & 0,57 & 0,39 \\
+                   S.O Ind. & 0,21 & 0,37 & 0,27 \\
+                   S.E Ind. & 0,22 & 0,16 & 0,12 \\
+               \end{tabular}
+           \end{table}
+        \end{column}
+    \end{columns}
+    \footnotesize
+    \onslide<2->{
+        \begin{block}[Indice de Tippett{,} ou TCS \parencite{tippett_poisson_2011}]
+            \begin{equation*}
+                \text{TCS} = \exp \Big( b_0 + \underbrace{\textcolor{violet}{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}}}_{\text{Dynamique}} +
+                \underbrace{\vphantom{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}} \textcolor{red}{b_H H + b_T T}}_{\text{Thermique}} + \log \cos \phi \Big)
+                \qquad \scriptsize\text{[TC par unité de surface et par unité de temps]}
+            \end{equation*}
+            %
+            \scriptsize
+            Avec:
+            \vspace{-1em}
+            \begin{columns}[t]
+                \begin{column}{0.5\textwidth}
+                    \begin{itemize}
+                        \item $\eta$ : $\min(\zeta, 3.7)$, vorticité relative absolue à 850~hPa \mbox{($10^{-5}$ s$^{-1}$)}
+                        \item $V_\text{shear}$ : Cisaillement vertical entre 850~hPa et 200~hPa (m.s$^{-1}$)
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.5\textwidth}
+                   \begin{itemize}
+                        \item $H$ : Humidité relative à 600~hPa (\%)
+                        \item $T$ : Écart de SST aux tropiques (K)
+                   \end{itemize} 
+                \end{column}
+            \end{columns}
+        }
+        \onslide<3->{
+            \vspace{1em}
+            \scriptsize
+            \begin{center}
+                $\longrightarrow$ Coefficients $b$ issus d'une \underline{régression statistique} : indice facilement \alert{manipulable}
+            \end{center}
+        }
+    \end{block}
 \end{frame}
 
 %=========================================================
@@ -1172,24 +1220,46 @@
     \frametitle{Indices de cyclogénèse}
     \framesubtitle{Méthodologie de la régression de Poisson}
     \footnotesize
-    Distribution de Poisson = Données de comptage (discret)\\
-    Régressions utilisées pour modéliser ce type de données, y compris TC
+    \begin{definition}[Régression de Poisson]
+        Distribution de Poisson utilisée pour modéliser des données discrètes de comptage :
+        \vspace{1em}
+        \begin{align*}
+            \log y &= \mathbf{b}^{\text{T}} \mathbf{x} + \log (\cos \phi)\\
+            \log \begin{pNiceMatrix} 
+                y_1 \\
+                \Vdots \\
+                \\
+                \\
+                y_m
+            \end{pNiceMatrix}
+                   &=
+            \begin{pNiceMatrix}
+                b_1 \\
+                \Vdots \\
+                b_n
+            \end{pNiceMatrix}
+            %
+            \begin{pNiceMatrix}
+                x_{1,1}  & \Cdots  & x_{1,n}\\
+                \Vdots & & \Vdots \\
+                       & & \\
+                       & & \\
+                x_{m,1} & \Cdots & x_{m,n} \\
+            \end{pNiceMatrix} + \log (\cos \phi)
+        \end{align*}
+        %
+        \begin{itemize}
+            \item Prédictant y : Densité de cyclogénèse issues des trajectoire, de taille \alert{$m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$}
+            \item Matrice $\mathbf{x}$ : \alert{$n$} variables thermiques et dynamiques de grande échelle, chacune de taille $m$
+            \item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)\\
+                $\longrightarrow$ S'interprètent comme des \alert{sensibilités} !
+        \end{itemize} 
+    \end{definition}
     \vspace{1em}
     \begin{center}
-        \begin{minipage}{4cm}
-            \begin{definition}
-                \centering
-                $\log y = \mathbf{b}^{\text{T}} \mathbf{x} + \log (\cos \phi)$
-            \end{definition}
-        \end{minipage}
+        \small
+        Indice de cyclogénèse par régression de Poisson : Choix des \alert{prédicteurs} et \alert{coefficients} $b$
     \end{center}
-    \begin{itemize}
-        \item Prédictant y : Densité de cyclogénèse issues des trajectoires (taille $m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$)
-        \item Matrice $\mathbf{x}$ : Variables thermiques et dynamiques de grande échelle
-        \item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)
-    \end{itemize}
-    \vspace{1em}
-    Ce qui définit un indice construit par R.P = (1) Les prédicteurs (2) Leurs coefficients
 \end{frame}
 
 %=========================================================
@@ -1211,21 +1281,55 @@
 
 %=========================================================
 \subsection{Prédicteurs utilisés dans la régression}
-\begin{frame}
-    \frametitle{Introduction d'un indice Niño}
-    \framesubtitle{Définitions}
-
-    Définition ONI
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.5\textwidth]{Figures/ONI.png}
-    \end{figure}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.5\textwidth]{Figures/corr_ONI_bassin.png}
-    \end{figure}
+\begin{frame}[t]
+    \frametitle{Ajout d'un diagnostique El Niño dans la régression}
+    \scriptsize
+    \begin{columns}
+        \begin{column}{0.38\textwidth}
+            \begin{definition}[Simulation historique ARPEGE]
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                    \item Modèle ARPEGE v6.3 (50~km) \parencite{voldoire_evaluation_2019}
+                    \item Période 1979 -- 2010
+                    \item Forçage HadISST1
+                \end{itemize}
+                $\longrightarrow$ SST \alert{historique} mais cyclones \alert{fictifs}
+            \end{definition}
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \vspace{-3em} 
+            \begin{figure}[htpb]
+                \centering
+                \includegraphics[height=3cm]{Figures/ONI.png}
+            \end{figure} 
+        \end{column}
+    \end{columns}
+    %
+    \vspace{2em}
+    \begin{columns}[t]
+        \begin{column}{0.6\textwidth}
+            \vspace{-3.5em}%
+            \begin{figure}
+                \includegraphics<2->[height=4.5cm]{Figures/biais_arpege_correlation_oni.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            %\vspace{1em}
+            \onslide<3->{
+                \begin{examples}[Méthodologie]
+                    \setlength{\leftmargini}{2.5ex}
+                    \begin{itemize}
+                        \item Trajectoires détectées dans la simulation \parencite{chauvin_future_2020} comme prédictant
+                        \item Prédicteurs du TCS ($\eta$, $V_\text{shear}$, $H$, $T$) + ONI \alert{répliqué} en tout point
+                        \item Régression faite \alert{localement}, à l'échelle du bassin
+                    \end{itemize}
+                \end{examples}
+            }
+        \end{column}
+    \end{columns}
 \end{frame}
 
+%=========================================================
 \begin{frame}
     \frametitle{Introduction d'un indice Niño}
     \framesubtitle{Résultats}
