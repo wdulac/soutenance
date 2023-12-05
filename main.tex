@@ -1148,35 +1148,67 @@
     \tableofcontents[currentsection,hideothersubsections]
 \end{frame}
 
-%\makesecslide
+\makesecslide
 
 %=========================================================
 \subsection*{Motivations}
+\begin{frame}[t]
+    \frametitle{Introduction}
+    \framesubtitle{Les indices de cyclogénèse}
+    \small
+    \begin{definition}[Définition]
+        Relation mathématique reliant la fréquence d'occurrence des TC (cyclogénèses) avec l'environnement de grande échelle.
+        \begin{align*}
+            N_{\text{TC}} &= \iint\limits_{D} \underbrace{\rho(\phi, \lambda)}_{\text{Indice}} \; d\phi \, d\lambda \\
+            \rho &= \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{green}{A}}_{\textcolor{green}{\text{Calibration}}} \times
+            \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{red}{X_{\text{Th}}}}_{\textcolor{red}{\text{Thermique}}} \times
+            \underbrace{\textcolor{violet}{X_{\text{Dyn}}}}_{\textcolor{violet}{\text{Dynamique}}}
+        \end{align*}
+        Composés d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
+        quantité moyenne souhaitée 
+    \end{definition}
+    \vspace{1.5em}
+    \uncover<2->{
+        \begin{alertblock}
+            \centering
+            Les indices sont initialement conçus pour reproduire la climatologie spatiale et saisonnière de l'activité cyclonique
+        \end{alertblock}
+    }
+\end{frame}
+
+%=========================================================
 \begin{frame}
     \frametitle{Introduction}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[height=3.5cm]{Figures/tcs_cygp_gpi_interannual.png} 
-        \end{column}
-        \begin{column}{0.5\textwidth}
-           \scriptsize
-           \vspace{-3.5em}
-           \begin{table}[h]
-               \centering
-               \caption{\footnotesize Corrélation de la variabilité\\ interannuelle ERA5 avec IBTrACS}
-               \begin{tabular}{l|c|c|c}
-                   & TCS & CYGP & GPI \\
-                   \hline
-                   Ouest Pac. & 0,03 & 0,46 & 0,06 \\
-                   Est Pac. & 0,7 & 0,62 & 0,64 \\
-                   Nord Atl. & 0,71 & 0,7 & 0,79 \\
-                   Sud Pac. & 0,35 & 0,57 & 0,39 \\
-                   S.O Ind. & 0,21 & 0,37 & 0,27 \\
-                   S.E Ind. & 0,22 & 0,16 & 0,12 \\
-               \end{tabular}
-           \end{table}
-        \end{column}
-    \end{columns}
+    \onslide<1->{
+        \begin{columns}
+                \begin{column}{0.5\textwidth}
+                    \vspace{-2em}
+                    \begin{figure}
+                        \centering
+                        \includegraphics[height=3.2cm]{Figures/tcs_cygp_gpi_interannual.png} 
+                    \end{figure}
+                \end{column}
+                \begin{column}{0.5\textwidth}
+                   \scriptsize
+                   \vspace{-3.5em}
+                   \begin{table}[h]
+                       \centering
+                       \caption{\footnotesize Corrélation de la variabilité\\ interannuelle ERA5 avec IBTrACS}
+                       \begin{tabular}{l|c|c|c}
+                           & TCS & CYGP & GPI \\
+                           \hline
+                           Ouest Pac. & 0,03 & 0,46 & 0,06 \\
+                           Est Pac. & 0,7 & 0,62 & 0,64 \\
+                           Nord Atl. & 0,71 & 0,7 & 0,79 \\
+                           Sud Pac. & 0,35 & 0,57 & 0,39 \\
+                           S.O Ind. & 0,21 & 0,37 & 0,27 \\
+                           S.E Ind. & 0,22 & 0,16 & 0,12 \\
+                       \end{tabular}
+                   \end{table}
+                \end{column}
+        \end{columns}
+    }
+    %
     \footnotesize
     \onslide<2->{
         \begin{block}[Indice de Tippett{,} ou TCS \parencite{tippett_poisson_2011}]
@@ -1203,15 +1235,14 @@
                    \end{itemize} 
                 \end{column}
             \end{columns}
-        }
-        \onslide<3->{
+        %
             \vspace{1em}
             \scriptsize
             \begin{center}
-                $\longrightarrow$ Coefficients $b$ issus d'une \underline{régression statistique} : indice facilement \alert{manipulable}
+                $\longrightarrow$ Coefficients $b$ (climatologiques) issus d'une \underline{régression statistique} : indice facilement \alert{manipulable}
             \end{center}
-        }
-    \end{block}
+        \end{block}
+    }
 \end{frame}
 
 %=========================================================
@@ -1241,10 +1272,10 @@
             %
             \begin{pNiceMatrix}
                 x_{1,1}  & \Cdots  & x_{1,n}\\
-                \Vdots & & \Vdots \\
+                \Vdots & & \\
                        & & \\
                        & & \\
-                x_{m,1} & \Cdots & x_{m,n} \\
+                x_{m,1} & & x_{m,n} \\
             \end{pNiceMatrix} + \log (\cos \phi)
         \end{align*}
         %
@@ -1266,17 +1297,50 @@
 \subsection{Coefficients du modèle}
 \begin{frame}
     \frametitle{Indice par régression de Poisson}
-    \framesubtitle{Coefficients du modèle}
-
-    1 slide sur les efforts réalisés pour améliorer la variabilité interannuelle via les coefficients
-    \begin{itemize}
-        \item Résolution spatiale
-        \item Résolution temporelle
-        \item Indices régionaux
-    \end{itemize}
-    \vspace{1em}
-    Possiblement sous forme de tableau ?\\
-    $\longrightarrow$ La (mauvaise) représentation de variabilité interannuelle est en fait très robuste aux coefficients
+    \framesubtitle{Coefficients du modèle : Résolution spatiale et temporelle}
+    \footnotesize
+    %1 slide sur les efforts réalisés pour améliorer la variabilité interannuelle via les coefficients
+    %\begin{itemize}
+    %    \item Résolution spatiale
+    %    \item Résolution temporelle
+    %    \item Indices régionaux
+    %\end{itemize}
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            \begin{examples}[Calcul d'indices sur ERA5 1981 -- 2019]
+                Recalculer les coefficients du TCS\\($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) avec :
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                    \item Champs climatologiques / mensuels
+                    \item Champs à 2,5° / 1,0° de résolution horizontale
+                \end{itemize}
+                $\longrightarrow$ Quatre indices : C25, C10, M25 et M10
+            \end{examples}
+            \begin{block}[Analyse]
+                Correction du biais équatorial avec les indices mensuels ($b_\eta$ augmenté de 30~\%)
+            \end{block}
+            \begin{alertblock}
+                \centering
+                Pas d'effet sur la variabilité interannuelle
+            \end{alertblock}
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            \vspace{-1em}
+            \begin{figure}
+                \raggedleft
+                \includegraphics[width=\textwidth]{Figures/apport_mensuel.png}
+            \end{figure}
+            %
+            \vspace{-0.8em}
+            \begin{figure}
+                \raggedleft
+                \includegraphics[height=3.5cm]{Figures/zonal.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    %\vspace{1em}
+    %Possiblement sous forme de tableau ?\\
+    %$\longrightarrow$ La (mauvaise) représentation de variabilité interannuelle est en fait très robuste aux coefficients
 \end{frame}
 
 %=========================================================
@@ -1321,7 +1385,7 @@
                     \begin{itemize}
                         \item Trajectoires détectées dans la simulation \parencite{chauvin_future_2020} comme prédictant
                         \item Prédicteurs du TCS ($\eta$, $V_\text{shear}$, $H$, $T$) + ONI \alert{répliqué} en tout point
-                        \item Régression faite \alert{localement}, à l'échelle du bassin
+                        \item Régression faite \alert{localement}, à l'échelle du bassin (LOA, Local / ONI / ARPEGE)
                     \end{itemize}
                 \end{examples}
             }
@@ -1330,22 +1394,137 @@
 \end{frame}
 
 %=========================================================
-\begin{frame}
-    \frametitle{Introduction d'un indice Niño}
+\begin{frame}[t]
+    \frametitle{Introduction d'un diagnostique El Niño dans la régression}
     \framesubtitle{Résultats}
-    \begin{itemize}
-        \item Présenter la régression (locale)
-        \item Fig comparaison de l'indice LOA
-    \end{itemize}
+    \vspace{-1em}
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/apport_ONI.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.2\textwidth}
+            \scriptsize
+            \begin{examples}[Séries représentés]
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                    \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
+                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE
+                    \item \underline{LOA} :\\Indice \alert{local} avec ONI
+                    \item \underline{Tracks} :\\Détection et suivi
+                \end{itemize}
+            \end{examples}
+            %
+            \begin{block}
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                    \item Ouest Pac. et Sud Pac. Significatifs avec ONI 
+                    \item Impact le plus grand pas là où on pouvait l'attendre
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+    %
+    \onslide<2->{
+        \scriptsize
+        \begin{center}
+            \begin{minipage}{9cm}
+                \begin{alertblock}
+                    \centering
+                    Régression de Poisson peu adaptée à la représentation de la variabilité interannuelle ?
+                \end{alertblock}
+            \end{minipage}
+        \end{center}
+    }
 \end{frame}
 
+%=========================================================
 \begin{frame}
     \frametitle{Déficit de saturation d'humidité}
-    
+    \framesubtitle{Écart à la saturation en remplacement de l'humidité relative à 600~hPa}
+    \small
+    \begin{definition}[Déficit de saturation d'humidité (VPD{,} \textit{Vapour-Pressure Deficit})]
+        \footnotesize
+        \[ \text{VPD} = e_s - e \]
+        Avec :
+        \setlength{\leftmargini}{2.5ex}
+        \begin{itemize}
+            \item $e_s$ : pression de vapeur saturante
+            \item $e$ : Pression partielle de la vapeur d'eau
+        \end{itemize}
+        $\longrightarrow$ \alert{Augmente} avec le réchauffement climatique, tandis que l'humidité relative est projetée constante.
+    \end{definition}
 \end{frame}
 
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Déficit de saturation d'humidité}
+    %\framesubtitle{Résultats}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \vspace{-1.5em}
+            \begin{figure}
+                \centering
+                \includegraphics[height=7cm]{Figures/trends.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \scriptsize
+            \vspace{-1em}
+            \begin{block}[Références]
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                   \item \underline{Tracks} (ARPEGE) :\\
+                       0,13 TC par 10 ans (p = 0.9) 
+                   \item \underline{IBTrACS} (ERA5) :\\
+                        $-0,53$ TC par 10 ans (p = 0.76)
+                \end{itemize}
+            \end{block}
+            \vspace{1em}
+            \begin{examples}[Indices]
+                \setlength{\leftmargini}{2.5ex}
+                \begin{itemize}
+                    \item \underline{TCS} : Coefficients de \cite{tippett_poisson_2011}
+                    \item \underline{AM10/EM10} : Coefficients du TCS recalculés sur ARPEGE/ERA5
+                    \item \underline{AVPD/EVPD} : VPD en remplacement de $H_\text{600~hPa}$ (ARPEGE/ERA5) 
+                \end{itemize}
+            \end{examples}
+            \vspace{1em}
+            \begin{alertblock}
+                \centering
+                Tendances annulées avec le VPD
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}
 
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Synthèse}
+    \framesubtitle{Synthèse}
+        Synthèse de la partie indice 
+\end{frame}
+
+%=========================================================
 \section{Conclusion et perspectives}
+\begin{frame}[c]
+    \frametitle{Conclusion}
+    \framesubtitle{Conlusion sur la thèse en général}
+
+\end{frame}
+
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Conclusion}
+    \framesubtitle{Perspectives}
+    \begin{itemize}
+        \item Foo
+        \item Bar
+    \end{itemize} 
+\end{frame}
+
 
 %\section*{Bibliographie}
 %
@@ -1398,7 +1577,29 @@
         \includegraphics[width=\textwidth]{Figures/Annexes/all_composites.png}
         \caption{\small Composites ERA5 moyennés par classe d'intensité de la composante IBTrACS, indépendamment de l'intensité dans ERA5.}
     \end{figure}
-   
+\end{frame}
+
+%=========================================================
+\subsection*{Trajectoires simulation ARPEGE historique}
+\begin{frame}[c]
+    \frametitle{Densité de cyclogénèses détectées dans la simulation ARPEGE historique}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/track_density_PRE625REFT359x.png}
+        \caption{\small Densité annuelle moyenne de cyclogénèses dans la simulation ARPEGE forcée par HadISST1 entre 1980 et 2010, calculée sur une grille régulière de 2°×2°.}
+    \end{figure}
+    
+\end{frame}
+
+\subsection*{Ajout de l'ONI dans la régression de Poisson}
+\begin{frame}[c]
+    \frametitle{Corrélation cyclogénèses détectées avec l'ONI}
+    \framesubtitle{Par point de grille}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/corr_ONI_tracks.png}
+        \caption{\small Carte de corrélation entre la variabilité interannuelle de l’activité cyclonique par point de grille (3 °x3 °) pour les cyclogénèses détectées dans ARPEGE et l’ONI, sur les saisons cycloniques entre 1980 et 2010.}
+    \end{figure}
 \end{frame}
 
 \end{document}
