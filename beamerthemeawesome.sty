@@ -702,15 +702,30 @@ segmentation style={solid, shorten >=1mm,shorten <=1mm, line width=\smile@linewi
 	\fi
 }
 
-\AtEndDocument{
-	{\setbeamercolor{background canvas}{bg=accent}
-	\begin{frame}[b, noframenumbering]
-		\color{white}
-		\thispagestyle{navigation@titlepage}
-		\Large\textbf{\insertauthor}
-		\vskip0.5em
-		\scriptsize\insertlocation,~\insertdate
-		\hfill
-		\insertemail
-	\end{frame}}
+\newcommand{\makethankyouslide}{
+    \setbeamercolor{background canvas}{bg=accent}
+    \begin{frame}[b, noframenumbering]
+        \addtocounter{framesinsection}{-1}
+        \color{white}
+        \thispagestyle{navigation@titlepage}
+        \Large\textbf{\insertauthor}
+        \vskip0.5em
+        \scriptsize\insertlocation,~\insertdate
+        \hfill
+        \insertemail
+    \end{frame}
+    \setbeamercolor{background canvas}{bg=white}
 }
+
+%\AtEndDocument{
+%	{\setbeamercolor{background canvas}{bg=accent}
+%	\begin{frame}[b, noframenumbering]
+%		\color{white}
+%		\thispagestyle{navigation@titlepage}
+%		\Large\textbf{\insertauthor}
+%		\vskip0.5em
+%		\scriptsize\insertlocation,~\insertdate
+%		\hfill
+%		\insertemail
+%	\end{frame}}
+%}
