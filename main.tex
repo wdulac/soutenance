@@ -703,7 +703,7 @@
     \begin{block}[Étapes de détection \parencite{chauvin_response_2006}] 
         \scriptsize
         \begin{enumerate}
-            \item<1-> Minimum local de pression avec vorticité supérieure à un \textcolor[HTML]{ff0011}{seuil} (\textbf{VOR})
+            \item<1-> Minimum local de pression avec \underline{vorticité} supérieure à un \textcolor[HTML]{ff0011}{seuil} (\textbf{VOR})
             \item<2-> Estimation de la taille du \textcolor{green}{système} \onslide<3->{et de son \textcolor{blue}{environnement}}
                 \onslide<4->{
                     \begin{itemize}
@@ -797,33 +797,18 @@
     \begin{examples}[Intercomparaison de traqueurs sur ERA5]    
         Participation du traqueur CNRM à une \alert{intercomparaison} de 4 traqueurs appliquée sur ERA5 \parencite{bourdin_intercomparison_2022} :
         \tcblower
-        \begin{itemize}
-            \item Performances similaires à d'autres schémas courants de la littérature\\
-                $\longrightarrow$ 2\ieme~en FAR et 3\ieme~ex aequo avec le traqueur de \cite{zarzycki_assessing_2017} en POD
-           \item 1\ier~ex aequo en identification de la cyclogénèse / cyclolyse
-        \end{itemize}
+        $\longrightarrow$ Performances similaires à d'autres traqueurs de la littérature
     \end{examples}
-    %\begin{examples}[Probabilité de détection et taux de fausses alertes]    
-    %    \scriptsize
-    %    \[ \text{FAR} = \frac{N_{\text{ERA5}} - N_{\text{Hit}}}{N_{\text{ERA5}}}, \quad\quad \text{POD} = \frac{N_{\text{Hit}}}{N_{\text{IBTrACS}}} \]
-    %    %
-    %    \setlength{\leftmargini}{2.5ex}
-    %    \begin{itemize}
-    %        \item $N_{\text{ERA5}}$ et $N_{\text{IBTrACS}}$ resp. le nombre de trajectoires dans chaque jeu de données
-    %        \item $N_{\text{Hit}}$ le nombre de trajectoires ERA5 appariées à IBTrACS
-    %    \end{itemize}
-    %    $\longrightarrow$ Il suffit \alert{d'une seule échéance} en commun suffit pour compter dans $N_{\text{Hit}}$.
-    %\end{examples}
     %
     \pause
     %
     \begin{columns}
         \begin{column}{0.56\textwidth}
         \footnotesize
-        \vspace{-1.5em}
+        %\vspace{1.5em}
         \begin{figure}
             \centering
-            \includegraphics[height=3.8cm]{Figures/far_pod.png}
+            \includegraphics[height=4cm]{Figures/far_pod_avant_apres.png}
         \end{figure}
         \end{column}
         \begin{column}{0.36\linewidth}
