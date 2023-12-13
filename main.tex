@@ -141,7 +141,7 @@
             \scriptsize
             \begin{column}{0.5\textwidth}
                 \begin{itemize}
-                   \item Température de surface de l'ocean suffisamment élevée \mbox{\parencite{palmen_formation_1948}} sur au moins 60~m de profondeur 
+                   \item Température de surface de l'océan (SST) suffisamment élevée \mbox{\parencite{palmen_formation_1948}} sur au moins 60~m de profondeur 
                    \item Une distance de quelques centaines de kilomètres à l'équateur (Coriolis)
                    \item Perturbation initale apportant de la convergence en basses couches
                 \end{itemize}
@@ -190,7 +190,6 @@
     \end{columns}
 \end{frame}
 
-\subsection{Consensus sur les projections futures}
 
 %=========================================================
 \begin{frame}[c]
@@ -443,7 +442,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[width=\textwidth]{Figures/acgi_mean_IBTrACS_season.png}
-                \caption{Moyennes saisonnières de trois indices moyennés entre eux (GPI, TCS et CYGP), et densité observée de cyclogénèse entre 1980 et 2019
+                \caption{\scriptsize Moyennes saisonnières de trois indices moyennés entre eux (GPI, TCS et CYGP), et densité observée de cyclogénèse entre 1980 et 2019
                 (IBTrACS).}
             \end{figure}        
         \end{column}
@@ -491,82 +490,71 @@
 \end{frame}
 
 %=========================================================
-%\begin{frame}
-%    \frametitle{Problématique}
-%    \framesubtitle{Recherches menées}
-%    2 colones :
-%    \begin{itemize}
-%        \item Hypothèse de la variabilité interannuelle (indices)
-%        \item Qu'est-ce qu'on détecte vraiment avec un traqueur (tracking)
-%    \end{itemize}
-%    
-%\end{frame}
-
 \begin{frame}[t]
-    \frametitle{Problématique}
-    \framesubtitle{Recherches menées}
-    \vspace{-2em}
-    \begin{columns}[t]
-        \begin{column}{0.475\textwidth}
-            \onslide<1->{
-                \begin{center}
-                    \large
-                    \textbf{Détection et suivi} 
-                \end{center}
-            }
-            \vspace{0.8em}
-            \footnotesize
-            \onslide<2->{
-                \begin{alertblock}[Verrous identifiés]
-                    \setlength{\leftmargini}{2.5ex}
-                    \begin{itemize}
-                        \item Influence du choix du traqueur dans les projections \parencite{horn_tracking_2014} 
-                        \item Qu'est-ce que détecte réellement un traqueur ? (\textit{Hurricane Type Vortices}, HTV, \cite{bengtsson_hurricanetype_1995})
-                    \end{itemize}
-                \end{alertblock}
-            }
-            \vspace{1em}
-            \onslide<3->{
-                \begin{examples}[Axe de recherche]
-                    Caractériser en détails le schéma de détection du CNRM pour identifier des pistes de perfectionnement
-                \end{examples}
-            }
-            \vspace{1em}
-            \onslide<4->{
-                $\longrightarrow$ Développement de métriques d'évaluation des performances d'un schéma de détection
-            }
-        \end{column}
-        %
-        \begin{column}{0.475\textwidth}
-            \onslide<1->{
-                \begin{center}
-                    \large
-                    \textbf{Indices de cyclogénèse} 
-                \end{center}
-            }
-            \vspace{0.5em}
-            \footnotesize
-            \onslide<5->{
-                \begin{alertblock}[Verrous identifiés]
-                    \setlength{\leftmargini}{2.5ex}
-                    \begin{itemize}
-                        \item Tendances projetées à l'opposé de l'approche directe \parencite{camargo_testing_2014}
-                        \item Mauvaise représentation de la variabilité interannuelle \parencite{menkes_comparison_2012,cavicchia_tropical_2023}
-                    \end{itemize}
-                \end{alertblock}
-            }
-            \vspace{1em}
-            \onslide<6->{
-                \begin{examples}[Hypothèse de travail]
-                    Améliorer la variabilité interannuelle pour avoir une meilleure confiance dans les projections futures
-                \end{examples}
-            }
-            \vspace{1em}
-            \onslide<7->{
-                $\longrightarrow$ Recherche de l'amélioration de la représentation de la variabilité interannuelle par les indices de cyclogénèse
-            }
-        \end{column}
-    \end{columns}
+   \frametitle{Problématique}
+   \framesubtitle{Recherches menées}
+   \vspace{-2em}
+   \begin{columns}[t]
+       \begin{column}{0.475\textwidth}
+           \onslide<1->{
+               \begin{center}
+                   \large
+                   \textbf{Détection et suivi} 
+               \end{center}
+           }
+           \vspace{0.8em}
+           \footnotesize
+           \onslide<2->{
+               \begin{alertblock}[Verrous identifiés]
+                   \setlength{\leftmargini}{2.5ex}
+                   \begin{itemize}
+                       \item Influence du choix du traqueur dans les projections \parencite{horn_tracking_2014} 
+                       \item Qu'est-ce que détecte réellement un traqueur ? (\textit{Hurricane Type Vortices}, HTV, \cite{bengtsson_hurricanetype_1995})
+                   \end{itemize}
+               \end{alertblock}
+           }
+           \vspace{1em}
+           \onslide<3->{
+               \begin{examples}[Axe de recherche]
+                   Caractériser en détails le schéma de détection du CNRM pour identifier des pistes de perfectionnement
+               \end{examples}
+           }
+           \vspace{1em}
+           \onslide<4->{
+               $\longrightarrow$ Développement de métriques d'évaluation des performances d'un schéma de détection
+           }
+       \end{column}
+       %
+       \begin{column}{0.475\textwidth}
+           \onslide<1->{
+               \begin{center}
+                   \large
+                   \textbf{Indices de cyclogénèse} 
+               \end{center}
+           }
+           \vspace{0.5em}
+           \footnotesize
+           \onslide<5->{
+               \begin{alertblock}[Verrous identifiés]
+                   \setlength{\leftmargini}{2.5ex}
+                   \begin{itemize}
+                       \item Tendances projetées à l'opposé de l'approche directe \parencite{camargo_testing_2014}
+                       \item Mauvaise représentation de la variabilité interannuelle \parencite{menkes_comparison_2012,cavicchia_tropical_2023}
+                   \end{itemize}
+               \end{alertblock}
+           }
+           \vspace{1em}
+           \onslide<6->{
+               \begin{examples}[Hypothèse de travail]
+                   Améliorer la variabilité interannuelle pour avoir une meilleure confiance dans les projections futures
+               \end{examples}
+           }
+           \vspace{1em}
+           \onslide<7->{
+               $\longrightarrow$ Recherche de l'amélioration de la représentation de la variabilité interannuelle par les indices de cyclogénèse
+           }
+       \end{column}
+   \end{columns}
 \end{frame}
 
 
@@ -744,12 +732,14 @@
                     \scriptsize
                     \setlength{\leftmargini}{2.5ex}
                     \begin{itemize}
-                        \item Réanalyse ERA5 à 0.25° 1981 -- 2019 \parencite{hersbach_era5_2020}
                         \item Base de données d'observations IBTrACS (version 4) 1981 -- 2019 \parencite{knapp_international_2010}
+                        \item Réanalyse ERA5 à 0.25° 1981 -- 2019 \parencite{hersbach_era5_2020}
                     \end{itemize}
+                    $\longrightarrow$ Jeu de trajectoires de \alert{référence}
+                    \vspace{-1em}
                 \end{examples}
             }
-            \vspace{0.33em}
+            %\vspace{0.33em}
             \onslide<2->{
                 \scriptsize
                 \begin{block}[Appariement des trajectoires]
@@ -764,13 +754,15 @@
                     $\Rightarrow$ Calcul du taux de l'efficacité de détection (POD) et du taux de fausses détections (FAR) : \alert{Une seule} échéance suffit !
                 \end{block}
             }
-            \vspace{0.33em}
+            %\vspace{0.33em}
             \onslide<3->{
                 \scriptsize
                 \begin{definition}[Optimisation du schéma de détection pour ERA5 \parencite{dulac_assessing_2023}]
-                    Seuils de détection du traqueur qui \alert{optimisent} le POD et le FAR sur ERA5 :\\
-                    \textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
-                    \textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
+                    Seuils de détection du traqueur qui \underline{optimisent} le POD et le FAR sur ERA5 :\\
+                    $\longrightarrow$ Jeu de trajectoires \alert{optimisées}
+                    %\textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
+                    %\textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
+                    \vspace{-1em}
                 \end{definition}
             }
         \end{column}
@@ -794,14 +786,7 @@
 \begin{frame}[t]
     \frametitle{Performances du traqueur sur ERA5}
     \footnotesize
-    \begin{examples}[Intercomparaison de traqueurs sur ERA5]    
-        Participation du traqueur CNRM à une \alert{intercomparaison} de 4 traqueurs appliquée sur ERA5 \parencite{bourdin_intercomparison_2022} :
-        \tcblower
-        $\longrightarrow$ Performances similaires à d'autres traqueurs de la littérature
-    \end{examples}
-    %
-    \pause
-    %
+    %\vspace{-1.5em}
     \begin{columns}
         \begin{column}{0.56\textwidth}
         \footnotesize
@@ -811,22 +796,31 @@
             \includegraphics[height=4cm]{Figures/far_pod_avant_apres.png}
         \end{figure}
         \end{column}
-        \begin{column}{0.36\linewidth}
-        \scriptsize
+        \begin{column}{0.4\linewidth}
+        \footnotesize
         \vspace{-1em}
         \begin{block}        
-            Valeurs seuils optimisées + filtre des systèmes de moyennes latitudes \parencite{hart_cyclone_2003}
+            Valeurs seuils \alert{optimisées} + filtre des systèmes de moyennes latitudes \parencite{hart_cyclone_2003}
             \tcblower
             \setlength{\leftmargini}{2.5ex}
             \alert{Majorité} des systèmes détectés dans ERA5 :
             \begin{itemize}
-                \item Moyennes FAR et POD resp. 23,5~\% et 67,4~\%
-                \item Performances variables selon les régions
+                \item POD global : 67,4~\% (+11,3 points)
+                \item FAR global : 23,5~\% (-5,5 points)
             \end{itemize}
-            $\longrightarrow$ Appariement permet d'étudier \underline{uniquement} les \alert{\mbox{systèmes} identifiés} dans IBTrACS
+            %$\longrightarrow$ Appariement permet d'étudier \underline{uniquement} les \alert{\mbox{systèmes} identifiés} dans IBTrACS
         \end{block}
         \end{column}
     \end{columns}
+    \vspace{1em}
+    %
+    %\pause
+    %
+    \begin{examples}[Intercomparaison de traqueurs sur ERA5]    
+        Participation du traqueur CNRM à une \alert{intercomparaison} de 4 traqueurs appliquée sur ERA5 \parencite{bourdin_intercomparison_2022}
+        \tcblower
+        $\longrightarrow$ Performances similaires à d'autres traqueurs de la littérature
+    \end{examples}
 \end{frame}
 
 
@@ -864,39 +858,6 @@
     \end{columns} 
 \end{frame}
 
-%=========================================================
-\begin{frame}[c]
-    \frametitle{Diapo vide}
-    Diapo supprimée, page vide pour préserver la numérotation
-    %\frametitle{Classes d'intensité croisées}
-    %\begin{columns}
-    %    \begin{column}{0.5\textwidth}
-    %        \vspace{1em}
-    %        \begin{figure}
-    %            \centering
-    %            \includegraphics[width=\textwidth]{Figures/crosstable_global_myVTU.png}
-    %        \end{figure}
-    %    \end{column}
-    %    \begin{column}{0.5\textwidth}
-    %        \footnotesize
-    %        \setlength{\leftmargini}{3.5ex}
-    %        \begin{examples}[Méthodologie]
-    %            \begin{itemize}
-    %                \item Classes Saffir-Simpson basées sur la \alert{pression}\\\parencite{klotzbach_surface_2020}
-    %                \item Paires de systèmes avec moins de 75\% de valeurs manquantes
-    %                \item Toutes les régions sauf Nord Indien
-    %            \end{itemize}    
-    %        \end{examples}
-    %        \vspace{2em}
-    %        \begin{block}
-    %           \begin{itemize}
-    %                \item Accord relatif dans l'ensemble (pente attendue)
-    %                \item \alert{Dispersion importante} vers les catégories les plus hautes
-    %           \end{itemize} 
-    %        \end{block}
-    %    \end{column}
-    %\end{columns} 
-\end{frame}
 
 %=========================================================
 \begin{frame}[t]
@@ -1224,26 +1185,38 @@
 \begin{frame}[t]
     \frametitle{Introduction}
     \framesubtitle{Les indices de cyclogénèse}
-    \small
-    \begin{definition}[Définition]
-        Relation mathématique reliant la fréquence d'occurrence des TC (cyclogénèses) avec l'environnement de grande échelle, assimilables à une densité
-        surfaçique :
-        \begin{align*}
-            N_{\text{TC}} &= \iint\limits_{D} \underbrace{\rho(\phi, \lambda)}_{\text{Indice}} \; d\phi \, d\lambda \\
-            \rho &= \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{green}{A}}_{\textcolor{green}{\text{Calibration}}} \times
-            \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{red}{X_{\text{Th}}}}_{\textcolor{red}{\text{Thermique}}} \times
-            \underbrace{\textcolor{violet}{X_{\text{Dyn}}}}_{\textcolor{violet}{\text{Dynamique}}}
-        \end{align*}
-        Composés d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
-        quantité moyenne souhaitée 
-    \end{definition}
-    \vspace{1em}
-    \uncover<2->{
-        \begin{alertblock}
-            \centering
-            Les indices sont initialement conçus pour reproduire la \underline{climatologie} spatiale et saisonnière de l'activité cyclonique
-        \end{alertblock}
-    }
+    \footnotesize
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \vspace{-3em}
+            \begin{definition}[Définition]
+                \alert{Relation} mathématique reliant la fréquence d'occurrence des TC (cyclogénèses) avec l'environnement de grande échelle, assimilables à une densité
+                surfaçique :
+                \begin{align*}
+                    N_{\text{TC}} &= \iint\limits_{D} \underbrace{\rho(\phi, \lambda)}_{\text{Indice}} \; d\phi \, d\lambda \\
+                    \rho &= \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{green}{A}}_{\textcolor{green}{\text{Calibration}}} \times
+                    \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{red}{X_{\text{Th}}}}_{\textcolor{red}{\text{Thermique}}} \times
+                    \underbrace{\textcolor{violet}{X_{\text{Dyn}}}}_{\textcolor{violet}{\text{Dynamique}}}
+                \end{align*}
+                Composés d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
+                quantité moyenne souhaitée 
+            \end{definition}
+            \vspace{2em}
+            \uncover<2->{
+                \begin{alertblock}
+                    \centering
+                    Les indices sont initialement conçus pour reproduire la \underline{climatologie} spatiale et saisonnière de l'activité cyclonique
+                \end{alertblock}
+            }
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \vspace{-7em}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.98\textwidth]{Figures/acgi_seasonal_turbo.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 %=========================================================
@@ -1410,6 +1383,12 @@
         \begin{column}{0.35\textwidth}
             %\vspace{-1em}
             \onslide<1->{
+                \begin{alertblock}
+                    \centering
+                    Pas d'effet sur la variabilité interannuelle
+                \end{alertblock}
+            }
+            \onslide<2->{
                 \begin{examples}[Apport de la résolution temporelle]
                     \setlength{\leftmargini}{2.5ex}
                     \begin{enumerate}
@@ -1418,7 +1397,7 @@
                     \end{enumerate}
                 \end{examples}
             }
-            \onslide<2->{
+            \onslide<3->{
                 \begin{block}[Analyse]
                     \setlength{\leftmargini}{2.5ex}
                     \begin{itemize}
@@ -1427,16 +1406,10 @@
                     \end{itemize}
                 \end{block}
             }
-            \onslide<4->{
-                \begin{alertblock}
-                    \centering
-                    Pas d'effet sur la variabilité interannuelle
-                \end{alertblock}
-            }
         \end{column}
         \begin{column}{0.65\textwidth}
             \vspace{-1em}
-            \onslide<1->{
+            \onslide<2->{
                 \begin{figure}
                     \raggedleft
                     \includegraphics[width=\textwidth]{Figures/apport_mensuel.png}
@@ -1444,7 +1417,7 @@
             }
             %
             \vspace{-0.8em}
-            \onslide<2->{
+            \onslide<3->{
                 \begin{figure}
                     \centering
                     \includegraphics[height=3.5cm]{Figures/zonal.png}
@@ -1510,7 +1483,7 @@
                 \item<2-> Diagnostique du mode de variabilité climatique El Niño (ENSO):
                     \begin{itemize}
                         \item Modulateur de l'activité cyclonique à l'échelle interannuelle
-                        \item Effet de l'ENSO présent dans les indices \parencite{watterson_seasonal_1995}, mais les épisodes sont peu marqués
+                        \item Effet \underline{local} de l'ENSO présent dans les indices \parencite{watterson_seasonal_1995}, mais les épisodes sont peu marqués
                     \end{itemize}
                 \item<3-> Déficit de saturation d'humidité en remplacement de l'humidité relative à 600~hPa
             \end{enumerate}
@@ -1602,17 +1575,17 @@
         \end{column}
     \end{columns}
     %
-    \onslide<2->{
-        \scriptsize
-        \begin{center}
-            \begin{minipage}{9cm}
-                \begin{alertblock}
-                    \centering
-                    Régression de Poisson peu adaptée à la représentation de la variabilité interannuelle ?
-                \end{alertblock}
-            \end{minipage}
-        \end{center}
-    }
+    % \onslide<2->{
+    %     \scriptsize
+    %     \begin{center}
+    %         \begin{minipage}{9cm}
+    %             \begin{alertblock}
+    %                 \centering
+    %                 Régression de Poisson peu adaptée à la représentation de la variabilité interannuelle ?
+    %             \end{alertblock}
+    %         \end{minipage}
+    %     \end{center}
+    % }
 \end{frame}
 
 %=========================================================
@@ -1695,13 +1668,18 @@
         \begin{enumerate}
             \setlength\itemsep{1em}
             \item<1-> \alert{Régression de Poisson} comme méthode \textquote{objective} de construction d'indices de cyclogénèse\\
-            \item<2-> Permet de re-calculer les coefficients d'un indice et d'\alert{expérimenter} facilement l'ajout de nouveaux prédicteurs
-            \item<3-> Variabilité interannuelle \alert{difficile} à améliorer :
+                \vspace{0.8ex}
+                $\longrightarrow$ Permet de re-calculer les coefficients et d'expérimenter l'ajout de nouveaux prédicteurs
+            \item<2-> Variabilité interannuelle \alert{difficile} à améliorer :
                 \begin{itemize}
                     \item Absence d'amélioration en ajoutant de la variabilité temporelle à plus haute fréquence
                     \item Amélioration statistiquement \alert{significative} mais \textcolor{red}{marginale} avec le diagnostique ENSO 
                 \end{itemize}
-            \item<4-> \alert{Correction} de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
+            \item<3-> Mais néanmoins :
+                \begin{itemize}
+                    \item Correction du biais équatorial permis par l'utilisation de champs mensuels dans la régression
+                    \item Correction de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
+                \end{itemize}
         \end{enumerate}
     \end{block}
 \end{frame}
@@ -1716,20 +1694,22 @@
         \large \textbf{\textcolor{blue}{Caractérisation du schéma de détection du CNRM}}\\
         %\vspace{1ex}
         \normalsize
-        \begin{itemize}
-            \item Utilisation de la réanalyse ERA5 pour évaluer les performances du traqueur contre IBTrACS\\
-                \vspace{1ex}
-                \begin{itemize}
-                    \setlength{\itemsep}{1ex}
-                    \item<2-> Étude de la sensibilité des seuils de détection du traqueur pour optimiser l'efficacité de détection
-                    \item<3-> Participation à une intercomparaison de traqueurs sur ERA5
-                    \item<4-> Évaluation de la représentation des cyclones dans ERA5
-                \end{itemize}
-        \end{itemize}
-    }
+        \onslide<1->}{
+            \begin{itemize}
+                \item Utilisation de la réanalyse ERA5 pour évaluer les performances du traqueur contre IBTrACS\\
+                    \vspace{1ex}
+                    \begin{itemize}
+                        \setlength{\itemsep}{1ex}
+                        \item Amélioration sensible des performances par l'analyse de la sensibilité du traqueur à ses seuils de détection et l'utilisation de
+                            filtres de systèmes de moyennes latitudes adaptés
+                        \item Participation à une intercomparaison de traqueurs sur ERA5
+                        \item Évaluation de la représentation des cyclones dans ERA5
+                    \end{itemize}
+            \end{itemize}
+        }
     \vspace{2em}
     %
-    \onslide<5->{
+    \onslide<2->{
         \large \textbf{\textcolor{blue}{Métriques d'évaluation des performances}}\\
         %\vspace{3ex}
         \normalsize
@@ -1738,11 +1718,40 @@
                 \vspace{1ex}
                 \begin{itemize}
                     \setlength{\itemsep}{1ex}
-                    \item<6-> Métriques basées sur la décomposition d'une trajectoire en série de vecteurs de déplacements relatifs 
-                    \item<7-> Similarité intégrée sur l'ensemble de la trajectoire, par opposition au FAR et POD
+                    \item Métriques basées sur la décomposition d'une trajectoire en série de vecteurs de déplacements relatifs 
+                    \item Similarité intégrée sur l'ensemble de la trajectoire, par opposition au FAR et POD
                 \end{itemize}
         \end{itemize}
     }
+\end{frame}
+
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Perspectives}
+    \framesubtitle{Détection et suivi des cyclones tropicaux}
+    %\framesubtitle{Perspectives}
+    \begin{block}[Détection et suivi]
+        \small
+        \begin{itemize}
+            \setlength{\itemsep}{2ex}
+            \item<1-> Poursuivre la recherche de l'amélioration des performances des traqueurs sur des réanalyses, en vue de leur utilisation sur des climatiques
+                climatiques
+                \begin{itemize}
+                    \item Efficacité de détection et filtrage efficace des systèmes indésirables
+                    \item Bonne capture de la cyclogénèse et de la cyclolyse
+                \end{itemize}
+            \item<2-> Constitution de bases de données \textquote{expertes} de trajectoires sur les ensembles multi-modèles 
+                \begin{itemize}
+                    \item Ensembles \textquote{multi-traqueurs}
+                    \item Constitution de bases de données composites
+                \end{itemize}
+            \item<3-> Confrontation des traqueurs \textquote{physiques} à des traqueurs IA
+                \begin{itemize}
+                    \item Constitution d'un objectif atteignable pour l'amélioration des traqueurs
+                \end{itemize}
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 %=========================================================
@@ -1778,25 +1787,29 @@
                 \end{itemize}
         \end{itemize}
     }
-
-    %Problématique initiale : Améliorer la variabilité interannuelle pour s'offrir une plus grande confiance dans les projections futures
-
-    %Y a-t-on répondu ? Plus ou moins
-    %\begin{itemize}
-    %    \item Beaucoup de tenatives infructueuses
-    %    \item On a seulement réussi à améliorer la variabilité interannuelle en \textquote{trichant} un peu (ONI)
-    %    \item Le VPD montre qu'on peut améliorer la tendance dans l'évolution de l'activité cyclonique sans pour autant améliorer la variabilité interannuelle
-    %\end{itemize}
 \end{frame}
 
+
 %=========================================================
-\begin{frame}[t]
-    \frametitle{Conclusion}
-    \framesubtitle{Perspectives}
-    En vrac :
-    \begin{itemize}
-        \item 
-    \end{itemize}
+\begin{frame}[c]
+    \frametitle{Perspectives}
+    \framesubtitle{Indices de cyclogénèse}
+    \begin{block}[Indices de cyclogénèse]
+        \small
+        \begin{itemize}
+            \setlength{\itemsep}{2ex}
+            \item Application plus large d'indices avec le VPD sur des simulations futures, notamment sur CMIP6
+            \item Utilisation de méthodologies objectives de sélection des prédicteurs
+                \begin{itemize}
+                    \item \cite{wang_dynamic_2020,murakami_patterns_2022} : Indice de cyclogénèse purement dynamique
+                \end{itemize}
+            \item Diversification / spécilisation des indices de cyclogénèse
+                \begin{itemize}
+                    \item Indices régionaux, à visées opérationnelles, visant à fournir une bonne variabilité interannuelle
+                    \item Indices globaux pour une utilisation en changement climatique (si pertinent)
+                \end{itemize}
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 %=========================================================
@@ -1826,6 +1839,39 @@
 
 %=========================================================
 \subsection*{Représentation des TC dans ERA5}
+\begin{frame}[t]
+    \frametitle{Classes d'intensité croisées}
+    \framesubtitle{Échelle globale}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace{1em}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/crosstable_global_myVTU.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+            \setlength{\leftmargini}{3.5ex}
+            \begin{examples}[Méthodologie]
+                \begin{itemize}
+                    \item Classes Saffir-Simpson basées sur la \alert{pression}\\\parencite{klotzbach_surface_2020}
+                    \item Paires de systèmes avec moins de 75\% de valeurs manquantes
+                    \item Toutes les régions sauf Nord Indien
+                \end{itemize}    
+            \end{examples}
+            \vspace{2em}
+            \begin{block}
+               \begin{itemize}
+                    \item Accord relatif dans l'ensemble (pente attendue)
+                    \item \alert{Dispersion importante} vers les catégories les plus hautes
+               \end{itemize} 
+            \end{block}
+        \end{column}
+    \end{columns} 
+\end{frame}
+
+%=========================================================
 \begin{frame}[t]
     \frametitle{Classes d'intensité croisées}
     \framesubtitle{Contingence par bassin océanique}
