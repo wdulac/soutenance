@@ -151,7 +151,6 @@
                    %\setlength{\leftmargini}{1.5ex}
                    \item Absence de cisaillement vertical du vent\\\parencite{gray_global_1968}
                    \item Atmosphère humide en moyenne troposphère
-                   \item Atmosphère instable
                \end{itemize} 
             \end{column}
         \end{columns}
@@ -361,7 +360,7 @@
                             \begin{itemize}
                                 \item Nécessite des simulations à haute résolution (\alert{coûteuses} et encore trop \alert{peu nombreuses})
                                 \vspace{2.9ex}
-                                \item Sensibilité à la méthodologie de détection \parencite{horn_tracking_2014,bourdin_intercomparison_2022}
+                                \item Influence du choix du traqueur \parencite{horn_tracking_2014,bourdin_intercomparison_2022}
                             \end{itemize}
                         \end{alertblock}
                     }
@@ -658,7 +657,7 @@
         \tcblower
         \begin{itemize}
             \footnotesize
-            \item La plupart des TC observés y sont présents dedans
+            \item La plupart des TC observés sont présents dedans
             \item Permet la validation du schéma de détection
         \end{itemize}
     \end{block}
@@ -745,7 +744,7 @@
                         \item Calcul de l'efficacité de détection (POD) et du taux de fausses détections (FAR).
                         \item Seuils de détection du traqueur qui \underline{optimisent} le POD et le FAR sur ERA5
                     \end{enumerate}
-                    $\longrightarrow$ Jeu de trajectoires \alert{optimisées}
+                    $\longrightarrow$ Jeu de trajectoires \alert{optimisé}
                     %\textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
                     %\textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
                     \vspace{-1em}
@@ -792,7 +791,7 @@
             \alert{Majorité} des systèmes détectés dans ERA5 :
             \begin{itemize}
                 \item POD global : 67,4~\% (+11,3 points)
-                \item FAR global : 23,5~\% (-5,5 points)
+                \item FAR global : 23,5~\% (-0,5 points)
             \end{itemize}
             %$\longrightarrow$ Appariement permet d'étudier \underline{uniquement} les \alert{\mbox{systèmes} identifiés} dans IBTrACS
         \end{block}
@@ -1172,7 +1171,7 @@
                     \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{red}{X_{\text{Th}}}}_{\textcolor{red}{\text{Thermique}}} \times
                     \underbrace{\textcolor{violet}{X_{\text{Dyn}}}}_{\textcolor{violet}{\text{Dynamique}}}
                 \end{align*}
-                Composés d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
+                Constitués d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
                 quantité moyenne souhaitée 
             \end{definition}
             \vspace{2em}
@@ -1231,7 +1230,7 @@
     %
     \scriptsize
     \onslide<2->{
-        \begin{block}[Indice de Tippett{,} ou TCS \parencite{tippett_poisson_2011}]
+        \begin{block}[Indice de Tippett{,} ou TCS (Tippet{,} Camargo{,} et Sobel{,} 2011)]
             \begin{equation*}
                 \text{TCS} = \exp \Big( b_0 + \underbrace{\textcolor{violet}{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}}}_{\text{Dynamique}} +
                 \underbrace{\vphantom{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}} \textcolor{red}{b_H H + b_T T}}_{\text{Thermique}} + \log \cos \phi \Big)
@@ -1255,11 +1254,11 @@
                    \end{itemize} 
                 \end{column}
             \end{columns}
-        %
-            \vspace{1em}
+            %
+            \vspace{0.5em}
             \scriptsize
             \begin{center}
-                $\longrightarrow$ Coefficients $b$ (climatologiques) issus d'une \underline{régression statistique} : indice facilement \alert{manipulable}
+                $\longrightarrow$ Coefficients $b$ issus d'une \underline{régression statistique} : indice facilement \alert{manipulable}
                 \vspace{-1em}
             \end{center}
         \end{block}
@@ -1339,7 +1338,7 @@
             Calcul des coefficients du TCS ($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) sur ERA5 (1980 -- 2019) avec IBTrACS comme prédictant :
             \begin{itemize}
                 \item Champs \alert{climatologiques} (2,5° / 1,0°) : \textbf{C25} / \textbf{C10}
-                \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5°~km / 1,0°) : \textbf{M25} / \textbf{M10}
+                \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5° / 1,0°) : \textbf{M25} / \textbf{M10}
             \end{itemize}
             \tcblower
             Les coefficients obtenus sont ensuite \underline{appliqués} à ERA5, pas de temps \alert{mensuel} et à \alert{1,0°} de résolution
@@ -1365,10 +1364,12 @@
             \onslide<2->{
                 \begin{examples}[Apport de la résolution temporelle]
                     \setlength{\leftmargini}{2.5ex}
-                    \begin{enumerate}
-                        \item Moyenne de (M25 - C25) et de \mbox{(M10 - C10)}
-                        \item Moyenne annuelle
-                    \end{enumerate}
+                    % \begin{enumerate}
+                    %     \item Moyenne de (M25 - C25) et de \mbox{(M10 - C10)}
+                    %     \item Moyenne annuelle
+                    % \end{enumerate}
+                    Passage de coefficients calculés sur la climatologie à des coefficients calculés sur tous les mois
+                    %Effet du passage de coefficients calculés sur la climatologiques à des coefficients calculés sur tous les mois
                 \end{examples}
             }
             \onslide<3->{
@@ -1549,17 +1550,17 @@
         \end{column}
     \end{columns}
     %
-    % \onslide<2->{
-    %     \scriptsize
-    %     \begin{center}
-    %         \begin{minipage}{9cm}
-    %             \begin{alertblock}
-    %                 \centering
-    %                 Régression de Poisson peu adaptée à la représentation de la variabilité interannuelle ?
-    %             \end{alertblock}
-    %         \end{minipage}
-    %     \end{center}
-    % }
+    \onslide<2->{
+        \scriptsize
+        \begin{center}
+            \begin{minipage}{9cm}
+                \begin{alertblock}
+                    \centering
+                    On atteint les limites de ce que ces indices peuvent faire pour la variabilité interannuelle
+                \end{alertblock}
+            \end{minipage}
+        \end{center}
+    }
 \end{frame}
 
 %=========================================================
@@ -1647,7 +1648,7 @@
             \item<2-> Variabilité interannuelle \alert{difficile} à améliorer :
                 \begin{itemize}
                     \item Absence d'amélioration en ajoutant de la variabilité temporelle à plus haute fréquence
-                    \item Amélioration statistiquement \alert{significative} mais \textcolor{red}{marginale} avec le diagnostique ENSO 
+                    \item Amélioration statistiquement \alert{significative} mais \textcolor{red}{marginale} avec le prédicteur ENSO 
                 \end{itemize}
             \item<3-> Mais néanmoins :
                 \begin{itemize}
