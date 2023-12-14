@@ -475,19 +475,17 @@
         \end{column}
     \end{columns}
     %
-    \onslide<2->{
-        \begin{center}
-            \vspace{-1ex}
-            \begin{minipage}{7cm}
-                \begin{alertblock}
-                    \centering
-                    \footnotesize
-                    \underline{\alert{Divergence}} des projections issues des deux approches
-                    %Les projections \underline{\alert{divergent}}
-                \end{alertblock}
-            \end{minipage}
-        \end{center}
-    }
+    \begin{center}
+        \vspace{-1ex}
+        \begin{minipage}{7cm}
+            \begin{alertblock}
+                \centering
+                \footnotesize
+                \underline{\alert{Divergence}} des projections issues des deux approches
+                %Les projections \underline{\alert{divergent}}
+            \end{alertblock}
+        \end{minipage}
+    \end{center}
 \end{frame}
 
 %=========================================================
@@ -570,11 +568,13 @@
     \tableofcontents[hideallsubsections,sections={3-}]
 \end{frame}
 
-\begin{frame}[c]
-    \frametitle{Plan}
-    \addtocounter{framesinsection}{-1}
-    \tableofcontents[currentsection,hideothersubsections]
-\end{frame}
+%\begin{frame}[c]
+%    \frametitle{Plan}
+%    \addtocounter{framesinsection}{-1}
+%    \tableofcontents[currentsection,hideothersubsections]
+%\end{frame}
+
+\makesecslide
 
 %=========================================================
 \subsection*{Motivations}
@@ -639,49 +639,29 @@
 \begin{frame}[t]
     \frametitle{Introduction}
     \framesubtitle{Intérêts de la réanalyse ERA5}
-    \onslide<1->{
-        \small
-        \begin{definition}[Réanalyse ERA5 \parencite{hersbach_era5_2020}]
-            \footnotesize
-            \begin{itemize}
-                \item Dernière réanalyse en date du CEPMMT
-                \item Résolution horizontale $\sim$ 0.28° (environ \alert{30 km}) sur tout le globe : Beaucoup d'attentes pour les cyclones
-                \item De 1940 à aujourd'hui (en cours)
-                \item Produit de référence pour les années à venir
-            \end{itemize}
-        \end{definition}
-    }
+    \small
+    \begin{definition}[Réanalyse ERA5 \parencite{hersbach_era5_2020}]
+        \footnotesize
+        \begin{itemize}
+            \item Dernière réanalyse en date du CEPMMT
+            \item Résolution horizontale $\sim$ 0.28° (environ \alert{30 km}) sur tout le globe : Beaucoup d'attentes pour les cyclones
+            \item De 1940 à aujourd'hui (en cours)
+            \item Produit de référence pour les années à venir
+        \end{itemize}
+    \end{definition}
     %
     \vspace{1.5em}
-    \onslide<2->{
-        \small
-        \begin{block}[Intérêt de l'utilisation de la réanalyse ERA5]
+    \small
+    \begin{block}[Intérêt de l'utilisation de la réanalyse ERA5]
+        \footnotesize
+        Meilleure approximation de l'état \underline{historique} de l'atmosphère
+        \tcblower
+        \begin{itemize}
             \footnotesize
-            Meilleure approximation de l'état \underline{historique} de l'atmosphère
-            \tcblower
-            \begin{itemize}
-                \footnotesize
-                \item La plupart des TC observés y sont présents dedans
-                \item Permet la validation du schéma de détection
-            \end{itemize}
-        \end{block}
-    }
-            %\onslide<3->{
-            %    \small
-            %    \begin{block}[Intérêt scientifique]
-            %        \begin{itemize}
-            %            \footnotesize
-            %            \item Produit de référence utilisé pour combler le manque entre les observations et les sorties de modèle 
-            %            \item Beaucoup d'attentes pour la représentation des TC en raison de sa haute résolution
-            %        \end{itemize}
-            %    \end{block}
-            %}
-    % Slide d'introduction pour justifier le fait de travailler sur ERA5
-    % \begin{itemize}
-    %     \item Dans le contexte de la thèse : validation de l'outil de tracking
-    %     \item Intérêt pour la communauté scientifique : \textquote{Nouveau} produit de référence, haute résolution, beaucoup d'espoir pour la représentation des
-    %         TC.
-    % \end{itemize}
+            \item La plupart des TC observés y sont présents dedans
+            \item Permet la validation du schéma de détection
+        \end{itemize}
+    \end{block}
 \end{frame}
  
 %=========================================================
@@ -740,26 +720,31 @@
                     \vspace{-1em}
                 \end{examples}
             }
-            %\vspace{0.33em}
+            \vspace{1em}
             \onslide<2->{
                 \scriptsize
                 \begin{block}[Appariement des trajectoires]
                     \scriptsize
-                    Pour chaque trajectoire détectée dans ERA5 :
+                    Basé sur la correspondance \alert{spatio-temporelle}
                     \setlength{\leftmargini}{4.5ex}
                     \begin{enumerate}
-                        \item Recherche des candidats IBTrACS par correspondance \alert{spatio-temporelle}
+                        %\item Recherche des candidats IBTrACS par correspondance \alert{temporelle}
                         \item \alert{Score} basé sur la quantité de points en commun à moins de 300 km
                         \item Sélection de la \alert{paire de trajectoires} avec le meilleur score
                     \end{enumerate}
-                    $\Rightarrow$ Calcul du taux de l'efficacité de détection (POD) et du taux de fausses détections (FAR) : \alert{Une seule} échéance suffit !
+                    \textcolor{red}{Une seule échéance commune suffit !}
+                    \vspace{-1em}
                 \end{block}
             }
-            %\vspace{0.33em}
+            \vspace{1em}
             \onslide<3->{
                 \scriptsize
                 \begin{definition}[Optimisation du schéma de détection pour ERA5 \parencite{dulac_assessing_2023}]
-                    Seuils de détection du traqueur qui \underline{optimisent} le POD et le FAR sur ERA5 :\\
+                    \setlength{\leftmargini}{2.5ex}
+                    \begin{enumerate}
+                        \item Calcul de l'efficacité de détection (POD) et du taux de fausses détections (FAR).
+                        \item Seuils de détection du traqueur qui \underline{optimisent} le POD et le FAR sur ERA5
+                    \end{enumerate}
                     $\longrightarrow$ Jeu de trajectoires \alert{optimisées}
                     %\textbf{VOR} = 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ ; \textbf{RES} = 5 m.s$^{\text{-1}}$ ; \textbf{TANOM} = 1~K ;
                     %\textbf{PT} = -1~K ; \textbf{PW} = 5 m.s$^{\text{-1}}$ ; \textbf{REL} = 25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$
@@ -1018,9 +1003,9 @@
             \begin{examples}[Métriques de similarité angulaire moyenne ({MAS, \textit{Mean Angular Similarity}})]
                 \begin{enumerate}[(a)]
                     \item<1-> $\text{MAS}^\cap = \bar{S_\theta}^\cap = \frac{1}{\alert{N_\cap}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
-                    \item<2-> $\text{MAS}^\cup = \bar{S_\theta}^\cup = \frac{1}{\underbrace{\textcolor{blue}{N_\cap} + \textcolor{red}{N_\ominus}}_{=
+                    \item<3-> $\text{MAS}^\cup = \bar{S_\theta}^\cup = \frac{1}{\underbrace{\textcolor{blue}{N_\cap} + \textcolor{red}{N_\ominus}}_{=
                         N_\cup}} \sum_{i=1}^{N_\cap} S_\theta (\mathbf{c}_i, \mathbf{q}_i)$
-                    \item<3-> $\text{wMAS} = \frac{ \alert{w_1}}{ \alert{w_1 N_\cap} + \textcolor{red}{w_2 N_\ominus}} \sum_{i=1}^{N_\cap} S_{\theta}(\mathbf{c}_i, \mathbf{q}_i) \quad\quad 
+                    \item<4-> $\text{wMAS} = \frac{ \alert{w_1}}{ \alert{w_1 N_\cap} + \textcolor{red}{w_2 N_\ominus}} \sum_{i=1}^{N_\cap} S_{\theta}(\mathbf{c}_i, \mathbf{q}_i) \quad\quad 
                     \begin{cases}
                         \alert{w_1} = 1 + \bar{S_\theta}^\cap \\
                         \textcolor{red}{w_2} = 2 - \bar{S_\theta}^\cap \\
@@ -1033,18 +1018,18 @@
             \vspace{-7em}
             \begin{figure}
                 \centering
-                \includegraphics<1>[width=0.9\textwidth]{Figures/exemple_similarite/step1.png}%
-                \includegraphics<2>[width=0.9\textwidth]{Figures/exemple_similarite/step2.png}%
-                \includegraphics<3->[width=0.9\textwidth]{Figures/exemple_similarite/step3.png}%
+                \includegraphics<1-2>[width=0.9\textwidth]{Figures/exemple_similarite/step1.png}%
+                \includegraphics<3>[width=0.9\textwidth]{Figures/exemple_similarite/step2.png}%
+                \includegraphics<4->[width=0.9\textwidth]{Figures/exemple_similarite/step3.png}%
             \end{figure}
         \end{column}
     \end{columns}
     \vspace{-0.5em}
     \begin{figure}
         \centering
-        \includegraphics<1>[height=3.5cm]{Figures/MAS_vs_NDIFF/step1.png}%
-        \includegraphics<2>[height=3.5cm]{Figures/MAS_vs_NDIFF/step2.png}%
-        \includegraphics<3->[height=3.5cm]{Figures/MAS_vs_NDIFF/step3.png}%
+        \includegraphics<2>[height=3.5cm]{Figures/MAS_vs_NDIFF/step1.png}%
+        \includegraphics<3>[height=3.5cm]{Figures/MAS_vs_NDIFF/step2.png}%
+        \includegraphics<4->[height=3.5cm]{Figures/MAS_vs_NDIFF/step3.png}%
     \end{figure}
 \end{frame}
 
@@ -1052,45 +1037,33 @@
 \begin{frame}[c]
     \frametitle{Application des métriques}
     \framesubtitle{Optimisation des paramètres du traqueur : Quel impact ?}
-    %Introduire la situation (possiblement avec un schéma pour clarifier le plus possible) :
-    %\begin{itemize}
-    %    \item Deux jeux de trajectoires ERA5 à différents paramètres seuils (lister les paramètres)
-    %    \item Les deux jeux sont appariés à IBTrACS : 2 trajectoires ERA5 pour chaque trajectoire IBTrACS
-    %    \item $\longrightarrow$ On regarde le changement de similarité entre les deux paires
-    %\end{itemize}
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-           \footnotesize
-           \begin{definition}
-               \centering
-               Calcul de la différence de similarité dans les paires ERA5 / IBTrACS avant et après l'optimisation des paramètres
-           \end{definition}
-           \vspace{1em}
-           \begin{block}[Jeux de trajectoires]
-               1 649 \alert{triplets} de trajectoires :
-               \begin{itemize}
-                    \item IBTrACS v4
-                    \item Trajectoires ERA5 utilisées dans \cite{dulac_assessing_2023} (Optimisées)
-                    \item Trajectoires ERA5 \alert{avant} optimisation des paramètres :
-                        \begin{itemize}
-                            \footnotesize
-                            \item \textbf{VOR} = 5$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ (resp. 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
-                            \item \textbf{RES} = 15 m.s$^{\text{-1}}$ (resp. 5m~.s$^{\text{-1}}$)
-                            \item \textbf{PT} = -2~K (resp. -1~K)
-                            \item Paramètre de relaxation \alert{identique} (25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
-                        \end{itemize}
-               \end{itemize}
-               $\longrightarrow$ \alert{Deux trajectoires} ERA5 pour chaque trajectoire IBTrACS
-           \end{block}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \vspace{-2em} 
-            \begin{figure}
-                \centering
-                \includegraphics[width=\textwidth]{Figures/schema_application_similarite.png}
-            \end{figure} 
-        \end{column}
-    \end{columns}
+    \small
+    \begin{definition}
+        \centering
+        Calcul de la différence de similarité dans les paires ERA5 / IBTrACS avant et après l'optimisation des paramètres
+    \end{definition}
+    \vspace{1em}
+           %\begin{block}[Jeux de trajectoires]
+           %    1 649 \alert{triplets} de trajectoires :
+           %    \begin{itemize}
+           %         \item IBTrACS v4
+           %         \item Trajectoires ERA5 utilisées dans \cite{dulac_assessing_2023} (Optimisées)
+           %         \item Trajectoires ERA5 \alert{avant} optimisation des paramètres :
+           %             \begin{itemize}
+           %                 \footnotesize
+           %                 \item \textbf{VOR} = 5$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$ (resp. 15$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
+           %                 \item \textbf{RES} = 15 m.s$^{\text{-1}}$ (resp. 5m~.s$^{\text{-1}}$)
+           %                 \item \textbf{PT} = -2~K (resp. -1~K)
+           %                 \item Paramètre de relaxation \alert{identique} (25$\cdot$10$^{\text{-5}}$ s$^{\text{-1}}$)
+           %             \end{itemize}
+           %    \end{itemize}
+           %    $\longrightarrow$ \alert{Deux trajectoires} ERA5 pour chaque trajectoire IBTrACS
+           %\end{block}
+    \vspace{-1em} 
+    \begin{figure}
+        \centering
+        \includegraphics[height=5cm]{Figures/schema_application_similarite.png}
+    \end{figure} 
 \end{frame}
 
 %=========================================================
