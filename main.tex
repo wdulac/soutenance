@@ -544,12 +544,12 @@
            \vspace{1em}
            \onslide<6->{
                \begin{examples}[Hypothèse de travail]
-                   Améliorer la variabilité interannuelle pour avoir une meilleure confiance dans les projections futures
+                   Améliorer la variabilité historique pour avoir une meilleure confiance dans les projections futures
                \end{examples}
            }
            \vspace{1em}
            \onslide<7->{
-               $\longrightarrow$ Recherche de l'amélioration de la représentation de la variabilité interannuelle par les indices de cyclogénèse
+               $\longrightarrow$ Amélioration de la représentation de la variabilité interannuelle et des tendances historiques par les indices
            }
        \end{column}
    \end{columns}
@@ -1136,7 +1136,7 @@
 %  \end{frame}
  
 %=========================================================
-\section[Indices de cyclogénèse]{Indices de cyclogénèse : Vers une meilleure représentation de la variabilité interannuelle}
+\section[Indices de cyclogénèse]{Indices de cyclogénèse : Vers une meilleure représentation de la variabilité historique}
 %begin{frame}[c]
 %    \frametitle{Plan}
 %    \addtocounter{framesinsection}{-1}
@@ -1230,7 +1230,7 @@
     %
     \scriptsize
     \onslide<2->{
-        \begin{block}[Indice de Tippett{,} ou TCS (Tippet{,} Camargo{,} et Sobel{,} 2011)]
+        \begin{block}[Indice TCS (Tippet{,} Camargo et Sobel 2011)]
             \begin{equation*}
                 \text{TCS} = \exp \Big( b_0 + \underbrace{\textcolor{violet}{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}}}_{\text{Dynamique}} +
                 \underbrace{\vphantom{b_\eta \eta + b_{V_{\text{shear}}} V_{\text{shear}}} \textcolor{red}{b_H H + b_T T}}_{\text{Thermique}} + \log \cos \phi \Big)
@@ -1315,35 +1315,31 @@
 
 %=========================================================
 \subsection{Coefficients du modèle}
-\begin{frame}[t]
+\begin{frame}[c]
     \frametitle{Indice par régression de Poisson}
     \framesubtitle{Ré-évaluation des coefficients du TCS}
-    \footnotesize
-    \onslide<1->{
-        \begin{definition}
-            Régression du TCS est appliquée sur des champs \alert{climatologiques} ($N_\text{temps} = 12$) et à \alert{basse résolution} \mbox{($\sim$ 2,5°)}\\
-            $\longrightarrow$ \underline{Déséquilibre} de l'information spatiale et temporelle
-        \end{definition}
-    }
-    \vspace{1em}
-    \onslide<2->{
-        \begin{examples}[Hypothèse de travail]
-            \centering
-            Introduire plus de \underline{variabilité temporelle} dans la régression pour améliorer la variabilité interannuelle 
-        \end{examples}
-    }
-    \vspace{1em}
-    \onslide<3->{
-        \begin{block}[Indices construits]
-            Calcul des coefficients du TCS ($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) sur ERA5 (1980 -- 2019) avec IBTrACS comme prédictant :
-            \begin{itemize}
-                \item Champs \alert{climatologiques} (2,5° / 1,0°) : \textbf{C25} / \textbf{C10}
-                \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5° / 1,0°) : \textbf{M25} / \textbf{M10}
-            \end{itemize}
-            \tcblower
-            Les coefficients obtenus sont ensuite \underline{appliqués} à ERA5, pas de temps \alert{mensuel} et à \alert{1,0°} de résolution
-        \end{block}
-    }
+    \small
+    \begin{definition}
+        Coefficients du TCS issus de champs \alert{climatologiques} ($N_\text{temps} = 12$) et à une résolution de \mbox{$\sim$ 2,5°}\\
+        $\longrightarrow$ \underline{Déséquilibre} de l'information spatiale et temporelle
+    \end{definition}
+    %\vspace{1em}
+    %\onslide<2->{
+    %    \begin{examples}[Hypothèse de travail]
+    %        \centering
+    %        Introduire plus de \underline{variabilité temporelle} dans la régression pour améliorer la variabilité interannuelle 
+    %    \end{examples}
+    %}
+    \vspace{2em}
+    \begin{block}[Indices construits]
+        Calcul des coefficients du TCS ($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) sur ERA5 (1980 -- 2019) avec IBTrACS comme prédictant :
+        \begin{itemize}
+            \item Champs \alert{climatologiques} (2,5° / 1,0°) : \textbf{C25} / \textbf{C10}
+            \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5° / 1,0°) : \textbf{M25} / \textbf{M10}
+        \end{itemize}
+        \tcblower
+        Les coefficients obtenus sont ensuite \underline{appliqués} à ERA5, pas de temps \alert{mensuel} et à \alert{1,0°} de résolution
+    \end{block}
 \end{frame}
 
 
@@ -1358,7 +1354,7 @@
             \onslide<1->{
                 \begin{alertblock}
                     \centering
-                    Pas d'effet sur la variabilité interannuelle
+                    Pas d'effet significatif sur la variabilité interannuelle
                 \end{alertblock}
             }
             \onslide<2->{
@@ -1376,7 +1372,7 @@
                 \begin{block}[Analyse]
                     \setlength{\leftmargini}{2.5ex}
                     \begin{itemize}
-                        \item<2-> Correction du biais équatorial avec les indices mensuels \mbox{($b_\eta$ augmenté de 30~\%)}
+                        \item<2-> Correction du biais à l'équateur avec les indices mensuels \mbox{($b_\eta$ augmenté de 30~\%)}
                         \item<3-> Effet de la résolution spatiale similaire mais plus faible d'un ordre de grandeur
                     \end{itemize}
                 \end{block}
@@ -1400,44 +1396,6 @@
             }
         \end{column}
     \end{columns}
-    %\begin{columns}
-    %    \begin{column}{0.35\textwidth}
-    %        \begin{examples}[Calcul d'indices sur ERA5 1981 -- 2019]
-    %            Recalculer les coefficients du TCS\\($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) avec :
-    %            \setlength{\leftmargini}{2.5ex}
-    %            \begin{itemize}
-    %                \item Champs climatologiques / mensuels
-    %                \item Champs à 2,5° / 1,0° de résolution horizontale
-    %            \end{itemize}
-    %            $\longrightarrow$ Quatre indices : C25, C10, M25 et M10
-    %        \end{examples}
-    %        \begin{block}[Analyse]
-    %            Correction du biais équatorial avec les indices mensuels ($b_\eta$ augmenté de 30~\%)
-    %        \end{block}
-    %        \onslide<2->{
-    %            \begin{alertblock}
-    %                \centering
-    %                Pas d'effet sur la variabilité interannuelle
-    %            \end{alertblock}
-    %        }
-    %    \end{column}
-    %    \begin{column}{0.65\textwidth}
-    %        \vspace{-1em}
-    %        \begin{figure}
-    %            \raggedleft
-    %            \includegraphics[width=\textwidth]{Figures/apport_mensuel.png}
-    %        \end{figure}
-    %        %
-    %        \vspace{-0.8em}
-    %        \begin{figure}
-    %            \raggedleft
-    %            \includegraphics[height=3.5cm]{Figures/zonal.png}
-    %        \end{figure}
-    %    \end{column}
-    %\end{columns}
-    %\vspace{1em}
-    %Possiblement sous forme de tableau ?\\
-    %$\longrightarrow$ La (mauvaise) représentation de variabilité interannuelle est en fait très robuste aux coefficients
 \end{frame}
 
 %=========================================================
@@ -1458,7 +1416,8 @@
                 \item<2-> Diagnostique du mode de variabilité climatique El Niño (ENSO):
                     \begin{itemize}
                         \item Modulateur de l'activité cyclonique à l'échelle interannuelle
-                        \item Effet \underline{local} de l'ENSO présent dans les indices \parencite{watterson_seasonal_1995}, mais les épisodes sont peu marqués
+                        \item Effet \underline{local} de l'ENSO présent dans les indices \parencite{watterson_seasonal_1995}, on introduit l'effet
+                            \underline{distant}
                     \end{itemize}
                 \item<3-> Déficit de saturation d'humidité en remplacement de l'humidité relative à 600~hPa
             \end{enumerate}
@@ -1471,6 +1430,13 @@
     \frametitle{Ajout d'un diagnostique El Niño dans la régression}
     \scriptsize
     \begin{columns}
+        \begin{column}{0.62\textwidth}
+            \vspace{-3em} 
+            \begin{figure}[htpb]
+                \centering
+                \includegraphics[height=3cm]{Figures/ONI.png}
+            \end{figure} 
+        \end{column}
         \begin{column}{0.38\textwidth}
             \begin{definition}[Simulation historique ARPEGE]
                 \setlength{\leftmargini}{2.5ex}
@@ -1482,21 +1448,14 @@
                 $\longrightarrow$ SST \alert{historique} mais cyclones \alert{fictifs}
             \end{definition}
         \end{column}
-        \begin{column}{0.62\textwidth}
-            \vspace{-3em} 
-            \begin{figure}[htpb]
-                \centering
-                \includegraphics[height=3cm]{Figures/ONI.png}
-            \end{figure} 
-        \end{column}
     \end{columns}
     %
     \vspace{2em}
     \begin{columns}[t]
         \begin{column}{0.6\textwidth}
-            \vspace{-3.5em}%
+            \vspace{-2em}%
             \begin{figure}
-                \includegraphics<2->[height=4.5cm]{Figures/biais_arpege_correlation_oni.png}
+                \includegraphics<2->[height=4.2cm]{Figures/biais_arpege_correlation_oni.png}
             \end{figure}
         \end{column}
         \begin{column}{0.4\textwidth}
@@ -1533,20 +1492,20 @@
             \begin{examples}[Séries représentées]
                 \setlength{\leftmargini}{2.5ex}
                 \begin{itemize}
-                    \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
-                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE
                     \item \underline{LOA} :\\Indice \alert{local} avec ONI
+                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE
+                    \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
                     \item \underline{Tracks} :\\Détection et suivi
                 \end{itemize}
             \end{examples}
             %
-            \begin{block}
-                \setlength{\leftmargini}{2.5ex}
-                \begin{itemize}
-                    \item Ouest Pac. et Sud Pac. Significatifs avec ONI 
-                    \item Impact le plus grand pas là où on pouvait l'attendre
-                \end{itemize}
-            \end{block}
+            %\begin{block}
+            %    \setlength{\leftmargini}{2.5ex}
+            %    \begin{itemize}
+            %        \item Ouest Pac. et Sud Pac. Significatifs avec ONI 
+            %        \item Prédicteur souvent non significatif dans la régression
+            %    \end{itemize}
+            %\end{block}
         \end{column}
     \end{columns}
     %
@@ -1556,7 +1515,7 @@
             \begin{minipage}{9cm}
                 \begin{alertblock}
                     \centering
-                    On atteint les limites de ce que ces indices peuvent faire pour la variabilité interannuelle
+                    On atteint les limites de ce que ces indices peuvent faire pour la \underline{variabilité interannuelle}
                 \end{alertblock}
             \end{minipage}
         \end{center}
@@ -1578,14 +1537,18 @@
             \item $e_s$ : pression de vapeur saturante
             \item $e$ : Pression partielle de la vapeur d'eau
         \end{itemize}
-        $\longrightarrow$ \alert{Augmente} avec le \underline{réchauffement climatique}, tandis que l'humidité relative est projetée constante.\\
         \vspace{\baselineskip}
+        $\longrightarrow$ Le plus l'air est proche de la saturation, le plus facilement la vapeur d'eau peut condenser
+        %$\longrightarrow$ \alert{Augmente} avec le \underline{réchauffement climatique}, tandis que l'humidité relative est projetée constante.\\
     \end{definition}
     \vspace{1em}
     \small
     \begin{examples}[Méthodologie]
-        \footnotesize
-        Utilisation du VPD intégré sur la colonne atmosphérique \parencite{camargo_testing_2014}
+        \small
+        \begin{itemize}
+            \item Utilisation du VPD intégré sur la colonne atmosphérique \parencite{camargo_testing_2014}
+            \item Recherche de tendances historiques
+        \end{itemize}
     \end{examples}
 \end{frame}
 
@@ -1611,7 +1574,7 @@
                    \item \underline{Tracks} (ARPEGE) :\\
                        0,13 TC par 10 ans (p = 0.9) 
                    \item \underline{IBTrACS} (ERA5) :\\
-                        $-0,53$ TC par 10 ans (p = 0.76)
+                        -0,53 TC par 10 ans (p = 0.76)
                 \end{itemize}
             \end{block}
             \vspace{1em}
@@ -1636,7 +1599,7 @@
 
 %=========================================================
 \begin{frame}[c]
-    \frametitle{Ajout de prédicteurs}
+    \frametitle{Indices de cyclogénèse : Vers une meilleure variabilité interannuelle}
     \framesubtitle{Synthèse}
     \begin{block}[Synthèse]
         \small
@@ -1652,7 +1615,7 @@
                 \end{itemize}
             \item<3-> Mais néanmoins :
                 \begin{itemize}
-                    \item Correction du biais équatorial permis par l'utilisation de champs mensuels dans la régression
+                    \item Correction du biais à l'équateur permis par l'utilisation de champs mensuels dans la régression
                     \item Correction de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
                 \end{itemize}
         \end{enumerate}
@@ -1666,40 +1629,65 @@
     \frametitle{Conclusion}
     \framesubtitle{Détection et suivi des cyclones tropicaux}
     \onslide<1->{
-        \large \textbf{\textcolor{blue}{Caractérisation du schéma de détection du CNRM}}\\
-        %\vspace{1ex}
-        \normalsize
-        \onslide<1->}{
-            \begin{itemize}
-                \item Utilisation de la réanalyse ERA5 pour évaluer les performances du traqueur contre IBTrACS\\
-                    \vspace{1ex}
-                    \begin{itemize}
-                        \setlength{\itemsep}{1ex}
-                        \item Amélioration sensible des performances par l'analyse de la sensibilité du traqueur à ses seuils de détection et l'utilisation de
-                            filtres de systèmes de moyennes latitudes adaptés
-                        \item Participation à une intercomparaison de traqueurs sur ERA5
-                        \item Évaluation de la représentation des cyclones dans ERA5
-                    \end{itemize}
-            \end{itemize}
-        }
-    \vspace{2em}
+        \large \textbf{\textcolor{blue}{Travail sur le schéma de détection du CNRM}}\\
+        \vspace{1ex}
+        \small
+        \begin{itemize}
+            \setlength{\itemsep}{1ex}
+            \item Optimisation des paramètres du traqueur par analyse de sensibilité
+            \item Ajout de filtres des systèmes de moyennes latitudes en post-traitement
+            \item Participation à une intercomparaison de traqueurs sur ERA5 \parencite{bourdin_intercomparison_2022}
+            \item Évaluation de la représentation des cyclones dans ERA5 \parencite{dulac_assessing_2023}
+        \end{itemize}
+        \vspace{3em}
+    }
     %
     \onslide<2->{
         \large \textbf{\textcolor{blue}{Métriques d'évaluation des performances}}\\
-        %\vspace{3ex}
-        \normalsize
+        \vspace{1ex}
+        \small
         \begin{itemize}
-            \item Développement de métriques d'évaluation des performances basées sur la similarité angulaire des trajectoires détectées\\
-                \vspace{1ex}
-                \begin{itemize}
-                    \setlength{\itemsep}{1ex}
-                    \item Métriques basées sur la décomposition d'une trajectoire en série de vecteurs de déplacements relatifs 
-                    \item Similarité intégrée sur l'ensemble de la trajectoire, par opposition au FAR et POD
-                \end{itemize}
+            \item Développement de métriques basées sur la similarité angulaire des trajectoires détectées
         \end{itemize}
+        %\begin{itemize}
+        %    \item Développement de métriques d'évaluation des performances basées sur la similarité angulaire des trajectoires détectées\\
+        %        \vspace{1ex}
+        %        \begin{itemize}
+        %            \setlength{\itemsep}{1ex}
+        %            \item Métriques basées sur la décomposition d'une trajectoire en série de vecteurs de déplacements relatifs 
+        %            \item Similarité intégrée sur l'ensemble de la trajectoire, par opposition au FAR et POD
+        %        \end{itemize}
+        %\end{itemize}
     }
 \end{frame}
 
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Conclusion}
+    \framesubtitle{Indices de cyclogénèse : variabilité interannuelle}
+    
+    \onslide<1->{
+        \large \textbf{\textcolor{blue}{Variabilité interannuelle}}\\
+        \small
+        \vspace{1ex} 
+        \begin{itemize}
+            \setlength{\itemsep}{1ex}
+            \item Légère amélioration lorsque le prédicteur ENSO est ajouté, au détriment du sens physique de l'indice
+            \item Possibilité d'amélioration de la tendance de l'évolution de l'activité, indépendamment de la variabilité interannuelle
+        \end{itemize}
+    }
+    \vspace{3em}
+    \onslide<2->{
+        \large \textbf{\textcolor{blue}{Que peut-on attendre des indices de cyclogénèse ?}}\\
+        \small
+        \vspace{1ex}
+        \begin{itemize}
+            \setlength{\itemsep}{1ex}
+            \item Doit-on s'attendre à ce que les indices simulent fidèlement la variabilité interannuelle ?
+            \item Les indices ont-ils encore de l'intérêt face à l'augmentation des résolutions des modèles de climat  ?
+        \end{itemize}
+    }
+\end{frame}
 
 %=========================================================
 \begin{frame}[c]
@@ -1716,54 +1704,18 @@
                     \item Efficacité de détection et filtrage efficace des systèmes indésirables
                     \item Bonne capture de la cyclogénèse et de la cyclolyse
                 \end{itemize}
-            \item<2-> Constitution de bases de données \textquote{expertes} de trajectoires sur les ensembles multi-modèles 
+            \item<2-> Confrontation des traqueurs \textquote{physiques} à des traqueurs IA
+                \begin{itemize}
+                    \item Constitution d'un objectif atteignable pour l'amélioration des traqueurs
+                \end{itemize}
+            \item<3-> Constitution de bases de données \textquote{expertes} de trajectoires sur les ensembles multi-modèles 
                 \begin{itemize}
                     \item Ensembles \textquote{multi-traqueurs}
                     \item Constitution de bases de données composites
                 \end{itemize}
-            \item<3-> Confrontation des traqueurs \textquote{physiques} à des traqueurs IA
-                \begin{itemize}
-                    \item Constitution d'un objectif atteignable pour l'amélioration des traqueurs
-                \end{itemize}
         \end{itemize}
     \end{block}
 \end{frame}
-
-%=========================================================
-\begin{frame}[c]
-    \frametitle{Conclusion}
-    \framesubtitle{Indices de cyclogénèse : variabilité interannuelle}
-    
-    \onslide<1->{
-        \large \textbf{\textcolor{blue}{Variabilité interannuelle}}\\
-        \normalsize
-        \begin{itemize}
-            \item Recherche de l'amélioration de la variabilité interannuelle simulée par les indices de cyclogénèse\\
-                \vspace{1ex} 
-                \begin{itemize}
-                    \setlength{\itemsep}{1ex}
-                    \item<2-> Légère amélioration lorsque le diagnostique ENSO est ajouté, au détriment du sens physique de l'indice
-                    \item<3-> Possibilité d'amélioration de la tendance de l'évolution de l'activité, indépendamment de la variabilité interannuelle
-                \end{itemize}
-        \end{itemize}
-    }
-    \vspace{1.5em}
-    \onslide<4->{
-        \large \textbf{\textcolor{blue}{Que peut-on attendre des indices de cyclogénèse ?}}\\
-        \normalsize
-        \begin{itemize}
-            \item Définition d'un indice\\
-                \vspace{1ex}
-                \begin{itemize}
-                    \setlength{\itemsep}{1ex}
-                    \item<5-> Doit-on s'attendre à ce que les indices simulent fidèlement la variabilité interannuelle ?
-                    \item<6-> Les indices (approche indirecte) ont-ils encore de l'intérêt face à l'augmentation des résolutions des modèles de climat (approche
-                        directe) ?
-                \end{itemize}
-        \end{itemize}
-    }
-\end{frame}
-
 
 %=========================================================
 \begin{frame}[c]
@@ -1773,14 +1725,15 @@
         \small
         \begin{itemize}
             \setlength{\itemsep}{2ex}
-            \item Application plus large d'indices avec le VPD sur des simulations futures, notamment sur CMIP6
-            \item Utilisation de méthodologies objectives de sélection des prédicteurs
+            \item<1-> Application plus large d'indices avec le VPD sur des simulations futures, notamment sur CMIP6
+            \item<2-> Utilisation de méthodologies objectives de sélection des prédicteurs
                 \begin{itemize}
                     \item \cite{wang_dynamic_2020,murakami_patterns_2022} : Indice de cyclogénèse purement dynamique
                 \end{itemize}
-            \item Diversification / spécilisation des indices de cyclogénèse
+            \item<3-> Diversification / spécilisation des indices de cyclogénèse
                 \begin{itemize}
-                    \item Indices régionaux, à visées opérationnelles, visant à fournir une bonne variabilité interannuelle
+                    \item Indices régionaux, à visées opérationnelles, à différentes échelles de prévision
+                    \item Indices spécialisés sur certains processus, ou caractéristique de l'activité cyclonique
                     \item Indices globaux pour une utilisation en changement climatique (si pertinent)
                 \end{itemize}
         \end{itemize}
