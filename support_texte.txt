@@ -1,0 +1,553 @@
+# Garde
+
+[...] Merci d'être présent pour la soutenance de ma thèse, intitulée "Méthodes [...]". Une thèse réalisée au GMGEC dans l'équipe CLIMSTAT et supervisée par Julien Cattiaux et Fabrice Chauvin.
+
+... Commencons par définir ce qu'est un cyclonal tropical ...
+
+# 1
+
+Les cyclones sont de large [...] sur océan, dans les régions tropicales, c'est à dire la bande située entre 20°S et 20°N, et avec un oeil.
+
+--> Le schéma présente les éléments caractéristiques d'un cyclone développé :
+    - Dépression centrale autour de laquelle s'organise la circulation cyclonique, on parle de la circulation "primaire", qui tourne autour de l'oeil
+    - Les cyclones sont également caractérisés par la présence d'un coeur chaud, situé en altitude
+    - et au sommet du cyclone on a un flux divergeant, qui alimente la circulation dite "secondaire" avec l'air expulsé qui s'eloigne de l'oeil, redescend en basses en couches pour ensuite converger vers le centre
+
+--> On peut citer quelques chiffres et grandeurs caractéristiques :
+    [...]
+
+# 2
+
+L'activité cyclonique se répartie sur 6 grands bassins océaniques principaux, présentés sur la carte à gauche.
+
+--> Dans l'hémisphère nord, on a : ...
+    Tandis que dans l'hémisphère sud on distingue principalement le SInd et le SPac.
+    Dans les régions NAtl et EPac on les appelle des ouragans, et dans le WPac on les appelle des typhon, mais il s'agit bien de la même chose.
+
+--> La carte présente un échantillon de trajectoires de cyclones qui ont été observés entre 1980 et 2019, et issues de la base de données IBTrACS.
+
+--> Il s'agit d'une base de données qui recense les trajectoires telles qu'elles sont rapportées par les divers centres régionaux spécialisés à travers le monde
+
+--> Ici ces trajectoires sont colorisées selon le vent maximum soutenu qui a été mesuré car en effet
+    on utilise classiquement la vitesse du vent max soutenu pour catégoriser les cyclones sur l'échelle de Saffir-Simpson :
+        - Tempête tropicale de 16 m/s, environ 60 km/h
+        - la catégorie 5 pour des vents supérieurs à 63 m/s, soit plus de 220 km/h
+
+# 3
+
+La théorie qui permet d'expliquer le processus de formation d'un TC (cyclogénèse) est MAL CONNUE. Néanmoins on connait les conditions qui y sont favorables
+
+- Il faut que la température de surface de l'océan soit suffisamment élevée, et qu'elle le soit sur toute la profondeur de mélange
+- Il faut se trouver suffisamment loin de l'équateur, pour que la force de Coriolis puisse amorcer la circulation cyclonique
+- Il est nécessaire d'avoir une perturbation intiale pré-existante, qui puisse évoluer en cyclone tropical
+- Peu, ou pas, de cisaillement vertical du vent, c'est à dire qu'il ne faut pas que le vent change de vitesse avec l'altitude, car ça a alors tendance à empêcher la structure verticale du cyclone de se développer et de se maintenir.
+- Il faut également une atmosphère suffisamment humide pour faciliter la condensation de la vapeur d'eau, qui est amenée de la surface de l'océan
+
+
+# 4
+
+... Et donc, étant des systèmes de très grande taille, plutôt lents mais avec des vitesses de vents très élévées, associées à des fortes précipitations...
+
+... Les cyclones tropicaux sont aussi le phénomène météorologique le plus destructeur.
+
+--> - Plus de 400 000 morts entre 1980 et 2019
+    - 20 Millions de personnes rendues sans abris
+    - des dégâts immenses, avec un coût économique moyen, aux états-unis, de plus 20 milliars de dollars par cyclone qui atteint les terres habitées
+
+--> Deux photos prises après le passage de deux cyclones récents
+    - à gauche, après le passage du cyclone Idai, au Mozambique, en Mars 2019
+    - à droite, après le passage du cyclone Freddy, au Malawi, en mars 2023
+
+Deux cyclones qui ont fait chacun environ 1500 morts.
+
+... Par conséquent, l'évolution future de l'activité cyclonique tropicale est une question de grande importance.
+
+# 5
+
+Cette figure présente le consensus actuel sur l'évolution de l'activité cyclonique. Il s'agit d'une synthèse de projections climatiques pour un réchauffement planétaire de 2°C, pour quatre métriques d'intérêt, pour chaque bassin océanique, et en bas à droite, pour l'échelle globale.
+
+À l'échelle globale :
+    - On s'attend actuellement à une diminution (ou maintien) probable de la fréquence d'occurrence des cyclones, toutes catégories confondues
+    - Pour la fréquence des cyclones les plus forts, càd de catégories 4 et 5 on s'attend à une hausse relative
+    - On s'attend aussi à une augmentation de l'intensité maximale que peuvent atteindre les cyclones, en termes de vent soutenu à la surface ...
+    - ... et aussi à une augmentation des précipitations associées
+
+--> il faut toutefois souligner des incertitudes associées à ces projections, qui sont conséquentes, à l'échelle globale et d'autant plus à l'échelle des bassins individuels,
+ incertitude qui concerne aussi parfois le signe même du changement.
+
+# Transition
+
+... Se pose alors la question de savoir comment sont réalisées ces projections climatiques
+
+# 6
+
+Pour réaliser ces projections, on a tout d'abord besoin d'un modèle de climat.
+
+--> Il s'agit d'un programme informatique qui simule numériquement l'évolution de l'état de l'atmosphère, en résolvant les équations qui régissent cette évolution.
+
+--> Qui dit numérisation, dit aussi discrétisation. C'est à dire qu'on évalue les variables d'état (température, pression, humidité...) à un certain pas de temps, et aussi à une certaine résolution spatiale, si bien que le modèle travaille à l'échelle de la maille.
+
+--> À ce jour, pour un modèle de climat global, on parle de haute résolution
+    - quand les mailles font entre 20 et 80 km de côté
+    - et de basse résolution entre 100 et 250
+
+--> Aujourd'hui, avec les modèles à plus haute résolution, on commence tout juste à pouvoir résoudre les TC [...] (temps de calcul LE FACTEUR PRINCIPAL limitant...)
+
+...
+
+Ces modèles, on les utilise pour simuler des périodes futures, donc en mode projection, auquel cas on mesure un changement par rapport à des simulations de la période historique. Et alors pour évaluer la qualité de ces simulations historiques, et donc la qualité du modèle, on confronte les sorties du modèle à des observations, quand elles sont disponibles, et le cas échéant on utilise ce qu'on appelle des réanalyses atmosphériques...
+
+# 7
+
+Les réanalyses sont également des simulations numériques de l'évolution de l'état de l'atmosphère, mais avec une finalité différente puisqu'elles visent à reproduire le plus fidèlement possible l'état connu de l'atmosphère dans le passé.
+
+--> On associe un modèle de prévision météorologique avec des observations : satelittaires, stations au sol, radio-sondages, + schéma d'assimilation pour reconstruire, en 3D l'état passé de l'atmosphère.
+
+--> Et en figeant les versions du modèle utilisé et du schéma d'assimilation, on obtient un rejeu du passé qui est à la fois complet et cohérent 
+
+--> Comme je le disais, les réanalyses permettent de faire le lien entre les sorties des modèles de climat et les observations, et sont d'autant plus pertinentes pour l'étude des cyclones tropicaux, puisque c'est +/- le seul moyen d'évaluer (systématique) la structure interne des cyclones tropicaux historiques, pour comparer avec la structure simulée par les modèles.
+
+# 8
+
+Ensuite pour évaluer l'activité dans les modèles il existe deux solutions.
+
+--> Approche directe : la détection et le suivi objectif de cyclones tropicaux dans les modèles haute résolution
+
+Fondamentalement : Algos qui identifient et relient des points de grille (schémas de détection, ou encore traqueurs). Par exemple l'animation du cyclone Ophelia, détecté dans la réanalyse
+
+En pratique : on les applique à des simulations en climat présent et futur dans le but de réaliser des statistiques descriptives sur leur nombre et leurs propriétés
+
+--> Avantages : mesure directe, et elle permet de capturer l'ensemble du vie (ou une grande partie) du cycle de vie et permet une évaluation de tous les aspects de l'activité
+
+--> Inconvénients :
+    1) les simulations HR nécessaires à l'application de cette méthode sont coûteuses et encore trop peu nombreuses
+    2) Les résultats qu'on peut en tirer peuvent dépendre du traqueur utilisé, au point que le choix du traqueur peut même, sous certaines conditions, affecter le signe du changement dans des projections futures.
+
+# 9
+
+Seconde approche est celle de l'utilisation d'indices de cyclogénèse, ou de l'inférence de l'activité cyclonique à travers l'environnement de grande échelle.
+
+--> Cette approche repose sur la découverte, attribuée à William Gray, selon laquelle la fréquence d'occurrence des TC en un point de grille est directement proportionnelle à une combinaison de variables de grande échelle, thermiques et dynamiques, qui sont typiquement les variables qui décrivent les conditions favorables à la cyclogénèse (SST, Humidité, cisaillement)
+
+--> On peut alors construire ces relations qui caractérisent la climatologie spatio-temporelle actuelle, pour les appliquer à des simulations en climat futur.
+
+--> l'intérêt principal réside dans le fait que la méthode repose sur les champs de grande échelle et qu'elle est par conséquent applicable à des modèles à basse résolution (incertitude)
+
+--> En revanche, c'est une mesure indirecte, pour laquelle subsiste de l'incertitude sur le choix des variables utilisées, d'autant plus que celles-ci doivent être judicieusement choisies et ne pas être trop dépendantes au climat actuel (par ex SST - 26°C ne marche pas). Enfin, cette méthode repose sur l'hypothèse forte que les relations établies en climat seront valides dans un climat altéré.
+
+# 10
+
+Hors, ce qui est constaté, et qui définit le contexte géneral dans lequel ma thèse s'inscrit, c'est que ces deux approches tendent à founir des projections divergentes
+
+--> Ici vous avez deux figures, qui présentent des projections sous un scénario de réchauffement climatique, réalisées avec le modèle de climat du CNRM, qui s'appelle ARPEGE
+
+gauche -> détection suivi -> baissé
+droite -> indice -> hausse
+
+--> Les travaux du GIEC utilisent se fondent plutôt sur les résultats de l'approche directe, mais aimerait néanmoins pouvoir réconcilier, ou au moins expliquer cette divergence qu'on constate sur une même simulation
+
+# 11
+
+Par conséquent, pendant ma thèse, j'ai travaillé sur chacune des deux approches, pour lesquelles plusieurs verrous scientifiques sont identifiés 
+
+--> Pour l'aspect tracking, comme on l'a déjà évoqué, il y a :
+    - d'une part l'influence du choix du traqueur dans les projections
+    - et d'autre part, on peut aussi se demander ce que détecte réellement un traqueur OU autrement dit, qu'est-ce qu'un cyclone tropical dans un modèle de climat, sachant que les résolutions ne sont pas tout à fait suffisante pour correctement les résoudre. Par exemple parfois dans la littérature on se refuse à parler de cyclones tropicaux et on leur préfère le terme plus générique de HTV, i.e des vortex de type Ouragan)
+
+--> Le travail entrepris a alors consisté à caractériser en détails le schéma de détection dont on dispose au CNRM dans le but d'y identifier des pistes de perfectionnement
+
+--> et je me suis notamment concentré sur le développement de métriques d'évaluation des performances d'un traqueur.
+
+--> Concernant la partie sur les indices de cyclogénèses : Il y a d'une part cette divergence dans les projections futures par rapport à l'approche directe, et d'autre part, une caractéristique largement documentée et commune à tous les indices ; à savoir une mauvaise représentation de la variabilité interannuelle.
+
+--> On formule alors l'hypothèse que l'amélioration de la variabilité interannuelle simulée par les indices traduirait une meilleure représentation du processus physique sous-jacent, si bien qu'on pourrait accorder une plus grande confiance dans les projections qui en sont issues. Et c'est donc sur la recherche de cette amélioration que je me suis concentré.
+
+# Annonce du plan
+
+Ça nous amène donc au plan de cette présentation, avec une partie sur les aspects tracking, spécifiquement sur l'application du traqueur du CNRM à la réanalyse ERA5.
+Je vous présenterai ensuite quelques travaux qui portent sur les indices de cyclogénèse et notamment sur cette question de la variabilité interannuelle, avant de conclure et de présenter quelques perspectives.
+
+# 12 
+
+ERA5, c'est la dernière réanalyse atmosphérique globale du centre européen.
+
+Elle est dotée d'une résolution horizontale d'environ 30 km sur tout le globe, ce qui est une première, et qui ouvre des perspectives intéressantes, et ce qui amène des attentes notamment pour la représentation des TC.
+
+Elle court de 1940 à aujourd'hui, mise à jour régulièrement
+
+Et on peut la considérer comme un produit de référence, amené à être beaucoup utilisée pour les prochaines années 
+
+--> L'intérêt d'utiliser ERA5, réside dans le fait que c'est une des meilleures approximations de l'état historique de l'atmosphère
+PAR CONSÉQUENT on s'attend à ce que la plupart des cyclones observés soient présents dedans (sinon tous)
+CELA PERMET donc la validation du schéma de détection
+
+# 13
+
+EN L'OCCURRENCE, notre schéma de détection fonctionne de la façon suivante :
+
+--> Il commence par identifier les minimum locaux de pression associés à une vorticité supérieure à un certain seuil, et qu'on schématiser comme ceci avec un point de grille actif
+
+--> On calcule alors la taille caractéristique du système, comme un disque, ici en vert. C'est un calcul dynamique répété à chaque pas de temps.
+
+--> Connaissant la taille, on définit aussi la taille de l'environnement du système, comme un disque de rayon trois fois supérieur, ici en bleu
+
+--> Ces deux éléments permettent de réaliser de nouveaux tests pour identifier des attributs propres aux cyclones :
+    - On cherche du vent de surface supérieur à un certain seuil
+    - On chercher à déceler une anomalie de température, dans le disque vert, par rapport à l'environnement 
+    - On va chercher à mesurer un gradient vertical de température, puisque le coeur chaud est plutôt en altitude 
+    - Et de la même façon on va chercher à mesurer un gradient vertical dans la vitesse du vent, qui résulte de la présence de ce coeur chaud en altitude par la relation du vent thermique
+
+--> L'étape suivante consiste à relier les points dans le temps qui satisfont toutes ces conditions, pour former des premières trajectoires
+
+--> Et enfin il y a l'étape dite de relaxation des paramètres, dans laquelle on relache les contraintes sur tous les seuils, à l'exception de la vorticité, pour compléter en amont et en aval la trajectoire, de façon à mieux capturer la cyclogénèse et la cyclolyse.
+
+# 14
+
+On applique alors le traqueur à la réanalyse ERA5 une première fois, sur la période 1981 - 2019, avec des valeurs par défaut des paramètres de seuils ce qui nous donne un premier jeu de trajectoires, dit "de référence".
+On utilise par ailleurs également la base de données de cyclones observés IBTrACS comme référence,
+
+--> Pour faire le lien entre les trajectoires détectées dans ERA5 et les trajectoires observées, je procède à l'appariement des trajectoires, de façon à former des paires :
+    - Appariement basé sur la correspondance spatio-temporelle, c'est à dire qu'on calcule un score pour chaque paire potentielle de trajectoires, qui correspond au taux de recouvrement de la trajectoire IBTrACS par la trajectoire ERA5, en ne comptant que les échéances communes distantes de moins de 300 km 
+    - À partir de là on sélectionne la paire avec le meilleur score, sachant que la condition minimale nécessaire est qu'il y ait au moins une échéance partagée à moins de 300 km pour que la paire soit valide.
+
+    [ EXEMPLE KATRINA ]
+
+--> Avec cet outil, en comptant les trajectoires ERA5 qui font partie d'une paire, et celles qui n'ont pas pu être appariées, on peut calculer deux métriques : la probabilité de détection (POD), et le taux de fausses alarmes, ou de faux positifs, le FAR.
+
+--> Le POD correspond au pourcentage de trajectoires IBTrACS qui sont retrouvées dans la réanalyse, tandis que le FAR correspond au pourcentage de trajectoires ERA5 qui ne sont pas dans les observations
+
+Ces métriques m'ont ont ensuite permis de mener une analyse de sensibilité du traqueur à ses paramètres de seuils pour déterminer les valeurs qui permettent de maximiser le POD pour ERA5 tout en limitant le FAR dans la mesure du possible parce que les deux sont quand même corrélés. Cette analyse est décrite en détails dans un article qui a été publié dans Climate Dynamics en aout dernier. 
+
+--> Après cette optimisation on obtient un deuxième jeu de trajectoires, dit "optimisé".
+
+# 15
+
+--> POUR RÉDUIRE DAVANTAGE le FAR et justement s'affranchir de la corrélation entre les deux métriques, j'utilise par ailleurs un post-traitement qui vise à retirer dans notre jeu de trajectoires optimisé les systèmes qui évoluent dans les moyennes latitudes, qui sont typiquement extra-tropicaux
+
+--> Cette figure présente le FAR et le POD pour nos deux jeux de trajectoires et dans cinq bassins océaniques et montre bien qu'on obtient quasiment partout à la fois une augmentation de la probabilité de détection ainsi qu'une diminution du taux de faux positifs.
+
+--> Par ailleurs on voit aussi que la majorité des systèmes observés sont détectés dans la réanalyse par notre traqueur avec un POD moyen sur ces bassins de plus de 67 %, avec l'optimisation qui permet de gagner 11 points, tout en réduisant le FAR de 0.5 points et qui se trouve alors autour de 23 %
+
+--> Nous pouvons souligner que les performances obtenues sont très similaires à celles d'autres schémas de détection répandus dans la littérature ; c'est en effet ce qui ressort d'une intercomparaison de 4 traqueurs appliqués à ERA5 et à laquelle nous avons participé.
+
+... Un autre avantage de cette approche d'appariement de trajectoires, c'est aussi de pouvoir étudier les cyclones de la réanalyse en retirant complètement les systèmes identifiés comme des faux positifs
+
+# 16
+
+... Un premier résultat qui en sort alors est illustré sur ce diagramme de vent-pression réalisé sur l'ensemble des échéances partagées par nos paires de trajectoires, c'est à dire qu'on a une correspondance parfaite, 1 pour 1, entre les points ERA5 et IBTrACS.
+
+--> La figure illustre de façon notable une forte sous-estimation des vents maximum associés aux cyclones dans ERA5, puisque les cyclones ne dépassent que très rarement la catégorie 2 sur l'échelle de Saffir-Simpson. En revanche on voit que les minimum de pression sont nettement représentés, et si on classifie alors sur les seuils de pression, on voit qu'on atteint la catégorie 4.
+
+--> En plus de cette sous-estimation, on note également qu'il existe une disparité dans les catégories d'intensité entre ERA5 et IBTrACS, c'est à dire qu'un cyclone observé de catégorie 5 peut être vue par la réanalyse comme un système relativement tout aussi intense, comme il peut être vu comme un système beaucoup plus faible
+
+# 17
+
+Un résultat original et intéressant qu'on peut en tirer consiste aussi à mesurer le décalage dans le temps du cycle de vie entre nos paires de trajectoires
+
+--> Sur cette figure sont présentées les distributions du décalage, exprimé en heures, entre le maximum d'intensité (vents) observé et celui détecté dans la réanalyse, pour chaque classe d'intensité, prise dans les obs.
+
+Un délai >0 indique que le cyclone dans ERA5 est en retard par rapport à IBTrACS
+
+--> Ce qu'on peut alors constater, est que le délai moyen, d'une part est toujours positif, et d'autre part augmente avec l'intensité des cyclones observés, pour atteindre 45 heures (presque 2 jours) pour les cyclones de catégorie 5.
+
+# 18
+
+Pour synthétiser ce qu'on vient de voir :
+
+    - Nous avons obtenu de bonnes performances en termes de FAR et de POD, notamment grâce à l'optimisation des paramètres de détection, ET À l'utilisation d'un filtre des systèmes de moyennes latitudes
+    - Nous avons noté une forte sous-estimation des vents associés aux cyclones dans ERA5, mais avec des minimum de pression nettement plus prononcés
+    - Nous avons ensuite mis en évidence un retard conséquent dans l'intensification, qui atteint jusqu'à 45 heures pour les catégories 5
+
+--> En conséquence de quoi la prudence est de mise lorsqu'on veut utiliser ERA5 pour l'étude des cyclones, et notamment pour les études de cas de cyclones historiques (classe + retard)
+
+--> Ayant pu améliorer le POD et le FAR à travers l'optimisation des paramètres je me suis aussi posé la question de savoir si nos nouvelles trajectoires étaient plus ou moins ressemblantes à celles observées. En effet rappelez-vous, il suffit dans l'absolu d'une seule échéance commune pour valider la paire et donc en cherchant à maximiser le POD on pourrait favoriser des trajectoires moins ressemblantes  
+
+# Transition
+
+C'est donc de ça que je vais à présent vous parler, à travers des métriques de similarité des trajectoires
+
+# 19
+
+Cette figure présente le score d'appariement moyen pour chaque classe d'intensité observée. En moyenne sur toutes les catégories, on a un recouvrement d'environ 70%. Sachant que si on est en dessous de 100%, ça peut vouloir dire deux choses :
+
+    - Soit la trajectoire détectée est trop courte par rapport à celle observée (cf Katrina)
+    - Soit la trajectoire détectée s'éloigne à plus de 300 km d'IBTrACS, auquel cas ça ne compte plus comme du recouvrement
+
+--> Par ailleurs, ça serait aussi intéressant d'avoir une métrique qui serait intégrée sur l'ensemble de la trajectoire, contrairement à une simple classification binaire comme c'est le cas avec FAR / POD
+
+# 20
+
+Donc ici, LE PRINCIPE DE FONCTIONNEMENT de la similarité des trajectoires repose sur la décomposition d'une trajectoire en une séquence de vecteurs de déplacement relatifs
+
+--> On considère une trajectoire C comme une série de POSITIONS DISCRÈTES dans l'espace
+
+--> On la transforme en une série de vecteurs qui relient à chaque fois deux points successifs, appelée Cvec
+
+--> Si on a une paire de trajectoires on peut faire la même chose pour chacune : Cvec et Qvec
+
+--> Si on prend deux vecteurs, qui correspondent exactement à la même date, et issues de chacune des trajectoires, on peut mesurer l'angle formé par les deux vecteurs, par la relation du produit scalaire.
+Connaissant l'angle theta on définit la similarité angulaire, S_theta de la façon suivante (formule), ce qui nous donne un nombre entre 0 et 1 :
+    - 1 si les deux vecteurs sont parallèles et de même sens, 0 pour des sens opposés, et 0.5 si les vecteurs sont orthogonaux
+
+--> On INTRODUIT également quelques définitions supplémentaires :
+    - Intersection
+    - Différence symétrique, qu'on note \ominus, et la taille de cet ensemble mesure la différence de temporalité entre les deux trajectoires
+    - Et enfin l'union des trajectoires qui regroupe tous les points 
+
+# 21
+
+--> La première métrique qu'on définit consiste à mesurer la similarité angulaire moyenne sur l'intersection : MAS_inter
+À droite vous pouvez voir un exemple pour une paire ERA5 / IBTrACS quelconque, et une similarité angulaire évaluée sur 56 points, EXPRIMÉE en pourcentage, de 91%.
+
+Par construction ça ne dépend que de l'intersection, de N_inter, si bien que si on regarde la distribution de cette métrique, on voit d'une part :
+    - Des similarités très élevées, au delà de 80%
+    - et aucun lien avec N_\ominus
+
+--> Hors on voit bien la limite d'un tel système puisque ça permet des similarités excellentes indépendamment de la différence de taille des trajectoires
+
+--> On définit alors une deuxième métrique établit sur l'union des deux trajectoires. Pour ça on va simplement considérer que la similarité définit sur la différence symétrique vaut 0, car ce sont les points où une seule trajectoire existe à la fois. Dans notre exemple à droite en l'occurrence on ajoute 27 zéros dans le calcul et la similarité s'effondre autour de 45 %
+et on a cette relation avec une pente très marquée avec une similarité qui chute très rapidement avec N_\ominus
+
+--> Pour essayer de quand même comptabiliser l'union des deux trajectoires mais sans être aussi punitif, on définit une 3ème métrique, wMAS, dans laquelle on va pondérer différemment la partie sur l'intersection, de la partie sur la différence symétrique. Ces pondérations dépendent elles-mêmes de la similarité sur l'intersection. Ça signifie qu'on s'autorise à revoir à la hausse la similarité totale, et ce d'autant que la similarité sur l'intersection est élevée.
+
+--> Dans notre exemple on atteint alors un wMAS intermédiaire de 70%, et sur la distribution on voit qu'on augmente la dispersion horizontale, c'est à dire qu'on arrive effectivement à compenser dans une certaine mesure des valeurs élevées de N_\ominus 
+
+# 22
+
+Avec ces métriques on va pouvoir répondre à la question qu'on s'est posée, c'est à dire de QUANTIFIER l'effet de l'optimisation des paramètres de détection sur la similarité des trajectoires...
+
+Pour ça on a donc nos deux jeux de trajectoires, "référence" et "optimisé", les deux jeux sont appariés à IBTrACS ce qui fait qu'on a en fait pour chaque trajectoire IBTrACS, deux trajectoires ERA5, on n'a plus des paires mais des triplets. La similarité est évaluée entre ERA5 et IBTrACS et on peut donc évaluer le changement dans la similarité.
+
+# 23
+
+Ici vous pouvez voir les distributions du changement de similarité pour chacune des trois métriques
+
+--> Pour MAS_inter on a un changement moyen très faible mais positif avec +0.3 points, tandis que pour les deux autres le changement est un peu plus important, au delà de 2 points.
+
+--> CE RÉSULTAT s'explique par une diminution du N_\ominus moyen, et on a notamment, pour MAS_union et wMAS, approximativement les trois quarts de la variance du changement expliquée par le changement de N\ominus.
+
+--> Autrement dit, on constate une amélioration de la similarité qui est PORTÉE par une réduction de la différence de temporalité dans nos trajectoires détectées par rapport aux observations.
+
+--> On peut même aller un peu plus loin, et s'intéresser uniquement aux cas où la temporalité des trajectoires n'a absolument pas changée suite à l'optimisation des paramètres.
+On voit alors que dans ces cas là, on note également une légère amélioration de la similarité dans les trois métriques.
+
+# 24
+
+Pour synthétiser cette partie :
+    - Nous avons introduit de nouvelles métriques d'éval des performances du traqueur basées sur la similarité angulaire des trajectoires détectées avec les trajectoires observées. À la différence du FAR et du POD, ces métriques combinent à la fois une information sur la position et sur la durée des trajectoires
+
+    - Les trois métriques se distinguent les unes des autres selon leur façon de comptabiliser, ou non, les échéances non partagées, et nous avons vu qu'elles ne sont pas mutuellement exclusives mais qu'au contraire, on peut les utiliser de manière complémentaire
+
+    - Nous avons mesuré d'une part des scores élevés de similarité sur nos trajectoires, et en particulier nous avons montré que l'optimisation des paramètres s'est soldée par une amélioration de la similarité de nos trajectoires. Celle-ci est essentiellement portée par une meilleure détection de la cyclogénèse et de la cyclolyse, mais pas uniquement.
+
+# Plan
+
+Et sur ce nous allons maintenant passer à la partie de cette présentation consacrée aux indices de cyclogénèse, intitulée : vers une meilleure représentation de la variabilité interannuelle
+
+# 25
+
+Commençons par rappeler quelques éléments
+
+--> Un indice est une relation qui relie la fréquence d'occurence avec l'environnement de grande échelle, et qu'on exprime par exemple ici en TC par unité de surface et par unité de temps
+
+--> Composante thermique / dynamique et sont calibrés de façon à ce que l'intégrale soit égale au nombre de cyclones souhaité
+
+--> Initialement, ils sont conçus pour reproduire la climatologie spatiale et saisonnière de l'activité, comme illustrée sur cette figure
+
+# 26
+
+En revanche, ils ne parviennent pas à correctement simuler la variabilité interannuelle, comme on peut le voir sur cette figure, qui présente la variabilité interannuelle globale de trois indices issus de la littérature, en couleur, avec les observations IBTrACS en pointillés noirs. 
+
+--> Global : Corrélation quasi-nulle
+
+--> Différences importantes régionales
+
+--> Ici on s'intéresse à un des trois indices : Le TCS définit comme suit, et qui fait intervenir les variables usuelles pour décrire l'environnement favorable à la cyclogénèse (vorticité, cisaillement, humidité) et notamment qui utilise la SST relative, c'est à dire l'écart de SST à la moyenne mesurée dans les tropiques.
+
+--> La raison pour laquelle on s'intéresse à cet indice est que les coefficients de pondération associés à chacun des prédicteurs sont issus d'une régression statistique, ce qui signifie que cet indice est facilement reproductible et manipulable.
+
+# 27
+
+Il s'agit d'une régression de Poisson, classiquement utilisée pour modéliser des données discrètes de comptages.
+
+Elle est dite log-linéaire car elle relie linéairement le logarithme de la variable y, à la matrice x. La variable y représente une densité de cyclogénèse issues de trajectoires, tandis que les colonnes de la matrice x représentent nos prédicteurs.
+
+--> C'est une régression spatio-temporelle, c'est à dire qu'on fait une seule régression dans laquelle on mélange tous les points de grille et tous les pas de temps en une seule dimension
+
+--> Une particularité intéressante de cette régression est que les coefficients b peuvent directement s'interpréter comme étant la sensibilité de la fréquence d'occurrence modélisée au prédicteur en question
+
+--> On retiendra dans un indice de cyclogénèse construit par régression de Poisson, il y a donc deux aspects :
+    - Le choix des prédicteurs d'une part
+    - et les coefficients de pondération
+
+
+
+... C'est donc sur ces deux éléments qu'on peut influer ...
+
+# 28 
+
+... et on commence tout d'abord par un travail sur les coefficients.
+
+Il s'agit de reproduire la régression originale de Tippett, c'est à dire qu'on conserve les mêmes prédicteurs mais on cherce à recalculer les coefficients, de différentes façons, avec cet objectif d'améliorer la variabilité interannuelle.
+
+--> En effet, les coefficients du TCS proposés par Tippet et al sont calculés à partir de champs climatologiques, ce qui amène à un déséquilibre du rapport de l'information spatiale sur l'information temporelle 
+
+--> Un rapport que j'ai essayé de ré-équilibrer en introduisant de la variabilité temporelle
+
+--> Et donc pour tester ça j'ai construit quatre indices, en prenant les champs de grande échelle dans ERA5 et en utilisant IBTrACS comme prédictant
+    - Deux qui sont calculés sur des climatologies, comme le TCS : On les appelle C25 et C10, l'un à 2.5° de résolution et l'autre à une résolution plus élévée de 1.0°
+    - Deux indices calculés sur les champs mensuels (donc la régression passe de Ntemp = 12 à Ntemp = 480 : M25 et M10, selon la résolution utilisée
+
+--> Sachant qu'indépendamment de la manière dont sont calculés les coefficients, on les applique par la suite à des champs mensuels, simplement pour être en mesure de calculer la variabilité interannuelle, et à une résolution de 1.0°
+
+... Pour ce qui concerne les résultats
+
+# 29
+
+... Disons-le tout de suite : il n'y a pas d'effet significatif sur la variabilité interannuelle.
+
+--> Néanmoins il y a quand même un effet intéressant dans le passage à des champs mensuels dans la régression. Cette figure présente la différence moyenne entre nos indices mensuels et climatologiques. On peut voir que dans tous les bassins, l'activité simulée par les indices dont les coefficients sont issus de champs mensuels est déplacée au large de l'équateur
+
+--> CE RÉSULTAT n'est en fait pas anodin puisqu'il permet de corriger le biais à l'équateur dans la distribution méridionale de l'activité simulée, comme on peut le voir sur cette figure, avec les deux indices mensuels, en vert, quasiment superposés aux observations IBTrACS en pointillés. La correction de ce biais est en fait liée à une augmentation du coefficient associé à la vorticité de l'ordre de 30% lorsqu'on utilise les champs mensuels.
+
+--> En revanche, l'effet du passage à une résolution SPATIALE plus élevée, est assez négligeable en comparaison.
+
+... On passe à présent à l'ajout de nouveaux prédicteurs dans la régression ...
+
+# 30
+
+On conserve la méthodologie qui consiste à appliquer la régression à des champs mensuels, d'une part parce qu'on vient de voir que ça peut amener des améliorations, et d'autre part parce que c'est difficile d'imaginer qu'on pourrait améliorer la variabilité interannuelle en faisant une régression sur une climatologie.
+
+--> Dans un premier temps je vais introduire, en plus des prédicteurs usuels du TCS un diagnostique du mode de variabilité El Niño (ou ENSO). EN EFFET :
+    - l'ENSO est le mode de variabilité principal de l'activité cyclonique à l'échelle interannuelle, donc on peut penser que s'il y a bien une chose qui peut modifier la variabilité simulée par les indices, ça pourrait être l'ajout d'un prédicteur comme celui-ci.
+    - On peut noter que puisque nos indices utilisent la SST, ils capturent déjà  l'ENSO via la SST locale, mais ici on va apporter la SST remote
+
+--> Dans un second temps, on remplacera le prédicteur d'humidité de la régression, à savoir l'humidité relative, par une mesure du déficit de saturation, mais on en parlera un peu plus tard.
+
+... Donc commençons par l'ENSO
+
+# 31
+
+--> Sur cette figure vous avez la série temporelle observée de l'anomalie de SST dans la boîte Niño 3.4, qu'on appelle aussi ONI, et c'est ce signal que je vais directement injecter dans la régression
+
+--> C'est un travail que j'ai mené sur ARPEGE. J'utilise une simulation de la période historique faite avec ARPEGE, qui va de 1979 à 2010, et qui est forcée par les SST observées issues de la base de données HadISST1. Autrement dit dans cette simulation, on a la SST historique, mais les cyclones eux sont purement générés par le modèle ARPEGE. Par conséquent on utilise le traqueur, et ici en particulier je prends les trajectoires issues de l'étude de Chauvin et al 2020)
+
+--> Cette figure présente le biais dans les cyclogénèses détectées dans la simulation par rapport à IBTrACS, et les valeurs dans chacune des boites sont les corrélations temporelles de nos cyclogénèses avec l'ONI. Ici on a fait deux bassins avec des vrais biais :
+    - Le bassin EPac, où on a un manque important de cyclones
+    - D'autre part le Nord Indien où au contraire le modèle produit beaucoup trop de cyclones 
+.. Dans les autres bassins on a des compensations et c'est plutôt un déport spatial de l'activité qui vient sûrement du traqueur lui-même.
+Par conséquent pour cette étude je vais simplement exclure les bassins EPac et NInd 
+
+--> Donc pour construire mon indice avec ce prédicteur ENSO, j'utilise :
+    1. Les trajectoires détectées comme prédictant, spécifiquement les premières échéances de chaque trajectoire qu'on assimile aux cyclogénèses
+    2. Je conserve les prédicteurs usuels du TCS et je rajoute le signal ONI qui est répliqué en chaque point de l'espace, c'est à dire que chaque point de grille a connaissance à chaque instant de l'anomalie de température dans la boîte Niño 3.4
+    3. Et la subtilité, c'est que je ne fais pas une seule régression globale mais plusieurs régressions locales, une pour chaque bassin océanique. La raison à ça c'est que comme vous pouvez le voir sur cette figure, l'effet de l'ENSO sur l'activité n'est pas homogène. On a des bassins où l'activité est positivement corrélée, et d'autre où elle est négativement corrélée, donc on ne peut pas faire de régression globale. 
+
+--> Ensuite si je mets bout à bout mes indices locaux, ils constituent un indice pseudo-global et où les coefficients dépendent du bassin. et que j'appelle LOA, comme Local / ONI / ARPEGE
+
+# 32
+
+--> Cette diapo présente les résultats de l'effet de l'ajout de l'ONI dans la régression sur la variabilité interannuelle.
+
+--> Vous avez encadré pour chaque bassin et à chaque fois un tableau de corrélation qui présente les corrélations entre différentes séries temporelles, donc on a :
+    - Le LOA, qu'on vient de définir
+    - On a un indice qui s'appelle AM10, qui est exactement comme le M10 qu'on a vu précédemment, mais avec des coefficients calculés pour ARPEGE. Donc un indice global qui utilise les coefficients du TCS
+    - On a le TCS, à titre de référence
+    - et enfin la variabilité mesurée par le traqueur
+
+--> Ce qu'il faut comparer sur cette figure, ce sont les corrélations entre LOA et AM10, et qui sont encadrées en rouge. On voit alors qu'on améliore partout la corrélation entre la variabilité interannuelle simulée par l'indice et celle mesurée par le traqueur
+
+--> On a par ailleurs 2 bassins, qui sont le Ouest Pacifique et le Sud Pacifique (deux dernières lignes de la colonne de gauche), dans lesquels on passe d'une corrélation qui n'était pas significative à une qui l'est. Dans le Ouest Pacifique le saut est même assez important puisqu'on passe d'à peu près 0 à 0.55.
+
+--> En revanche on peut quand même noter plusieurs choses :
+    1. D'une part ces améliorations sont assez marginales 
+    2. D'autre part, elles surviennent alors même que dans la plupart des bassins, ce nouveau prédicteur n'est pas significatif dans la régression, c'est à dire que du point de vue de la régression de Poisson, ce prédicteur n'apporte rien, ou presque. 
+
+--> On peut interpréter ce résultat par le fait que la régression de Poisson vise par dessus tout à fournir la meilleure cohérence spatiale avec la densité de cyclogénèses passée en prédictant. Or, le prédicteur ONI ne possède aucune variabilité spatiale puisque c'est un scalaire répliqué en chaque point.
+
+--> Et donc le fait que ce nouveau prédicteur, qui est d'une certaine façon inadéquat pour la régression de Poisson, parvienne malgré tout à améliorer la variabilité interannuelle, m'amène à penser qu'on atteint peut-être les limites de ce que ces indices peuvent faire pour la variabilité interannuelle.
+
+# 33
+
+Passons à présent à une dernière étude sur ce volet consacré à l'ajout de prédicteurs, avec le déficit de saturation d'humidité.
+
+--> Contrairement à l'humidité relative, le déficit de saturation d'humidité, qu'on note aussi VPD, mesure simplement l'écart à la saturation.
+
+--> Ce choix de remplacer l'humidité relative par le VPD est motivé par des résultats encourageants dans la littérature, notamment dans l'article de Camargo et al 2014 et qui laisse entrevoir une diminution de l'activité cyclonique lorsqu'appliqué à des simulations futures
+
+--> Par ailleurs, le VPD est tout aussi pertinent pour interpréter le processus physique de la cyclogénèse, puisque le plus on est proche de la saturation, le plus il est facile pour la vapeur d'eau de condenser 
+
+--> Donc pour cette analyse, on utilise:
+    1. D'une part le VPD intégré sur la colonne atmosphérique, conformément à l'étude de Camargo
+    2. Et d'autre part on va en fait plutôt s'intéresser à la détection de tendances dans la période historique, puisqu'on vient de voir que la variabilité interannuelle est difficile à améliorer de manière sensible
+
+# 34
+
+Par conséquent sur cette figure, vous pouvez voir les séries annuelles à l'échelle globale, simulées par trois indices différents, en rouge. La colonne de gauche correspond à la simulation ARPEGE tandis que la colonne de droite correspond à ERA5.
+
+--> Pour chacune de ces séries vous avez la tendance linéaire, tracée en pointillés rouges, et en noir il s'agit de la tendance mesurée soit dans les tracks, dans le cas d'ARPEGE, soit dans les obs avec IBTrACS pour ERA5.
+
+--> Alors que ce soit dans la simulation historique ou dans la réanalyse, il n'y a pas de tendance détectable qui soit significative ; elles sont données dans l'encadré en haut à droite
+
+--> Et ce qui est intéresant de constater ici, c'est que, que ce soit pour le TCS, ou pour M10, dans ARPEGE ou dans ERA5, on a à chaque fois une tendance positive dans la fréquence simulée par l'indice, qui elle est bien significative.
+
+--> En revanche quand on remplace l'humidité relative par le déficit de saturation, on ramène la tendance vers les obs / et vers le tracking, avec de nouveau des tendances qui ne sont pas significatives
+
+# 35
+
+Pour synthétiser cette partie :
+
+--> Nous avons utilisé la méthodologie de la régression de Poisson pour construire, de façon "objective" des nouveaux indices de cyclogénèse. Je précise entre guillemets puisque le choix des prédicteurs lui n'est pas objectif. Mais cette méthodologie présente néanmoins le grand intérêt de pouvoir calculer ou re-calculer les coefficients des indices définis de cette façon et permet d'expérimenter facilement l'ajout de nouveaux prédicteurs.
+
+--> Nous avons vu que la variabilité interannuelle simulée par les indices était difficile à améliorer :
+    - En particulier, l'ajout de variabilité temporelle à plus haute fréquence dans la régression ne montre pas de signe d'amélioration
+    - Et on note une amélioration significative mais marginale de la variabilité lorsque l'on amène le prédicteur ENSO.
+
+--> Il faut toutefois noter que ces travaux mettent en évidence, d'une part
+    1. La correction du biais à l'équateur dans la distribution méridionale de l'activité simulée par les indices, mis en évidence par l'utilisation de champs mensuels dans la régression
+    2. D'autre part, l'utilisation du déficit de saturation en lieu et place de l'humidité relative permet la correction de la tendance historique 
+
+# Transition
+
+Et donc passons maintenant aux conclusions et perspectives pour l'ensemble de la présentation et de ma thèse en général
+
+# 36
+
+J'ai dans un premier temps réalisé un travail sur le schéma de détection et de suivi de cyclones du CNRM :
+
+    1. J'ai mené une analyse de sensibilité des performances de détection du traqueur à ses paramètres de seuil, ce qui a permis d'optimiser notamment la probabilité de détection sur la réanalyse ERA5
+
+    2. J'ai également employé des filtres des systèmes de moyennes latitudes en post-traitement, de façon à réduire le taux de faux positifs davantage, et ce qui permet de s'affranchir de la corrélation entre le POD et le FAR qu'on a si on agit simplement sur les paramètres du traqueur
+
+    3. J'ai participé à une étude d'intercomparaison de traqueurs ce qui nous a permis de confronter notre traqueur à d'autres schémas largement répandus
+
+    4. Et j'ai également réalisé une étude portant sur la représentation des cyclones dans ERA5
+
+
+--> Concernant le développement de métriques d'évaluation des performances : J'ai proposé de nouvelles métriques basées sur une approche novatrice qui consiste à exploiter la similarité angulaire des trajectoires détectées 
+
+# 37
+
+Pour ce qui est des indices de cyclogénèse, le travail de thèse que j'ai mené a consisté à chercher à améliorer la variabilité interannuelle simulée par les indices.
+    1. On retiendra que j'ai pu obtenir une légère amélioration lorsque le prédicteur de l'ENSO est ajouté. Mais cette amélioration se fait au détriment du sens physique de l'indice, puisque les indices intègrent généralement seulement les variables qui interviennent dans le processus de cyclogénèse.
+
+    2. J'ai également montré qu'il est possible d'améliorer la tendance de l'évolution de l'activité, telle que simulée par l'indice, de manière indépendante de la variabilité interannuelle
+
+--> Ces travaux nous amènent alors à s'interroger sur ce qu'on peut attendre des indices de cyclogénèse. Par exemple
+
+    1. Faut-il s'attendre à ce que les indices puissent fidèlement simuler la variabilité interannuelle ? 
+
+    2. Et par ailleurs on peut aussi s'interroger sur le rôle que seront amenés à endosser les indices de cyclogénèse à l'avenir dans la mesure où la résolution des modèles s'améliore de génération en génération et permettra sans doute bientôt d'utiliser systématiquement la mesure directe par détection et suivi.
+
+# 38 (Perspectives tracking)
+
+Dans ce contexte, je pense qu'il est important de poursuivre la recherche de l'amélioration des performances des traqueurs, en continuant à travailler sur des réanalyses, puisque c'est le seul moyen de réellement pouvoir évaluer leurs performances. On ne peut alors que supposer que les améliorations qu'on leur apporte sont valides pour leur utilisation dans des simulations dépourvues de références
+ --> Spécifiquement, il reste de la marge de manoeuvre pour améliorer l'efficacité de détection et pour limiter la détection des systèmes indésirables
+ --> Il reste également de la marge de manoeuvre pour chercher à mieux capturer la cyclogénèse et la cyclolyse
+
+ --> Une stratégie possible pour y parvenir pourrait consister à confronter les schémas de détection "classiques" à des traqueurs basés sur l'intelligence artificielle. On peut en effet s'attendre à ce que les performances des traqueurs par IA soient excellentes, ce qui définirait par la même occasion un obectif atteignable à atteindre.
+
+Enfin, la généralisation de bases de données "expertes" de trajectoires de cyclones détectées dans les modèles -- à l'instar de ce qui se fait déjà par exemple pour HighResMIP -- pourrait contribuer à réduire l'incertitude associée au choix du traqueur
+ 2 possibilités :
+    1. Ensemble multi traqueurs
+    2. Bases de donnés composites
