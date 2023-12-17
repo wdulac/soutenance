@@ -392,7 +392,7 @@
 %=========================================================
 \begin{frame}[t]
     \frametitle{2\ieme~ approche : Indices de cyclogénèse}
-    \framesubtitle{Inférence de l'activité par l'environnement de grande échelle}
+    \framesubtitle{Inférence de l'activité à travers l'environnement de grande échelle}
     \begin{columns}[t]
         \begin{column}{0.66\textwidth}
             \begin{definition}
@@ -1243,7 +1243,7 @@
             \begin{columns}[t]
                 \begin{column}{0.5\textwidth}
                     \begin{itemize}
-                        \item $\eta$ : $\min(\zeta, 3.7)$, vorticité relative absolue à 850~hPa \mbox{($10^{-5}$ s$^{-1}$)}
+                        \item $\eta$ : $\min(\zeta, 3.7)$, vorticité absolue à 850~hPa \mbox{($10^{5}$ s$^{-1}$)}
                         \item $V_\text{shear}$ : Cisaillement vertical entre 850~hPa et 200~hPa (m.s$^{-1}$)
                     \end{itemize}
                 \end{column}
@@ -1309,94 +1309,94 @@
     \vspace{1em}
     \begin{center}
         \small
-        Indice de cyclogénèse par régression de Poisson : Choix des \alert{prédicteurs} et \alert{coefficients} $b$
+        Indice de cyclogénèse par régression de Poisson : Choix des \underline{\alert{prédicteurs}} et \alert{coefficients} $b$
     \end{center}
 \end{frame}
 
 %=========================================================
-\subsection{Coefficients du modèle}
-\begin{frame}[c]
-    \frametitle{Indice par régression de Poisson}
-    \framesubtitle{Ré-évaluation des coefficients du TCS}
-    \small
-    \begin{definition}
-        Coefficients du TCS issus de champs \alert{climatologiques} ($N_\text{temps} = 12$) et à une résolution de \mbox{$\sim$ 2,5°}\\
-        $\longrightarrow$ \underline{Déséquilibre} de l'information spatiale et temporelle
-    \end{definition}
-    %\vspace{1em}
-    %\onslide<2->{
-    %    \begin{examples}[Hypothèse de travail]
-    %        \centering
-    %        Introduire plus de \underline{variabilité temporelle} dans la régression pour améliorer la variabilité interannuelle 
-    %    \end{examples}
-    %}
-    \vspace{2em}
-    \begin{block}[Indices construits]
-        Calcul des coefficients du TCS ($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) sur ERA5 (1980 -- 2019) avec IBTrACS comme prédictant :
-        \begin{itemize}
-            \item Champs \alert{climatologiques} (2,5° / 1,0°) : \textbf{C25} / \textbf{C10}
-            \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5° / 1,0°) : \textbf{M25} / \textbf{M10}
-        \end{itemize}
-        \tcblower
-        Les coefficients obtenus sont ensuite \underline{appliqués} à ERA5, pas de temps \alert{mensuel} et à \alert{1,0°} de résolution
-    \end{block}
-\end{frame}
-
-
-%=========================================================
-\begin{frame}
-    \frametitle{Indice par régression de Poisson}
-    \framesubtitle{Coefficients du modèle : Résolution spatiale et temporelle}
-    \footnotesize
-    \begin{columns}
-        \begin{column}{0.35\textwidth}
-            %\vspace{-1em}
-            \onslide<1->{
-                \begin{alertblock}
-                    \centering
-                    Pas d'effet significatif sur la variabilité interannuelle
-                \end{alertblock}
-            }
-            \onslide<2->{
-                \begin{examples}[Apport de la résolution temporelle]
-                    \setlength{\leftmargini}{2.5ex}
-                    % \begin{enumerate}
-                    %     \item Moyenne de (M25 - C25) et de \mbox{(M10 - C10)}
-                    %     \item Moyenne annuelle
-                    % \end{enumerate}
-                    Passage de coefficients calculés sur la climatologie à des coefficients calculés sur tous les mois
-                    %Effet du passage de coefficients calculés sur la climatologiques à des coefficients calculés sur tous les mois
-                \end{examples}
-            }
-            \onslide<3->{
-                \begin{block}[Analyse]
-                    \setlength{\leftmargini}{2.5ex}
-                    \begin{itemize}
-                        \item<2-> Correction du biais à l'équateur avec les indices mensuels \mbox{($b_\eta$ augmenté de 30~\%)}
-                        \item<3-> Effet de la résolution spatiale similaire mais plus faible d'un ordre de grandeur
-                    \end{itemize}
-                \end{block}
-            }
-        \end{column}
-        \begin{column}{0.65\textwidth}
-            \vspace{-1em}
-            \onslide<2->{
-                \begin{figure}
-                    \raggedleft
-                    \includegraphics[width=\textwidth]{Figures/apport_mensuel.png}
-                \end{figure}
-            }
-            %
-            \vspace{-0.8em}
-            \onslide<3->{
-                \begin{figure}
-                    \centering
-                    \includegraphics[height=3.5cm]{Figures/zonal.png}
-                \end{figure}
-            }
-        \end{column}
-    \end{columns}
-\end{frame}
+%\subsection{Coefficients du modèle}
+%\begin{frame}[c]
+%    \frametitle{Indice par régression de Poisson}
+%    \framesubtitle{Ré-évaluation des coefficients du TCS}
+%    \small
+%    \begin{definition}
+%        Coefficients du TCS issus de champs \alert{climatologiques} ($N_\text{temps} = 12$) et à une résolution de \mbox{$\sim$ 2,5°}\\
+%        $\longrightarrow$ \underline{Déséquilibre} de l'information spatiale et temporelle
+%    \end{definition}
+%    %\vspace{1em}
+%    %\onslide<2->{
+%    %    \begin{examples}[Hypothèse de travail]
+%    %        \centering
+%    %        Introduire plus de \underline{variabilité temporelle} dans la régression pour améliorer la variabilité interannuelle 
+%    %    \end{examples}
+%    %}
+%    \vspace{2em}
+%    \begin{block}[Indices construits]
+%        Calcul des coefficients du TCS ($b_\eta$, $b_{V_\text{shear}}$, $b_H$, $b_T$) sur ERA5 (1980 -- 2019) avec IBTrACS comme prédictant :
+%        \begin{itemize}
+%            \item Champs \alert{climatologiques} (2,5° / 1,0°) : \textbf{C25} / \textbf{C10}
+%            \item Champs \alert{mensuels} ($N_\text{temps} = 480$) (2,5° / 1,0°) : \textbf{M25} / \textbf{M10}
+%        \end{itemize}
+%        \tcblower
+%        Les coefficients obtenus sont ensuite \underline{appliqués} à ERA5, pas de temps \alert{mensuel} et à \alert{1,0°} de résolution
+%    \end{block}
+%\end{frame}
+%
+%
+%%=========================================================
+%\begin{frame}
+%    \frametitle{Indice par régression de Poisson}
+%    \framesubtitle{Coefficients du modèle : Résolution spatiale et temporelle}
+%    \footnotesize
+%    \begin{columns}
+%        \begin{column}{0.35\textwidth}
+%            %\vspace{-1em}
+%            \onslide<1->{
+%                \begin{alertblock}
+%                    \centering
+%                    Pas d'effet significatif sur la variabilité interannuelle
+%                \end{alertblock}
+%            }
+%            \onslide<2->{
+%                \begin{examples}[Apport de la résolution temporelle]
+%                    \setlength{\leftmargini}{2.5ex}
+%                    % \begin{enumerate}
+%                    %     \item Moyenne de (M25 - C25) et de \mbox{(M10 - C10)}
+%                    %     \item Moyenne annuelle
+%                    % \end{enumerate}
+%                    Passage de coefficients calculés sur la climatologie à des coefficients calculés sur tous les mois
+%                    %Effet du passage de coefficients calculés sur la climatologiques à des coefficients calculés sur tous les mois
+%                \end{examples}
+%            }
+%            \onslide<3->{
+%                \begin{block}[Analyse]
+%                    \setlength{\leftmargini}{2.5ex}
+%                    \begin{itemize}
+%                        \item<2-> Correction du biais à l'équateur avec les indices mensuels \mbox{($b_\eta$ augmenté de 30~\%)}
+%                        \item<3-> Effet de la résolution spatiale similaire mais plus faible d'un ordre de grandeur
+%                    \end{itemize}
+%                \end{block}
+%            }
+%        \end{column}
+%        \begin{column}{0.65\textwidth}
+%            \vspace{-1em}
+%            \onslide<2->{
+%                \begin{figure}
+%                    \raggedleft
+%                    \includegraphics[width=\textwidth]{Figures/apport_mensuel.png}
+%                \end{figure}
+%            }
+%            %
+%            \vspace{-0.8em}
+%            \onslide<3->{
+%                \begin{figure}
+%                    \centering
+%                    \includegraphics[height=3.5cm]{Figures/zonal.png}
+%                \end{figure}
+%            }
+%        \end{column}
+%    \end{columns}
+%\end{frame}
 
 %=========================================================
 \subsection{Prédicteurs utilisés dans la régression}
@@ -1413,7 +1413,7 @@
     \onslide<2->{
         \begin{block}[Prédicteurs utilisés]
             \begin{enumerate}
-                \item<2-> Diagnostique du mode de variabilité climatique El Niño (ENSO):
+                \item<2-> Diagnostic du mode de variabilité climatique El Niño (ENSO):
                     \begin{itemize}
                         \item Modulateur de l'activité cyclonique à l'échelle interannuelle
                         \item Effet \underline{local} de l'ENSO présent dans les indices \parencite{watterson_seasonal_1995}, on introduit l'effet
@@ -1598,26 +1598,42 @@
 \end{frame}
 
 %=========================================================
+%\begin{frame}[c]
+%    \frametitle{Indices de cyclogénèse : Vers une meilleure variabilité historique}
+%    \framesubtitle{Synthèse}
+%    \begin{block}[Synthèse]
+%        \small
+%        \begin{enumerate}
+%            \setlength\itemsep{1em}
+%            \item<1-> \alert{Régression de Poisson} comme méthode \textquote{objective} de construction d'indices de cyclogénèse\\
+%                \vspace{0.8ex}
+%                $\longrightarrow$ Permet de re-calculer les coefficients et d'expérimenter l'ajout de nouveaux prédicteurs
+%            \item<2-> Variabilité interannuelle \alert{difficile} à améliorer :
+%                \begin{itemize}
+%                    \item Absence d'amélioration en ajoutant de la variabilité temporelle à plus haute fréquence
+%                    \item Amélioration statistiquement \alert{significative} mais \textcolor{red}{modeste} avec le prédicteur ENSO 
+%                \end{itemize}
+%            \item<3-> Mais néanmoins :
+%                \begin{itemize}
+%                    \item Correction du biais à l'équateur permis par l'utilisation de champs mensuels dans la régression
+%                    \item Correction de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
+%                \end{itemize}
+%        \end{enumerate}
+%    \end{block}
+%\end{frame}
+
 \begin{frame}[c]
-    \frametitle{Indices de cyclogénèse : Vers une meilleure variabilité interannuelle}
+    \frametitle{Indices de cyclogénèse : Vers une meilleure variabilité historique}
     \framesubtitle{Synthèse}
     \begin{block}[Synthèse]
         \small
         \begin{enumerate}
-            \setlength\itemsep{1em}
+            \setlength\itemsep{1.5em}
             \item<1-> \alert{Régression de Poisson} comme méthode \textquote{objective} de construction d'indices de cyclogénèse\\
                 \vspace{0.8ex}
                 $\longrightarrow$ Permet de re-calculer les coefficients et d'expérimenter l'ajout de nouveaux prédicteurs
-            \item<2-> Variabilité interannuelle \alert{difficile} à améliorer :
-                \begin{itemize}
-                    \item Absence d'amélioration en ajoutant de la variabilité temporelle à plus haute fréquence
-                    \item Amélioration statistiquement \alert{significative} mais \textcolor{red}{marginale} avec le prédicteur ENSO 
-                \end{itemize}
-            \item<3-> Mais néanmoins :
-                \begin{itemize}
-                    \item Correction du biais à l'équateur permis par l'utilisation de champs mensuels dans la régression
-                    \item Correction de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
-                \end{itemize}
+            \item<2-> Amélioration statistiquement \alert{significative} mais \textcolor{red}{modeste} avec le prédicteur ENSO 
+            \item<3-> \alert{Correction} de la tendance sur la période historique lorsque le déficit de saturation est utilisé comme prédicteur d'humidité
         \end{enumerate}
     \end{block}
 \end{frame}
@@ -1664,10 +1680,10 @@
 %=========================================================
 \begin{frame}[c]
     \frametitle{Conclusion}
-    \framesubtitle{Indices de cyclogénèse : variabilité interannuelle}
+    \framesubtitle{Indices de cyclogénèse : variabilité historique}
     
     \onslide<1->{
-        \large \textbf{\textcolor{blue}{Variabilité interannuelle}}\\
+        \large \textbf{\textcolor{blue}{Variabilité historique}}\\
         \small
         \vspace{1ex} 
         \begin{itemize}
@@ -1729,6 +1745,7 @@
             \item<2-> Utilisation de méthodologies objectives de sélection des prédicteurs
                 \begin{itemize}
                     \item \cite{wang_dynamic_2020,murakami_patterns_2022} : Indice de cyclogénèse purement dynamique
+                    \item Choix des prédicteurs à l'échelle des bassins
                 \end{itemize}
             \item<3-> Diversification / spécilisation des indices de cyclogénèse
                 \begin{itemize}
