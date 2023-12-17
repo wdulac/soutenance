@@ -1302,8 +1302,8 @@
         \begin{itemize}
             \item Prédictant y : Densité de cyclogénèse issues des trajectoire, de taille \alert{$m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$}
             \item Matrice $\mathbf{x}$ : \alert{$n$} variables (colonnes) thermiques et dynamiques de grande échelle, chacune de taille $m$
-            \item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)\\
-                $\longrightarrow$ S'interprètent comme des \alert{sensibilités} !
+            %\item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)\\
+            %    $\longrightarrow$ S'interprètent comme des \alert{sensibilités} !
         \end{itemize} 
     \end{definition}
     \vspace{1em}
@@ -1427,7 +1427,7 @@
 
 %=========================================================
 \begin{frame}[t]
-    \frametitle{Ajout d'un diagnostique El Niño dans la régression}
+    \frametitle{Ajout d'un diagnostic El Niño dans la régression}
     \scriptsize
     \begin{columns}
         \begin{column}{0.62\textwidth}
@@ -1477,7 +1477,7 @@
 
 %=========================================================
 \begin{frame}[t]
-    \frametitle{Introduction d'un diagnostique El Niño dans la régression}
+    \frametitle{Introduction d'un diagnostic El Niño dans la régression}
     \framesubtitle{Résultats}
     \vspace{-1em}
     \begin{columns}
@@ -1493,7 +1493,7 @@
                 \setlength{\leftmargini}{2.5ex}
                 \begin{itemize}
                     \item \underline{LOA} :\\Indice \alert{local} avec ONI
-                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE
+                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE (Mensuel à 1,0°)
                     \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
                     \item \underline{Tracks} :\\Détection et suivi
                 \end{itemize}
@@ -1544,9 +1544,10 @@
     \vspace{1em}
     \small
     \begin{examples}[Méthodologie]
-        \small
+        \footnotesize
         \begin{itemize}
-            \item Utilisation du VPD intégré sur la colonne atmosphérique \parencite{camargo_testing_2014}
+            \item VPD intégré sur la colonne atmosphérique \parencite{camargo_testing_2014}
+            \item Indice construit sur ARPEGE \alert{et} sur ERA5 ($y \coloneqq$ IBTrACS) : AVPD / EVPD
             \item Recherche de tendances historiques
         \end{itemize}
     \end{examples}
