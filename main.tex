@@ -1785,6 +1785,17 @@
 
 %=========================================================
 \subsection*{Représentation des TC dans ERA5}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Distance entre les trajectoires appariées}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\textwidth]{Figures/Annexes/distances_match.png}
+    \end{figure}
+\end{frame}
+
+%=========================================================
 \begin{frame}[t]
     \frametitle{Classes d'intensité croisées}
     \framesubtitle{Échelle globale}
@@ -1848,26 +1859,159 @@
 \end{frame}
 
 %=========================================================
-\subsection*{Trajectoires simulation ARPEGE historique}
+\subsection*{Diagnostic d'évaluation de l'indice}
 \begin{frame}[c]
-    \frametitle{Densité de cyclogénèses détectées dans la simulation ARPEGE historique}
+    \frametitle{Rangs de l'indice}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{Figures/Annexes/track_density_PRE625REFT359x.png}
-        \caption{\small Densité annuelle moyenne de cyclogénèses dans la simulation ARPEGE forcée par HadISST1 entre 1980 et 2010, calculée sur une grille régulière de 2°×2°.}
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/percentile_genesis_all_5_2.png}
+    \end{figure} 
+\end{frame}
+
+
+%=========================================================
+\subsection*{Trajectoires simulation ARPEGE historique}
+\begin{frame}[c]
+    \frametitle{Biais dans la densité de cyclogénèse ARPEGE / IBTrACS}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/density_arpege_ibtracs.png}
     \end{figure}
     
 \end{frame}
 
+%=========================================================
 \subsection*{Ajout de l'ONI dans la régression de Poisson}
 \begin{frame}[c]
+    \frametitle{Coefficients du LOA}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/coefs_LOA.png}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
     \frametitle{Corrélation cyclogénèses détectées avec l'ONI}
-    \framesubtitle{Par point de grille}
+    \framesubtitle{Dans la simulation ARPEGE historique forcée par HadISST1}
     \begin{figure}
         \centering
         \includegraphics[width=0.8\textwidth]{Figures/Annexes/corr_ONI_tracks.png}
         \caption{\small Carte de corrélation entre la variabilité interannuelle de l’activité cyclonique par point de grille (3 °x3 °) pour les cyclogénèses détectées dans ARPEGE et l’ONI, sur les saisons cycloniques entre 1980 et 2010.}
     \end{figure}
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Corrélation cyclogénèses observées avec l'ONI}
+    \framesubtitle{Dans IBTrACS}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/correlation_ONI34_ibtracs.png}
+        \caption{\small Carte de corrélation entre la variabilité interannuelle de l’activité cyclonique par point de grille (3 °x3 °) pour IBTrACS dans ARPEGE
+        et l’ONI, sur les saisons cycloniques entre 1981 et 2019.}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\subsection*{Indices régionaux}
+\begin{frame}[c]
+    \frametitle{Indices régionaux}
+    \framesubtitle{Corrélation variabilité interannuelle}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/corr_lm10_m10_ibt.png}
+    \end{figure}
+    
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Indices régionaux}
+    \framesubtitle{Cartes de différences LM10 v.s M10}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/diff_LM10_M10.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Indices régionaux}
+    \framesubtitle{Coefficients par bassin}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/coefs_indices_locaux.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\subsection*{Influence des coefficients de la régression}
+\begin{frame}[c]
+    \frametitle{Champs mensuel}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/apport_mensuel.png}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Distribution méridienne}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/zonal.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\subsection*{Déficit de saturation d'humidité}
+\begin{frame}[c]
+    \frametitle{Corrélation variabilité interannuelle}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figures/Annexes/corr_AVPD_AM10_M10_tracks.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Réparition spatiale}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\textwidth]{Figures/Annexes/carte_diff_VPD_AM10.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\subsection*{Climat futur}
+\begin{frame}[c]
+    \frametitle{Changement dans la densité de trajectoires détectées}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/diff_density.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Application climat futur}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/Annexes/delta_F_P.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \caption*{\small Changement dans la densité de trajectoires détectées}
+                \includegraphics[width=\textwidth]{Figures/Annexes/diff_density.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \end{document}
