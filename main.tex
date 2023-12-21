@@ -53,7 +53,7 @@
                 \footnotesize
                 \centering
                 Larges systèmes dépressionnaires et tourbillonnaires se développant sur océan dans les tropiques et caractérisés notamment par la présence d'un
-            \textquote{œil} en leur centres
+            \textquote{œil} en leurs centres
             \end{definition}
         \end{minipage}
     \end{center}
@@ -96,7 +96,7 @@
             \begin{figure}[h]
                 \centering
                 \includegraphics[width=\textwidth]{Figures/Bassins_et_trajectoires_soutenance.png}
-                \caption{\scriptsize Données issues de la basé de données de cyclones IBTrACS, version 4}
+                \caption{\scriptsize Données issues de la base de données de cyclones IBTrACS, version 4}
             \end{figure}
         \end{column}
         \begin{column}{0.35\textwidth}
@@ -129,7 +129,7 @@
 %===================================================
 \begin{frame}[c]
     \frametitle{Qu'est-ce qu'un cyclone tropical ?}
-    \framesubtitle{Conditions de formations}
+    \framesubtitle{Conditions de formation}
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{Figures/diagramme_formation.png}
@@ -272,7 +272,7 @@
                     \centering
                     \includegraphics[width=0.8\textwidth]{Figures/maillage_upscaled_x4_2.png}
                     \captionsetup{width=0.9\textwidth}
-                    \caption{\scriptsize Illustration schématique du maillage tridimensionnelle d'un modèle de climat. Les couleurs représentent la température et les flèches
+                    \caption{\scriptsize Illustration schématique du maillage tridimensionnel d'un modèle de climat. Les couleurs représentent la température et les flèches
                     le vent.\\\textit{Illustration de \mbox{Laurent Fairhead/LMD/CNRS}}.}
                 \end{figure}
             \end{column}
@@ -360,7 +360,7 @@
                             \begin{itemize}
                                 \item Nécessite des simulations à haute résolution (\alert{coûteuses} et encore trop \alert{peu nombreuses})
                                 \vspace{2.9ex}
-                                \item Influence du choix du traqueur \parencite{horn_tracking_2014,bourdin_intercomparison_2022}
+                                \item Influence du choix du traqueur \parencite{horn_tracking_2014,roberts_impact_2020}
                             \end{itemize}
                         \end{alertblock}
                     }
@@ -398,7 +398,7 @@
             \begin{definition}
                 \scriptsize
                 %\centering
-                \underline{Fréquence d'occurrence} des TC en un point de grille proportionnelle à une \mbox{combinaison} de variables \alert{thermiques} et
+                \underline{Fréquence d'occurrence} de la cyclogénèse en un point de grille proportionnelle à une \mbox{combinaison} de variables \alert{thermiques} et
                 \mbox{\alert{dymamiques}} de grande échelle \parencite{gray_tropical_1975}.
             \end{definition}
             \onslide<2->{
@@ -468,7 +468,7 @@
             \begin{figure}[h]
                 \centering
                 \includegraphics[width=\textwidth]{Figures/gpi_fitted_2_good_title2.png}
-                \caption{\scriptsize Changement dans la densityé de cyclogénèse (par 50 ans) par mesure \mbox{\alert{indirecte}} (GPI) sur la période 2031 --
+                \caption{\scriptsize Changement dans la densité de cyclogénèse (par 50 ans) par mesure \mbox{\alert{indirecte}} (GPI) sur la période 2031 --
                 2080 (RCP 8.5) par rapport à 1965 -- 2013 \mbox{\parencite{chauvin_future_2020}}}
             \end{figure}
         \end{column}
@@ -514,7 +514,7 @@
            \vspace{1em}
            \onslide<3->{
                \begin{examples}[Axe de recherche]
-                   Caractériser en détails le schéma de détection du CNRM pour identifier des pistes de perfectionnement
+                   Caractériser en détail le schéma de détection du CNRM pour identifier des pistes de perfectionnement
                \end{examples}
            }
            \vspace{1em}
@@ -537,7 +537,7 @@
                    \setlength{\leftmargini}{2.5ex}
                    \begin{itemize}
                        \item Tendances projetées à l'opposé de l'approche directe \parencite{camargo_testing_2014}
-                       \item Mauvaise représentation de la variabilité interannuelle \parencite{menkes_comparison_2012,cavicchia_tropical_2023}
+                       \item Mauvaise représentation de la variabilité interannuelle \parencite{menkes_comparison_2012,cavicchia_tropical_2023a}
                    \end{itemize}
                \end{alertblock}
            }
@@ -731,7 +731,8 @@
                         \item \alert{Score} basé sur la quantité de points en commun à moins de 300 km
                         \item Sélection de la \alert{paire de trajectoires} avec le meilleur score
                     \end{enumerate}
-                    \textcolor{red}{Une seule échéance commune suffit !}
+                    %\textcolor{red}{Une seule échéance commune suffit !}
+                    \textbf{Note} : La méthodologie autorise des paires avec une seule échéance commune 
                     \vspace{-1em}
                 \end{block}
             }
@@ -758,7 +759,7 @@
                     \captionsetup{width=5cm}
                     \centering
                     \includegraphics[width=5cm]{Figures/katrina_era5.png}
-                    \caption{\scriptsize Ouragan Katrina (2005) observée (rouge) et détectée dans ERA5 (bleu), résultant de l'appariement des trajectoires.}
+                    \caption{\scriptsize Ouragan Katrina (2005) observé (rouge) et détecté dans ERA5 (bleu), résultant de l'appariement des trajectoires.}
                 \end{figure}
             \end{column}
         }
@@ -834,7 +835,7 @@
             \vspace{2em}
             \begin{block}
                 \begin{itemize}
-                    \item \alert{Forte sous-estimation} des vents maximum dans ERA5
+                    \item \alert{Forte sous-estimation} des vents maximum dans ERA5, compte tenu de la résolution \parencite{davis_resolving_2018}
                     \item Distribution des minimum de pression \underline{mieux représentée} (Cat 4)
                     \item Correspondance imparfaite des catégories ERA5 / IBTrACS
                 \end{itemize}
@@ -1083,7 +1084,7 @@
                         \item $\sim$ 73~\% de la variance expliquée par $\Delta N_\ominus$
                     \end{itemize}
                     \tcblower
-                    $\longrightarrow$ Amélioration de la similarité par \alert{réduction} da la différence de temporalité
+                    $\longrightarrow$ Amélioration de la similarité par \alert{réduction} de la différence de temporalité
                 \end{block}
             }
         \end{column}
@@ -1113,7 +1114,7 @@
             \item<1-> Nouvelles métriques d'évaluation des performances du traqueur basées sur la similarité angulaire des trajectoires détectées\\
                 $\longrightarrow$ Combine une information sur la position et sur la durée des trajectoires détectées
             \item<2-> Distinction des métriques selon leur comptabilisation des échéances non communes\\
-                $\longrightarrow$ Peuvent être utilisées de manière complémentaires
+                $\longrightarrow$ Peuvent être utilisées de manière complémentaire
             \item<3-> Scores de similarité élévés sur les trajectoires détectées\\
                 $\longrightarrow$ Amélioration de la similarité suite à l'optimisation du traqueur (meilleure temporalité)
         \end{enumerate}
@@ -1164,14 +1165,14 @@
             \vspace{-3em}
             \begin{definition}[Définition]
                 \alert{Relation} mathématique reliant la fréquence d'occurrence des TC (cyclogénèses) avec l'environnement de grande échelle, assimilables à une densité
-                surfaçique :
+                surfacique :
                 \begin{align*}
                     N_{\text{TC}} &= \iint\limits_{D} \underbrace{\rho(\phi, \lambda)}_{\text{Indice}} \; d\phi \, d\lambda \\
                     \rho &= \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{green}{A}}_{\textcolor{green}{\text{Calibration}}} \times
                     \underbrace{\vphantom{X_{\text{Dyn}}}\textcolor{red}{X_{\text{Th}}}}_{\textcolor{red}{\text{Thermique}}} \times
                     \underbrace{\textcolor{violet}{X_{\text{Dyn}}}}_{\textcolor{violet}{\text{Dynamique}}}
                 \end{align*}
-                Constitués d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et sont \textcolor{green}{calibrés} pour simuler la
+                Constitués d'une composante \textcolor{red}{thermique}, d'une composante \textcolor{violet}{dynamique} et \textcolor{green}{calibrés} pour simuler la
                 quantité moyenne souhaitée 
             \end{definition}
             \vspace{2em}
@@ -1300,7 +1301,7 @@
         \end{align*}
         %
         \begin{itemize}
-            \item Prédictant y : Densité de cyclogénèse issues des trajectoire, de taille \alert{$m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$}
+            \item Prédictant y : Densité de cyclogénèse issue des trajectoires, de taille \alert{$m = N_{\text{lat}} \times N_{\text{lon}} \times N_{\text{temps}}$}
             \item Matrice $\mathbf{x}$ : \alert{$n$} variables (colonnes) thermiques et dynamiques de grande échelle, chacune de taille $m$
             %\item Coefficients $b$ associés à chaque prédicteur (humidité relative, SST, cisaillement...)\\
             %    $\longrightarrow$ S'interprètent comme des \alert{sensibilités} !
@@ -1492,10 +1493,10 @@
             \begin{examples}[Séries représentées]
                 \setlength{\leftmargini}{2.5ex}
                 \begin{itemize}
-                    \item \underline{LOA} :\\Indice \alert{local} avec ONI
-                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE (Mensuel à 1,0°)
-                    \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
                     \item \underline{Tracks} :\\Détection et suivi
+                    \item \underline{TCS} :\\Coefficients de \cite{tippett_poisson_2011}
+                    \item \underline{AM10} :\\Coefficients du TCS recalculés sur ARPEGE (Mensuel à 1,0°)
+                    \item \underline{LOA} :\\Indice \alert{local} avec ONI
                 \end{itemize}
             \end{examples}
             %
@@ -1722,6 +1723,7 @@
                     \item Bonne capture de la cyclogénèse et de la cyclolyse
                 \end{itemize}
             \item<2-> Confrontation des traqueurs \textquote{physiques} à des traqueurs IA
+                \parencite{racah_extremeweather_2017,kumler-bonfanti_tropical_2020,galea_tcdetect_2023}
                 \begin{itemize}
                     \item Constitution d'un objectif atteignable pour l'amélioration des traqueurs
                 \end{itemize}
@@ -1784,16 +1786,18 @@
 \end{frame}
 
 %=========================================================
+\begin{frame}[c]
+    \frametitle{Corrélation des solutions entre les bassins}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/FigA2.png}
+    \end{figure}
+\end{frame}
+
+%=========================================================
 \subsection*{Représentation des TC dans ERA5}
 
 %=========================================================
-\begin{frame}[c]
-    \frametitle{Distance entre les trajectoires appariées}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.65\textwidth]{Figures/Annexes/distances_match.png}
-    \end{figure}
-\end{frame}
 
 %=========================================================
 \begin{frame}[t]
@@ -1855,6 +1859,89 @@
         \centering
         \includegraphics[width=\textwidth]{Figures/Annexes/all_composites.png}
         \caption{\small Composites ERA5 moyennés par classe d'intensité de la composante IBTrACS, indépendamment de l'intensité dans ERA5.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Distribution des max intervenant dans les composites}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/FigB6.png}
+    \end{figure}
+\end{frame}
+%=========================================================
+\begin{frame}[t]
+    \frametitle{Composites de la structure interne des TC dans ERA5}
+    \framesubtitle{Classes d'intensité ERA5}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.95\textwidth]{Figures/Annexes/composites_corrected_scale.png}
+        \caption{\small Composites moyennés par classe d'intensité ERA5 (correction quantile-quantile)}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Distance entre les trajectoires appariées}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\textwidth]{Figures/Annexes/distances_match.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Variabilité ERA5 / IBTrACS}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Figures/Annexes/variabilite_ERA5_IBTrACS.png}
+    \end{figure} 
+\end{frame}
+
+\subsection*{Fausses alarmes ERA5}
+\begin{frame}[c]
+    \frametitle{Saisonalité des faux positifs}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/fp_seasonality_basin.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[c]
+    \frametitle{Latitude des faux positifs}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Annexes/fp_lat_density_basin.pdf}
+    \end{figure}
+\end{frame}
+
+%=========================================================
+\subsection*{Indices dans la littérature}
+\begin{frame}[c]
+    \frametitle{Indices de la littérature : TCS, CYGP et GPI}
+    \framesubtitle{Cyclone annuel}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/tcs_cygp_gpi_ibt_clim_mensuel.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Indices de la littérature : TCS, CYGP et GPI}
+    \framesubtitle{Distribution méridienne}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/tcs_cygp_gpi_ibt_zonal_sum_1981_2019.png}
+    \end{figure} 
+\end{frame}
+
+%=========================================================
+\begin{frame}[c]
+    \frametitle{Indices de la littérature : TCS, CYGP et GPI}
+    \framesubtitle{Variabilité interannuelle}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/Annexes/tcs_cygp_gpi_interannual.png}
     \end{figure}
 \end{frame}
 
